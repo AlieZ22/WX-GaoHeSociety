@@ -1,0 +1,40 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/func/func",
+    "pages/share/share",
+    "pages/services/services"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTitleText": "云开发 QuickStart",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#000000",
+    "selectedColor": "#ddd",
+    "list": [
+      {
+      "pagePath": "pages/index/index",
+      "text": "首页"
+      },
+      {
+      "pagePath": "pages/func/func",
+      "text": "功能"
+      },
+      {
+        "pagePath": "pages/share/share",
+        "text": "发表"
+      },
+      {
+        "pagePath": "pages/services/services",
+        "text": "合服务"
+      }
+      
+      ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2"
+}

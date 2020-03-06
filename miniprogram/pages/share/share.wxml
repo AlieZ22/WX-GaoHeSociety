@@ -1,0 +1,29 @@
+<view class="page">
+    <view class="page__bd">
+         <view class="panel">
+             <view class="panel__bd">
+                 <navigator wx:for="{{meihaoList}}" wx:key="index" url="" class="media-box media-box_appmsg" hover-class="cell_active">
+                     <view class="media-box__hd media-box__hd_in-appmsg">
+                         <image class="media-box__thumb" src="{{item.fileUrl[0]}}" />
+                     </view>
+                     <view class="media-box__bd media-box__bd_in-appmsg">
+                         <view class="media-box__title">投稿人：{{item.author}}</view>
+                         <view class="media-box__desc">作品名称：{{item.title}}</view>
+                         <view class="media-box__desc">创作时间：{{item.createTime}}</view>
+                         <view class="media-box__desc">作品简介：{{item.desc}}</view>
+                     </view>
+                 </navigator>
+             </view>
+             
+         </view>
+         <view class="share_bot">
+           <button class="weui-btn" bindtap="btnClick">我要投稿</button>
+         </view>
+        
+    </view>
+    
+ </view>
+
+
+ <view class="Manage" wx:if="{{_openid}}"></view>
+ <view class="Mine"></view>

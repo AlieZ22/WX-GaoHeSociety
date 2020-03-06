@@ -1,0 +1,18 @@
+<view class="page">
+    <view class="weui-msg">
+        <view class="weui-msg__icon-area">
+            <image class="media-box__thumb" src="cloud://zzmine-3cgx9.7a7a-zzmine-3cgx9-1301387315/1582966502261.png" />
+        </view>
+        <view class="weui-msg__text-area">
+            <view class="weui-msg__title">提交成功</view>
+            <view class="weui-msg__title">感谢您的参与</view>
+            <view class="weui-msg__desc">社区正在审核您上传的信息</view>
+        </view>
+        <view class="weui-msg__opr-area">
+            <view class="weui-btn-area">
+                <button class="weui-btn">查看已上传的内容</button>
+            </view>
+        </view>
+        
+    </view>
+</view>

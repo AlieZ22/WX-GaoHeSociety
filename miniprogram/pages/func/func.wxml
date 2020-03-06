@@ -1,0 +1,7 @@
+<button type="primary" bindtap="uploadImage">图片上传</button>
+<view class="imgshow-view">
+    <image src="{{imageFileId}}" mode="aspectFix"></image>
+</view>
+
+<button type="primary" bindtap="uploadVideo">视频上传</button>
+<video wx:if="{{imageFileId!=''}}" src="{{imageFileId}}" controls></video>

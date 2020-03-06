@@ -1,0 +1,16 @@
+page{
+    background-color: #FFFFFF;
+}
+page,.page{height:100%;}
+
+.weui-btn{
+  background-color:#ff6969;
+  margin-top:16px;
+	padding-bottom:4px;
+  color:#fff
+}
+.media-box__thumb{
+  width:128px;
+  height: 128px;
+  margin-top: 20px
+}

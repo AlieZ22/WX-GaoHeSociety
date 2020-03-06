@@ -1,0 +1,28 @@
+
+<view class="page">
+   <view class="page__bd">
+        <view class="panel">
+            <view class="panel__bd">
+                <view wx:for="{{fuwuList}}" wx:key="index"  class="media-box media-box_appmsg" hover-class="cell_active" wx:if="{{item.state==='2'}}">
+                     <view class="media-box__hd media-box__hd_in-appmsg">
+                         <image class="media-box__thumb" src="{{item.imagePath}}" />
+                     </view>
+                     <view class="media-box__bd media-box__bd_in-appmsg">
+                         <view class="media-box__title">求助内容：{{item.helpContent}}</view>
+                         <view class="media-box__desc">姓名：{{item.author}}</view>
+                         <view class="media-box__desc">联系方式：{{item.contact}}</view>
+                         <view class="media-box__desc">楼号：{{item.location}}</view>
+                         <view class="media-box__desc">求助时间：{{item.time}}</view>
+                         <button class="weui-btn" data-content="{{item}}" bindtap="btnClick_helper">我要帮助</button>
+                         
+                     </view>
+                 </view>
+            </view>
+            
+        </view>
+              <view class="share_bot">
+        <button class="weui-btn" bindtap="btnClick_shouzhu">发布求助信息</button>
+        </view>
+   </view>
+   
+</view>

@@ -1,0 +1,87 @@
+<!--pages/hezhiyuan/hezhiyuan.wxml-->
+<view class="page">
+  <view class="page__bd">
+    <!-- 展示招募信息 -->
+    <view class="media-box media-box_appmsg" hover-class="cell_active">
+      <view class="guide" wx:if="{{step ===1}}">
+      
+        <navigator url="" class="panel__bd" wx:for="{{ne}}" wx:key="index"  class="media-box media-box_appmsg" hover-class="cell_active"><!--wx:for是微信数据绑定的一种方式，该数组有多少数据就显示多少个view-->
+
+          <!--index为每个数据对应的下标-->
+       
+              <view class="media-box__hd media-box__hd_in-appmsg">
+                <image class="media-box__thumb" src="{{item.imagePath}}" />
+              </view>
+                <!--item就相当于数组名+下标的结合体，适用于调用数组所有数据-->
+                <view class="media-box__bd media-box__bd_in-appmsg">
+                <view class="media-box__title">{{item.serviceContent}}</view>
+                <view class="media-box__desc">服务时间：{{item.serviceTime}}</view>
+                <view class="media-box__desc">工作内容：{{item.statement}}</view>
+                <view class="media-box__desc">招募人数：{{item.maxVoluNum}}</view>
+                <button class="next" size="mini" type="default" bindtap="nextStep" data-index="{{item._id}}">去报名</button>
+              </view>
+        </navigator>
+      </view>
+    </view>
+  </view>
+<!-- 展示招募信息结束 -->
+
+  <!-- 报名界面 -->
+  <view class="guide" wx:if="{{step === 2}}">
+  <view class="panel__hd">
+    <text>
+
+    活动招募
+
+    </text>
+  </view>
+  <view class="panel__hd">请您如实填写以下信息</view>
+  <view class="weui-cells weui-cells_after-title">
+  <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">楼号</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="location" placeholder="请输入楼号" bindinput ="location1"/>
+      </view>
+ </view>
+  <view class="weui-cell ">
+    <view class="weui-cell__hd">
+        <view class="weui-label">姓名</view>
+    </view>
+    <view class="weui-cell__bd">
+        <input class="weui-input" input id="up_input" name="name" placeholder="请输入姓名" bindinput ="name1"/>
+    </view>
+  </view>
+  <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">性别</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="sex" placeholder="请输入性别" bindinput ="sex1"/>
+      </view>
+  </view>
+  <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">联系方式</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="contact" placeholder="请输入联系方式" bindinput ="contact1"/>
+      </view>
+  </view>
+  <button class="weui-btn" size="mini" type="default" bindtap="onAdd">确认报名</button>
+</view>
+    <!-- 报名界面结束 -->  
+     </view>
+
+</view>
+
+
+
+
+
+
+
+
+
+
