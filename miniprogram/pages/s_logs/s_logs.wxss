@@ -192,7 +192,6 @@
 .weui-textarea{
   display:block;
   width:100%;
-  text-align:center;
 }
 
 .weui-textarea-counter{
@@ -256,5 +255,5 @@ border:1px solid #DBDBDB;
 	padding-bottom:4px;
   color:#fff;
 }
-.weui-uploader__img{display:block;width:96px;height:96px}.weui-uploader__file_status{position:relative}.weui-uploader__file_status:before{content:" ";position:absolute;top:0;right:0;bottom:0;left:0;background-color:rgba(0,0,0,.5)}
-.weui-uploader__input-box{float:left;position:relative;margin-right:8px;margin-bottom:8px;width:96px;height:96px;box-sizing:border-box;background-color:#ededed}.weui-uploader__input-box:after,.weui-uploader__input-box:before{content:" ";position:absolute;top:50%;left:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%);background-color:#a3a3a3}.weui-uploader__input-box:before{width:2px;height:32px}.weui-uploader__input-box:after{width:32px;height:2px}.weui-uploader__input-box:active{border-color:#8b8b8b}.weui-uploader__input-box:active:after,.weui-uploader__input-box:active:before{background-color:#8b8b8b}.weui-uploader__input{position:absolute;z-index:1;top:0;left:0;width:100%;height:100%;opacity:0}
+.weui-uploader__img{display:block;width:175rpx;height:175rpx}.weui-uploader__file_status{position:relative}.weui-uploader__file_status:before{content:" ";position:absolute;top:0;right:0;bottom:0;left:0;background-color:rgba(0,0,0,.5)}
+.weui-uploader__input-box{float:left;position:relative;margin-right:16rpx;margin-bottom:16rpx;width:175rpx;height:175rpx;box-sizing:border-box;background-color:#ededed}.weui-uploader__input-box:after,.weui-uploader__input-box:before{content:" ";position:absolute;top:50%;left:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%);background-color:#a3a3a3}.weui-uploader__input-box:before{width:2px;height:32px}.weui-uploader__input-box:after{width:32px;height:2px}.weui-uploader__input-box:active{border-color:#8b8b8b}.weui-uploader__input-box:active:after,.weui-uploader__input-box:active:before{background-color:#8b8b8b}.weui-uploader__input{position:absolute;z-index:1;top:0;left:0;width:100%;height:100%;opacity:0}

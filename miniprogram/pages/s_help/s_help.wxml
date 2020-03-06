@@ -1,14 +1,6 @@
 <!--pages//logs/logs.wxml-->
 <view class="panel__hd">请您核实以下您要帮助的受助者信息</view>
   <view class="weui-cells weui-cells_after-title">
-   <view class="weui-cell ">
-          <view class="weui-cell__hd">
-              <view class="weui-label">求助ID</view>
-          </view>
-          <view class="weui-cell__bd">
-              <view class="weui-input">{{initData._id}}</view>
-          </view>
-      </view>
       <view class="weui-cell ">
           <view class="weui-cell__hd">
               <view class="weui-label">求助内容</view>
@@ -26,33 +18,40 @@
           </view>
       </view>
   </view>
+
  <view class="panel__hd">请您如实填写以下信息</view>
-  <view class="weui-cells weui-cells_after-title">
+<view class="weui-cells weui-cells_after-title">
+  <form bindsubmit="formSubmit">
       <view class="weui-cell ">
           <view class="weui-cell__hd">
               <view class="weui-label">姓名</view>
           </view>
           <view class="weui-cell__bd">
-              <input class="weui-input" placeholder="请输入姓名" bindinput="addName"/>
+           <input class="weui-input" name='name' value='{{volunteer.name}}' placeholder="请输入姓名"  bindinput="addName"/>
           </view>
       </view>
+
       <view class="weui-cell ">
           <view class="weui-cell__hd">
               <view class="weui-label">联系方式</view>
           </view>
           <view class="weui-cell__bd">
-              <input class="weui-input" placeholder="请输入联系方式" bindinput="addContact"/>
+           <input class="weui-input" name='contact' type='number' value='{{volunteer.contact}}' placeholder="请输入手机号" bindinput="addContact"/>
           </view>
       </view>
+
       <view class="weui-cell ">
           <view class="weui-cell__hd">
               <view class="weui-label">楼号</view>
           </view>
           <view class="weui-cell__bd">
-              <input class="weui-input" placeholder="请输入楼号" bindinput="addLocation"/>
+              <input class="weui-input" name='location' value='{{volunteer.location}}' placeholder="请输入楼号" bindinput="addLocation"/>
           </view>
       </view>
-
-
-      </view>
- <button class="weui-btn" bindtap="openSuccess">提交</button>
+      <view class="weui-cell ">
+          <button class="weui-btn" formType="submit"  data-from="{{volunteer}}" >提交</button>
+          </view>
+     </form>
+   
+ </view>
+ 

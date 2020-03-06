@@ -18,6 +18,7 @@ Page({
       url: "../services/services"
     })
   },
+
   logNext3: function () {
     wx.navigateTo({
       url: "../hezhiyuan/hezhiyuan"

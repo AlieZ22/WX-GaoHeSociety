@@ -1,6 +1,27 @@
 <!--pages//logs/logs.wxml-->
 <view class="panel__hd">请您如实填写以下信息</view>
+
 <view class="weui-cells weui-cells_after-title">
+  <form bindsubmit="formSubmit">
+
+  <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">姓名</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" value='{{fuwu.author}}' placeholder="请输入姓名" bindinput="addName"/>
+      </view>
+  </view>
+
+  <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">联系方式</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" name='contact' type='number' value='{{fuwu.contact}}' placeholder="请输入电话" bindinput="addContact"/>
+      </view>
+  </view>
+
   <view class="weui-cell ">
     <view class="weui-cell__hd">
         <view class="weui-label">受助内容</view>
@@ -9,61 +30,69 @@
         <input class="weui-input" placeholder="请输入信息"/>
     </view>
   </view>
-  <view class="weui-cell ">
-      <view class="weui-cell__hd">
-          <view class="weui-label">姓名</view>
-      </view>
-      <view class="weui-cell__bd">
-          <input class="weui-input" placeholder="请输入姓名"/>
-      </view>
-  </view>
-  <view class="weui-cell ">
-      <view class="weui-cell__hd">
-          <view class="weui-label">联系方式</view>
-      </view>
-      <view class="weui-cell__bd">
-          <input class="weui-input" placeholder="请输入电话"/>
-      </view>
-  </view>
+
   <view class="weui-cell ">
       <view class="weui-cell__hd">
           <view class="weui-label">楼号</view>
       </view>
       <view class="weui-cell__bd">
-          <input class="weui-input" placeholder="请输入楼号"/>
+          <input class="weui-input"name='location' value='{{fuwu.location}}' placeholder="请输入楼号"/>
       </view>
   </view>
+
+    <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">志愿者人数</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" placeholder="请输入人数"/>
+      </view>
+  </view>
+
+   <view class="weui-cell ">
+    <view class="weui-cell__hd">
+        <view class="weui-label">详情</view>
+    </view>
+    <view class="weui-cell__bd">
+          <textarea class="weui-textarea" placeholder="如有特殊情况请阐明" style="height: 3.3em" />
+          <view class="weui-textarea-counter">0/100</view>
+    </view>
+  </view>
+
+   <view class="weui-cell ">
+    <view class="weui-cell__hd">
+        <view class="weui-label">服务时间</view>
+    </view>
+    <view class="weui-cell__bd">
+          <input class="weui-input" placeholder="请输入时间"/>  
+    </view>
+  </view>
+
   <view class="weui-cell ">
       <view class="weui-cell__hd">
           <view class="weui-label">是否上传照片</view>
       </view>
       <view class="weui-cell__bd">
           <view class="sign-setting-border {{idx==item.Item_id?'selected':''}}" wx:for="{{applyList}}" wx:key="" bindtap='selectApply' data-id="{{item.Item_id}}">{{item.Item_Name}}</view>
-        <view wx:if="{{idx ==='01'}}">
-          <view class="weui-cell__bd">
-            <view class="weui-uploader__files" id="uploaderFiles">
-              <block wx:for="{{files}}" wx:key="*this">
-                  <view class="weui-uploader__file" bindtap="previewImage" id="{{item}}">
-                      <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
-                  </view>
-              </block>
-              <view class="weui-uploader__input-box">
-                <view bindtap="chooseImage"class="weui-uploader__input"></view>
-              </view>
+              <view wx:if="{{idx ==='01'}}">
+                    <view class="weui-cell__bd">
+                      <view class="weui-uploader__files" id="uploaderFiles">
+                        <block  wx:for="{{tempFilePaths}}" wx:key="index">
+                            <view class="weui-uploader__file" >
+                                <image class="weui-uploader__img" src='{{item}}' bindlongpress="DeleteImg" bindtap="PreviewImg" data-index="{{index}}" mode="aspectFill" />
+                            </view>
+                        </block>
+                        <view class="weui-uploader__input-box">
+                          <view bindtap="chooseImage"class="weui-uploader__input"></view>
+                        </view>
+                      </view>
+                    </view>
             </view>
-          </view>
-        </view>
-      </view>
 
+      </view>
   </view>
-  <view class="weui-cell ">
-    <view class="weui-cell__hd">
-        <view class="weui-label">特殊情况阐明</view>
-    </view>
-    <view class="weui-cell__bd">
-          <textarea class="weui-textarea" placeholder="如有特殊情况请阐明" style="height: 3.3em" />
-          <view class="weui-textarea-counter">0/200</view>
-    </view>
-  </view>
+  </form>
+   <button class="weui-btn" bindtap="openSuccess">提交</button>
 </view>
- <button class="weui-btn" bindtap="openSuccess">提交</button>
+
+

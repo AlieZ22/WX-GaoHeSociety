@@ -1,4 +1,5 @@
 // pages//logs/logs.js
+import WxValidate from '../utils/WxValidate.js'
 const DB = wx.cloud.database()
 const _ = DB.command
 const app = getApp()
@@ -25,10 +26,18 @@ Page({
       idx: id
     })
   },
-  openSuccess: function () {
+
+  //调用验证函数
+  formSubmit: function (e) {
+    console.log('form发生了submit事件，携带的数据为：', e.detail.value)
+    const params = e.detail.value
+    //校验表单
+    if (!this.WxValidate.checkForm(params)) {
+      const error = this.WxValidate.errorList[0]
+      this.showModal(error)
+      return false
+    }
     let that = this      // 处理异步请求
-    console.log(this.data.initData._id)
-    console.log(this.data.volunteer)
     // 先将志愿者传到volunteers表中
     DB.collection("hefuwu_volunteer").add({
       data:{
@@ -81,9 +90,9 @@ Page({
       }
     })
 
-    // wx.navigateTo({
-    //   url: "../msg_success/msg_success"
-    // })
+    wx.navigateTo({
+      url: "../msg_success/msg_success"
+    })
   },
   // 获得输入
   addName: function (event) {
@@ -98,25 +107,7 @@ Page({
     let v_loc = "volunteer.location"
     this.setData({ [v_loc]: event.detail.value })
   },
-  chooseImage: function(){
-    var that = this;
-    wx.chooseImage({
-      sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
-      sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
-      success: function (res) {
-        // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
-        that.setData({
-          files: that.data.files.concat(res.tempFilePaths)
-        });
-      }
-    })
-  },
-  previewImage: function (e) {
-    wx.previewImage({
-      current: e.currentTarget.id, // 当前显示图片的http链接
-      urls: this.data.files // 需要预览的图片http链接列表
-    })
-  },
+  
   /**
    * 生命周期函数--监听页面加载
    */
@@ -126,6 +117,7 @@ Page({
     this.setData({
       initData:options
     })
+    this.initValidate()//验证规则函数
   },
 
   /**
@@ -134,7 +126,46 @@ Page({
   onReady: function () {
 
   },
+  //报错 
+  showModal(error) {
+    wx.showModal({
+      content: error.msg,
+      showCancel: false,
+    })
+  },
+  //验证函数
+  initValidate() {
+    const rules = {
+      name: {
+        required: true,
+        minlength: 2
+      },
 
+      contact: {
+        required: true,
+        tel: true
+      },
+      location: {
+        required: true,
+        minlength: 2
+      }
+    }
+    const messages = {
+      name: {
+        required: '请填写姓名',
+        minlength: '请输入正确的姓名'
+      },
+      contact: {
+        required: '请填写手机号',
+        tel: '请填写正确的手机号（11位）'
+      },
+      locaiton: {
+        required: '请填写地址',
+        minlength: '请输入正确的地址'
+      }
+    }
+    this.WxValidate = new WxValidate(rules, messages)
+  },
   /**
    * 生命周期函数--监听页面显示
    */

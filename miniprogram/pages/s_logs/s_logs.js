@@ -5,6 +5,11 @@ Page({
    * 页面的初始数据
    */
   data: {
+    fuwu: {
+      author: '',
+      contact: '',
+      location: ''
+    },
     files: [],
     idx: '',
     applyList: [
@@ -17,28 +22,77 @@ Page({
       idx: id,
     })
   },
+  // 获得输入
+  addName: function (event) {
+    let v_author = "fuwu.author"
+    this.setData({ [v_author]: event.detail.value })
+  },
+  addContact: function (event) {
+    let v_contact = "fuwu.contact"
+    this.setData({ [v_contact]: event.detail.value })
+  },
+  addLocation: function (event) {
+    let v_loc = "fuwu.location"
+    this.setData({ [v_loc]: event.detail.value })
+  },
   openSuccess: function () {
     wx.navigateTo({
       url: "../msg_success/msg_success"
     })
   },
-  chooseImage: function(){
-    var that = this;
+  //选择图片
+  chooseImage: function () {
+    let that = this;
     wx.chooseImage({
+      count: 1, // 默认最多1张图片
       sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
       sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
-      success: function (res) {
+      success: res => {
+        wx.showToast({
+          title: '正在上传...',
+          icon: 'loading',
+          mask: true,
+          duration: 1000
+        })
         // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
+        let tempFilePath = res.tempFilePaths;
         that.setData({
-          files: that.data.files.concat(res.tempFilePaths)
-        });
+          tempFilePaths: tempFilePath
+        })
       }
     })
   },
-  previewImage: function (e) {
+  //预览图片
+  PreviewImg: function (e) {
+    let index = e.target.dataset.index;
+    let that = this;
+    //console.log(that.data.tempFilePaths[index]);
+    //console.log(that.data.tempFilePaths);
     wx.previewImage({
-      current: e.currentTarget.id, // 当前显示图片的http链接
-      urls: this.data.files // 需要预览的图片http链接列表
+      current: that.data.tempFilePaths[index],
+      urls: that.data.tempFilePaths,
+    })
+  },
+  //长按删除图片
+  DeleteImg: function (e) {
+    var that = this;
+    var tempFilePaths = that.data.tempFilePaths;
+    var index = e.currentTarget.dataset.index;//获取当前长按图片下标
+    wx.showModal({
+      title: '提示',
+      content: '确定要删除此图片吗？',
+      success: function (res) {
+        if (res.confirm) {
+          //console.log('点击确定了');
+          tempFilePaths.splice(index, 1);
+        } else if (res.cancel) {
+          //console.log('点击取消了');
+          return false;
+        }
+        that.setData({
+          tempFilePaths
+        });
+      }
     })
   },
   /**
