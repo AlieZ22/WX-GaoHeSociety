@@ -1,0 +1,54 @@
+  <view class="selection">
+    <swiper indicator-dots="true"
+      autoplay="true" interval="5000" duration="500" circular="true">
+      <block wx:for="{{imgUrls}}">
+        <swiper-item>
+          <image src="{{item}}" class="slide-image" width="355" height="150"/>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+
+<view class="selection">
+    <!-- 选项卡 -->
+  <view class="content">
+    <view class="textbar" bindtap="logNext1">
+      <image src="cloud://zzmine-3cgx9.7a7a-zzmine-3cgx9-1301387315/main/u6.png" class="img"></image>
+      <text class="textfont">合服务</text>
+    </view>
+    <view class="textbar" bindtap="logNext2">
+      <image src="cloud://zzmine-3cgx9.7a7a-zzmine-3cgx9-1301387315/main/u14.png" class="img"></image>
+      <text class="textfont">合党建</text>
+    </view>
+    <view class="textbar" bindtap="logNext3">
+      <image src="cloud://zzmine-3cgx9.7a7a-zzmine-3cgx9-1301387315/main/u10.png" class="img"></image>
+      <text class="textfont">合志愿</text>
+    </view>
+    <view class="textbar" bindtap="logNext4">
+      <image src="cloud://zzmine-3cgx9.7a7a-zzmine-3cgx9-1301387315/main/u18.png" class="img"></image>
+      <text class="textfont">合美好</text>
+    </view>
+  </view>
+</view>
+<view class="header">
+  <text>疫情讯息</text>
+</view>
+
+<view class="selection">
+<view class="panel">
+    <view class="panel__bd">
+        <view class="media-box media-box_text">
+            <view class="media-box__title media-box__title_in-text">例子</view>
+            <view class="media-box__desc">雷锋只走过短短22年历程，但他的思考，他的追求，都被他用诚挚的心写进了日记。平实朴素而简练生动的语言，信手拈来却恰到好处的修辞，极富感染力。《雷锋日记》鼓舞着一代又一代中国青年，让雷锋精神永垂不朽。</view>
+            <view class="media-box__info">
+                <view class="media-box__info__meta">文字来源</view>
+                <view class="media-box__info__meta">时间</view>
+                <view class="media-box__info__meta media-box__info__meta_extra">其它信息</view>
+            </view>
+        </view>
+    </view>
+</view>
+</view>
+
+
+

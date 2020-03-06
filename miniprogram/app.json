@@ -1,9 +1,12 @@
 {
   "pages": [
+ "pages/main/main",
     "pages/index/index",
-    "pages/func/func",
-    "pages/share/share",
-    "pages/services/services"
+    
+    "pages/wode/wode",
+    
+    "pages/func/func"
+    
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -23,15 +26,8 @@
       {
       "pagePath": "pages/func/func",
       "text": "功能"
-      },
-      {
-        "pagePath": "pages/share/share",
-        "text": "发表"
-      },
-      {
-        "pagePath": "pages/services/services",
-        "text": "合服务"
       }
+
       
       ]
   },

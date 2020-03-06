@@ -1,0 +1,64 @@
+<view class="page">
+
+    <view class="page__bd">
+        <view class="weui-cells weui-cells_after-title">
+
+            <view class="weui-cell">
+                <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+                    <image src="cloud://zzmine-3cgx9.7a7a-zzmine-3cgx9-1301387315/1583407323126.png"  class="touxiang"/>
+                    
+                </view>
+                <view class="weui-cell__bd">
+                    <view style="font-size:50rpx">联系人名称</view>
+                    <view style="font-size:40rpx;color: #888888;">摘要信息</view>
+                </view>
+            </view>
+
+        </view>
+      </view>
+
+    <view class="page__bd">
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_access">
+          <view class="weui-cell__hd">
+           <image src="cloud://zzmine-3cgx9.7a7a-zzmine-3cgx9-1301387315/main/u6.png"  class="tubiao"/>
+          </view>
+           <view class="weui-cell__bd" style="position: relative;">
+                <text style="font-size:40rpx">我的服务</text>
+          </view>
+          <view class="weui-cell__ft weui-cell__ft_in-access" style="font-size: 0">
+              <view style="display: inline-block;vertical-align:middle; font-size: 17px;">详细信息</view>
+              <view class="weui-badge weui-badge_dot" style="margin-left: 5px;margin-right: 5px;"></view>
+          </view>
+        </view>
+
+        <view class="weui-cell weui-cell_access">
+          <view class="weui-cell__hd">
+           <image src="cloud://zzmine-3cgx9.7a7a-zzmine-3cgx9-1301387315/main/u10.png"  class="tubiao"/>
+          </view>
+           <view class="weui-cell__bd" style="position: relative;">
+                <text style="font-size:40rpx">我的志愿</text>
+          </view>
+          <view class="weui-cell__ft weui-cell__ft_in-access" style="font-size: 0">
+              <view style="display: inline-block;vertical-align:middle; font-size: 17px;">详细信息</view>
+              <view class="weui-badge weui-badge_dot" style="margin-left: 5px;margin-right: 5px;"></view>
+          </view>
+        </view>
+
+         <view class="weui-cell weui-cell_access">
+          <view class="weui-cell__hd">
+           <image src="cloud://zzmine-3cgx9.7a7a-zzmine-3cgx9-1301387315/main/u18.png"  class="tubiao"/>
+          </view>
+           <view class="weui-cell__bd" style="position: relative;">
+                <text style="font-size:40rpx">我的美好</text>
+          </view>
+          <view class="weui-cell__ft weui-cell__ft_in-access" style="font-size: 0">
+              <view style="display: inline-block;vertical-align:middle; font-size: 17px;">详细信息</view>
+              <view class="weui-badge weui-badge_dot" style="margin-left: 5px;margin-right: 5px;"></view>
+          </view>
+        </view>
+
+      </view>
+    </view>
+
+</view>
