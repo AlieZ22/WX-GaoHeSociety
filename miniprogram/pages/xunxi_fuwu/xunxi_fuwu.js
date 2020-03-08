@@ -1,4 +1,4 @@
-// pages/wode/wode.js
+// pages/xunxi_fuwu/xunxi_fuwu.js
 Page({
 
   /**
@@ -6,11 +6,6 @@ Page({
    */
   data: {
 
-  },
-  fuwu: function () {
-    wx.navigateTo({
-      url: "../xunxi_fuwu/xunxi_fuwu"
-    })
   },
 
   /**

@@ -19,7 +19,7 @@
 
     <view class="page__bd">
       <view class="weui-cells weui-cells_after-title">
-        <view class="weui-cell weui-cell_access">
+        <view class="weui-cell weui-cell_access"  bindtap="fuwu">
           <view class="weui-cell__hd">
            <image src="cloud://zzmine-3cgx9.7a7a-zzmine-3cgx9-1301387315/main/u6.png"  class="tubiao"/>
           </view>
@@ -32,7 +32,7 @@
           </view>
         </view>
 
-        <view class="weui-cell weui-cell_access">
+        <view class="weui-cell weui-cell_access" bindtap="zhiyuan">
           <view class="weui-cell__hd">
            <image src="cloud://zzmine-3cgx9.7a7a-zzmine-3cgx9-1301387315/main/u10.png"  class="tubiao"/>
           </view>
@@ -45,7 +45,7 @@
           </view>
         </view>
 
-         <view class="weui-cell weui-cell_access">
+         <view class="weui-cell weui-cell_access" bindtap="meihao">
           <view class="weui-cell__hd">
            <image src="cloud://zzmine-3cgx9.7a7a-zzmine-3cgx9-1301387315/main/u18.png"  class="tubiao"/>
           </view>

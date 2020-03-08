@@ -1,10 +1,9 @@
 {
   "pages": [
- "pages/main/main",
+    "pages/main/main",
     "pages/index/index",
-    
     "pages/wode/wode",
-    
+    "pages/xunxi_fuwu/xunxi_fuwu",
     "pages/func/func"
     
   ],
@@ -20,8 +19,16 @@
     "selectedColor": "#ddd",
     "list": [
       {
-      "pagePath": "pages/index/index",
+      "pagePath": "pages/main/main",
       "text": "首页"
+      },
+      {
+        "pagePath": "pages/wode/wode",
+        "text": "我的"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "text": "以前的首页"
       },
       {
       "pagePath": "pages/func/func",
