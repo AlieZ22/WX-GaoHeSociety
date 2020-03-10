@@ -1,4 +1,5 @@
 //app.js
+
 App({
   onLaunch: function () {
     let that = this
@@ -16,13 +17,13 @@ App({
         success(res){
           console.log("获取openid成功",res)
           that.globalData._openid = res.result.openid
-          //console.log(that.globalData._openid)
-          
+          console.log(that.globalData._openid)
         },
         fail(res){
           console.log("获取openid失败", res)
         }
       })
+    
     }
 
     this.globalData = {
