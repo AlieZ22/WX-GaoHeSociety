@@ -1,4 +1,8 @@
 // pages//logs/logs.js
+import WxValidate from '../utils/WxValidate.js'
+const DB = wx.cloud.database()
+const _ = DB.command
+const app = getApp()
 Page({
 
   /**
@@ -6,26 +10,95 @@ Page({
    */
   data: {
     fuwu: {
-      author: '',
       contact: '',
-      location: ''
+      name: '',
+      helpContent: '',
+      statement: '',
+      time: '',
+      state: '2',
+      location: '',
+      maxVolNum: ''
+
     },
-    files: [],
+    initData: {},
     idx: '',
     applyList: [
       { Item_id: "01", Item_Name: "是" },
-        { Item_id: "02", Item_Name: "否" }]
+      { Item_id: "02", Item_Name: "否" }]
   },
   selectApply: function (e) {
     let id = e.target.dataset.id
     this.setData({
-      idx: id,
+      idx: id
     })
+  },
+
+  //调用验证函数
+  formSubmit: function (e) {
+    console.log('form发生了submit事件，携带的数据为：', e.detail.value)
+    const params = e.detail.value
+    // //校验表单
+    // if (!this.WxValidate.checkForm(params)) {
+    //   const error = this.WxValidate.errorList[0]
+    //   this.showModal(error)
+    //   return false
+    // }
+    let that = this      // 处理异步请求
+    // 先将志愿者传到volunteers表中
+    DB.collection("hefuwu").add({
+      data: {
+        contact: this.data.fuwu.contact,
+        author: this.data.fuwu.name,
+        location: this.data.fuwu.location,
+        hefuwu_id: this.data.initData._id,
+        state: 0,
+        helpContent: this.data.fuwu.helpContent,
+        statement: this.data.fuwu.statement,
+        time: this.data.fuwu.time,
+        maxVolNum: this.data.fuwu.maxVolNum,
+        volunteers:[],
+        imagePath:''
+      },
+      success: function (res) {
+        console.log("添加服务信息成功", res)
+        // 添加服务信息成功，得到volunteers表中该条记录的_id
+        // 获取服务信息（这里从数据库中调，为了获取其_id和_openid）
+        DB.collection("hefuwu").doc(res._id).get({
+          success: function (res) {
+            // 然后调用云函数, 分别修改users表以及hefuwu表中的services, volunteers
+            wx.cloud.callFunction({
+              name: "add_userServices",
+              data: {
+                _openid: app.globalData._openid,
+                info: that.data.initData._id,
+                way: 0  // 1表示为合服务志愿者（0表示合服务受助者）
+              },
+              success: function (res) {
+                console.log("users表项添加完毕", res)
+              }
+            })
+          },
+          fail: function (res) {
+            console.log("获取服务信息失败", res)
+          }
+        })
+      },
+      fail: function (res) {
+        console.log("添加服务信息失败", res)
+      }
+    })
+
+    wx.navigateTo({
+      url: "../msg_success/msg_success"
+    })
+
+
+
   },
   // 获得输入
   addName: function (event) {
-    let v_author = "fuwu.author"
-    this.setData({ [v_author]: event.detail.value })
+    let v_name = "fuwu.name"
+    this.setData({ [v_name]: event.detail.value })
   },
   addContact: function (event) {
     let v_contact = "fuwu.contact"
@@ -35,72 +108,37 @@ Page({
     let v_loc = "fuwu.location"
     this.setData({ [v_loc]: event.detail.value })
   },
-  openSuccess: function () {
-    wx.navigateTo({
-      url: "../msg_success/msg_success"
-    })
+  addHelpContent: function (event) {
+    let v_helpContent = "fuwu.helpContent"
+    this.setData({ [v_helpContent]: event.detail.value })
   },
-  //选择图片
-  chooseImage: function () {
-    let that = this;
-    wx.chooseImage({
-      count: 1, // 默认最多1张图片
-      sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
-      sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
-      success: res => {
-        wx.showToast({
-          title: '正在上传...',
-          icon: 'loading',
-          mask: true,
-          duration: 1000
-        })
-        // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
-        let tempFilePath = res.tempFilePaths;
-        that.setData({
-          tempFilePaths: tempFilePath
-        })
-      }
-    })
+  addStatement: function (event) {
+    let v_statement = "fuwu.statement"
+    this.setData({ [v_statement]: event.detail.value })
   },
-  //预览图片
-  PreviewImg: function (e) {
-    let index = e.target.dataset.index;
-    let that = this;
-    //console.log(that.data.tempFilePaths[index]);
-    //console.log(that.data.tempFilePaths);
-    wx.previewImage({
-      current: that.data.tempFilePaths[index],
-      urls: that.data.tempFilePaths,
-    })
+  addTime: function (event) {
+    let v_time = "fuwu.time"
+    this.setData({ [v_time]: event.detail.value })
   },
-  //长按删除图片
-  DeleteImg: function (e) {
-    var that = this;
-    var tempFilePaths = that.data.tempFilePaths;
-    var index = e.currentTarget.dataset.index;//获取当前长按图片下标
-    wx.showModal({
-      title: '提示',
-      content: '确定要删除此图片吗？',
-      success: function (res) {
-        if (res.confirm) {
-          //console.log('点击确定了');
-          tempFilePaths.splice(index, 1);
-        } else if (res.cancel) {
-          //console.log('点击取消了');
-          return false;
-        }
-        that.setData({
-          tempFilePaths
-        });
-      }
-    })
+  addMaxVolNum: function (event) {
+    let v_max = "fuwu.maxVolNum"
+    this.setData({ [v_max]: event.detail.value })
   },
+  addImagePath: function (event) {
+    let v_imagePath = "fuwu.imagePath"
+    this.setData({ [v_imagePath]: event.detail.value })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
 
   onLoad: function (options) {
-    
+    console.log("进入", options)
+    this.setData({
+      initData: options
+    })
+    this.initValidate()//验证规则函数
   },
 
   /**
@@ -109,7 +147,46 @@ Page({
   onReady: function () {
 
   },
+  //报错 
+  showModal(error) {
+    wx.showModal({
+      content: error.msg,
+      showCancel: false,
+    })
+  },
+  //验证函数
+  initValidate() {
+    const rules = {
+      name: {
+        required: true,
+        minlength: 2
+      },
 
+      contact: {
+        required: true,
+        tel: true
+      },
+      location: {
+        required: true,
+        minlength: 2
+      }
+    }
+    const messages = {
+      name: {
+        required: '请填写姓名',
+        minlength: '请输入正确的姓名'
+      },
+      contact: {
+        required: '请填写手机号',
+        tel: '请填写正确的手机号（11位）'
+      },
+      locaiton: {
+        required: '请填写地址',
+        minlength: '请输入正确的地址'
+      }
+    }
+    this.WxValidate = new WxValidate(rules, messages)
+  },
   /**
    * 生命周期函数--监听页面显示
    */

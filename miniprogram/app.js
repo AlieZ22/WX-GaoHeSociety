@@ -17,6 +17,7 @@ App({
           console.log("获取openid成功",res)
           that.globalData._openid = res.result.openid
           //console.log(that.globalData._openid)
+          
         },
         fail(res){
           console.log("获取openid失败", res)
