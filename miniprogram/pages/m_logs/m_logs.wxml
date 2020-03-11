@@ -1,12 +1,13 @@
 <!--pages//logs/logs.wxml-->
  <view class="panel__hd">请您填写以下信息进行投稿</view>
   <view class="weui-cells weui-cells_after-title">
+    <form bindsubmit="formSubmit">
       <view class="weui-cell ">
           <view class="weui-cell__hd">
               <view class="weui-label">投稿人</view>
           </view>
           <view class="weui-cell__bd">
-              <input class="weui-input" placeholder="您的名字" bindinput="getAuthor"/>
+              <input class="weui-input" name='author' value='{{author}}' placeholder="您的名字" bindinput="getAuthor"/>
           </view>
       </view>
       <view class="weui-cell ">
@@ -14,7 +15,7 @@
               <view class="weui-label">作品名称</view>
           </view>
           <view class="weui-cell__bd">
-              <input class="weui-input" placeholder="输入作品名称" bindinput="getTitle"/>
+              <input class="weui-input" name='title' value='{{title}}' placeholder="输入作品名称" bindinput="getTitle"/>
           </view>
       </view>
       <view class="weui-cell ">
@@ -22,7 +23,7 @@
               <view class="weui-label">创意来源</view>
           </view>
           <view class="weui-cell__bd">
-              <input class="weui-input" placeholder="描述一下自己的创意吧" bindinput="getOriginality"/>
+              <input class="weui-input" name='originality' value='{{originality}}' placeholder="描述一下自己的创意吧" bindinput="getOriginality"/>
           </view>
       </view>
         <view class="weui-cell ">
@@ -30,7 +31,7 @@
               <view class="weui-label">作品简介</view>
           </view>
           <view class="weui-cell__bd">
-               <input class="weui-input" placeholder="简单介绍一下吧" bindinput="getDesc"/>
+               <input class="weui-input" name='desc' value='{{desc}}' placeholder="简单介绍一下吧" bindinput="getDesc"/>
               </view>
           </view>
           <view class="weui-cell ">
@@ -50,5 +51,7 @@
               </view>
             </view>
           </view>
-      </view>
- <button class="weui-btn" bindtap="openSuccess">提交</button>
+      <button class="weui-btn" formType="submit"  data-from="{{fuwu}}" >提交</button>
+  </form>    
+</view>
+

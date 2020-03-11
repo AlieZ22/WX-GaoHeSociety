@@ -4,13 +4,15 @@
     "pages/index/index",
     "pages/wode/wode",
     "pages/xunxi_fuwu/xunxi_fuwu",
+    "pages/services/services",
+    "pages/share/share",
     "pages/func/func"
     
   ],
   "window": {
-    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarBackgroundColor": "#ff6969",
     "navigationBarTitleText": "云开发 QuickStart",
-    "navigationBarTextStyle": "black",
+    "navigationBarTextStyle": "white",
     "enablePullDownRefresh": true,
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "dark"

@@ -51,7 +51,7 @@
               <view class="weui-label">详细阐述</view>
           </view>
           <view class="weui-cell__bd">
-              <input class="weui-textarea" name = 'statement' value='{{fuwu.statement}}' placeholder="如有特殊情况请阐明" bindtap='addStatement' style="height: 3.3em" />
+               <input class="weui-input" name='statement' value='{{fuwu.statement}}' placeholder="如有特殊情况请阐明" bindinput="addStatement"/>
           </view>
       </view>
 

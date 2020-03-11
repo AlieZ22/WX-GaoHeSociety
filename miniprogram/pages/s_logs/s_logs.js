@@ -13,7 +13,7 @@ Page({
       contact: '',
       name: '',
       helpContent: '',
-      statement: '',
+      statement:'',
       time: '',
       state: '2',
       location: '',
@@ -37,12 +37,12 @@ Page({
   formSubmit: function (e) {
     console.log('form发生了submit事件，携带的数据为：', e.detail.value)
     const params = e.detail.value
-    // //校验表单
-    // if (!this.WxValidate.checkForm(params)) {
-    //   const error = this.WxValidate.errorList[0]
-    //   this.showModal(error)
-    //   return false
-    // }
+    //校验表单
+    if (!this.WxValidate.checkForm(params)) {
+      const error = this.WxValidate.errorList[0]
+      this.showModal(error)
+      return false
+    }
     let that = this      // 处理异步请求
     // 先将志愿者传到volunteers表中
     DB.collection("hefuwu").add({
@@ -82,7 +82,7 @@ Page({
     })
 
     wx.navigateTo({
-      url: "../msg_success/msg_success"
+      url: "../msg_success/msg_success?page=services"
     })
 
 
@@ -127,7 +127,6 @@ Page({
    */
 
   onLoad: function (options) {
-    console.log("进入", options)
     this.setData({
       initData: options
     })
@@ -154,7 +153,6 @@ Page({
         required: true,
         minlength: 2
       },
-
       contact: {
         required: true,
         tel: true
@@ -162,7 +160,16 @@ Page({
       location: {
         required: true,
         minlength: 2
+      },
+      helpContent: {
+        required: true,
+        minlength: 2
+      },
+      maxVolNum: {
+        required: true,
+        min: 0
       }
+
     }
     const messages = {
       name: {
@@ -173,10 +180,19 @@ Page({
         required: '请填写手机号',
         tel: '请填写正确的手机号（11位）'
       },
-      locaiton: {
-        required: '请填写地址',
-        minlength: '请输入正确的地址'
+      location: {
+        required: '请填写楼号',
+        minlength: '请输入正确的楼号'
+      },
+      helpContent: {
+        required: '请填写求助内容',
+        minlength: '起码输入两字符'
+      },
+      maxVolNum: {
+        required: '请填写需要志愿者的人数',
+        min: '数字需要>=1',
       }
+      
     }
     this.WxValidate = new WxValidate(rules, messages)
   },

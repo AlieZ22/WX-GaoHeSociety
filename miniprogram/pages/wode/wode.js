@@ -16,7 +16,16 @@ Page({
       url: "../xunxi_fuwu/xunxi_fuwu"
     })
   },
-  
+  meihao: function () {
+    wx.navigateTo({
+      url: "../xunxi_meihao/xunxi_meihao"
+    })
+  }, 
+  zhiyuan: function () {
+    wx.navigateTo({
+      url: "../xunxi_zhiyuan/xunxi_zhiyuan"
+    })
+  },
 
   /**
    * 生命周期函数--监听页面加载

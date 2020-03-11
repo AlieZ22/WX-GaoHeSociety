@@ -1,5 +1,6 @@
 const app = getApp()
 const db = wx.cloud.database()
+import WxValidate from '../utils/WxValidate.js'
 // pages//logs/logs.js
 Page({
 
@@ -37,7 +38,15 @@ Page({
   },
 
 
-  openSuccess: function () {
+  formSubmit: function (e){
+    console.log('form发生了submit事件，携带的数据为：', e.detail.value)
+    const params = e.detail.value
+    //校验表单
+    if (!this.WxValidate.checkForm(params)) {
+      const error = this.WxValidate.errorList[0]
+      this.showModal(error)
+      return false
+    }
     let that = this
     // 上传多张图片
     let promiseArr = []    // 同步锁序列
@@ -72,6 +81,7 @@ Page({
           title:that.data.title,
           originality:that.data.originality,
           desc:that.data.desc,
+          state:'0',
           fileUrl:that.data.fileUrl
         },
         success:function(res){
@@ -100,7 +110,7 @@ Page({
       })
       // 下面这个跳转再添加了上传失败的页面后可以删掉
       wx.navigateTo({
-        url: "../msg_success/msg_success"
+        url: "../msg_success/msg_success?page=share"
       })
     })
     
@@ -125,13 +135,61 @@ Page({
       urls: this.data.files // 需要预览的图片http链接列表
     })
   },
-  
+  //报错 
+  showModal(error) {
+    wx.showModal({
+      content: error.msg,
+      showCancel: false,
+    })
+  },
+  //验证函数
+  initValidate() {
+    const rules = {
+      author: {
+        required: true,
+        minlength: 2
+      },
+      title: {
+        required: true,
+        minlength: 2
+      },
+      originality: {
+        required: true,
+        minlength: 2
+      },
+      desc: {
+        required: true,
+        minlength: 2
+      }
+
+    }
+    const messages = {
+      author: {
+        required: '请填写姓名',
+        minlength: '请输入正确的姓名'
+      },
+      title: {
+        required: '请填写作品名称',
+        minlength: '作品名称至少为两个字符'
+      },
+      originality: {
+        required: '请填写创意来源',
+        minlength: '创意来源至少为两个字符'
+      },
+      desc: {
+        required: '请填写作品简介',
+        minlength: '作品简介至少为两个字符'
+      }
+
+    }
+    this.WxValidate = new WxValidate(rules, messages)
+  },
   /**
    * 生命周期函数--监听页面加载
    */
 
   onLoad: function (options) {
-    
+    this.initValidate()//验证规则函数
   },
 
   /**

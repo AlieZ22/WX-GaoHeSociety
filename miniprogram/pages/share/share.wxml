@@ -2,7 +2,7 @@
     <view class="page__bd">
          <view class="panel">
              <view class="panel__bd">
-                 <navigator wx:for="{{meihaoList}}" wx:key="index" url="" class="media-box media-box_appmsg" hover-class="cell_active">
+                 <navigator wx:if="{{item.state=='0'}}" wx:for="{{meihaoList}}" wx:key="index" url="" class="media-box media-box_appmsg" hover-class="cell_active">
                      <view class="media-box__hd media-box__hd_in-appmsg">
                          <image class="media-box__thumb" src="{{item.fileUrl[0]}}" />
                      </view>
