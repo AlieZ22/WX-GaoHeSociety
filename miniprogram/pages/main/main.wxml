@@ -1,11 +1,11 @@
   <view class="selection">
     <swiper indicator-dots="true"
       autoplay="true" interval="5000" duration="500" circular="true">
-      <block wx:for="{{imgUrls}}">
+      <view wx:for="{{imgUrls}}" wx:key="index">
         <swiper-item>
           <image src="{{item}}" class="slide-image" width="355" height="150"/>
         </swiper-item>
-      </block>
+      </view>
     </swiper>
   </view>
 

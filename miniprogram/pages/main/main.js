@@ -30,6 +30,9 @@ Page({
     })
   },
   logNext4: function () {
+    wx.showLoading({               // 加载动画
+      title: '加载中...',
+    })
     wx.cloud.callFunction({
       name: "verify",
       data: {
@@ -37,6 +40,7 @@ Page({
       },
       success: function (res) {
         console.log("hello",res)
+        wx.hideLoading()
         if(res.result.data.length==0){
           console.log("null")
           wx.showModal({

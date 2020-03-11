@@ -6,7 +6,7 @@
               <view class="weui-label">投稿人</view>
           </view>
           <view class="weui-cell__bd">
-              <input class="weui-input" placeholder="在此输入……"/>
+              <input class="weui-input" placeholder="您的名字" bindinput="getAuthor"/>
           </view>
       </view>
       <view class="weui-cell ">
@@ -14,7 +14,7 @@
               <view class="weui-label">作品名称</view>
           </view>
           <view class="weui-cell__bd">
-              <input class="weui-input" placeholder="在此输入……"/>
+              <input class="weui-input" placeholder="输入作品名称" bindinput="getTitle"/>
           </view>
       </view>
       <view class="weui-cell ">
@@ -22,7 +22,7 @@
               <view class="weui-label">创意来源</view>
           </view>
           <view class="weui-cell__bd">
-              <input class="weui-input" placeholder="在此输入……"/>
+              <input class="weui-input" placeholder="描述一下自己的创意吧" bindinput="getOriginality"/>
           </view>
       </view>
         <view class="weui-cell ">
@@ -30,7 +30,7 @@
               <view class="weui-label">作品简介</view>
           </view>
           <view class="weui-cell__bd">
-               <input class="weui-input" placeholder="在此输入……" />
+               <input class="weui-input" placeholder="简单介绍一下吧" bindinput="getDesc"/>
               </view>
           </view>
           <view class="weui-cell ">

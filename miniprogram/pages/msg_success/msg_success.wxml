@@ -10,7 +10,7 @@
         </view>
         <view class="weui-msg__opr-area">
             <view class="weui-btn-area">
-                <button class="weui-btn">查看已上传的内容</button>
+                <button class="weui-btn" bindtap="ensure">确定</button>
             </view>
         </view>
         
