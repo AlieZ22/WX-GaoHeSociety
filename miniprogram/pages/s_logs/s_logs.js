@@ -63,23 +63,16 @@ Page({
         console.log("添加服务信息成功", res)
         // 添加服务信息成功，得到volunteers表中该条记录的_id
         // 获取服务信息（这里从数据库中调，为了获取其_id和_openid）
-        DB.collection("hefuwu").doc(res._id).get({
-          success: function (res) {
-            // 然后调用云函数, 分别修改users表以及hefuwu表中的services, volunteers
-            wx.cloud.callFunction({
-              name: "add_userServices",
-              data: {
-                _openid: app.globalData._openid,
-                info: that.data.initData._id,
-                way: 0  // 1表示为合服务志愿者（0表示合服务受助者）
-              },
-              success: function (res) {
-                console.log("users表项添加完毕", res)
-              }
-            })
+        // 然后调用云函数, 分别修改users表以及hefuwu表中的services, volunteers
+        wx.cloud.callFunction({
+          name: "add_userServices",
+          data: {
+            _openid: app.globalData._openid,
+            info: res._id,
+            way: 0  // 1表示为合服务志愿者（0表示合服务受助者）
           },
-          fail: function (res) {
-            console.log("获取服务信息失败", res)
+          success: function (res) {
+            console.log("users表项添加完毕", res)
           }
         })
       },
