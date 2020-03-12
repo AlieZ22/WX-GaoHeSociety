@@ -23,7 +23,11 @@ Page({
       url: "../services/services"
     })
   },
-
+  logNext2: function () {
+    wx.navigateTo({
+      url: "../hedangjian/hedangjian"
+    })
+  },
   logNext3: function () {
     wx.navigateTo({
       url: "../hezhiyuan/hezhiyuan"

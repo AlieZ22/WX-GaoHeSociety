@@ -1,0 +1,6 @@
+/* miniprogram/pages/hedangjian/hedangjian.wxss */
+@import "../services/services";
+@import "../s_logs/s_logs.wxss";
+.guide{
+  background-color: white;
+}
