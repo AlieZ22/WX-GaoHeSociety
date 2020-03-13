@@ -117,6 +117,16 @@ Page({
                       info: that.data.currentAct_id    // 某个合志愿的_id
                     },
                     success: function (res) {
+                      let pages = getCurrentPages(); //获取当前页面js里面的pages里的所有信息。
+                      let prevPage = pages[pages.length - 2];
+                      prevPage.setData({
+                      })
+                      wx.navigateBack({
+                        delta: 1
+                      })
+                      wx.showToast({
+                        title: '报名成功',
+                      })
                       console.log("云函数添加志愿者成功", res)
                       console.log("users表项添加完毕", res)
                     }
@@ -141,6 +151,17 @@ Page({
             }
           })
         }else{
+          let pages = getCurrentPages();
+          let prevPage = pages[pages.length - 1];
+          prevPage.setData({
+          })
+          wx.navigateBack({
+            delta: 1
+          })
+          wx.showToast({
+            icon: 'none',
+            title: '人数已满，感谢您的参与'
+          })
           console.log("人数达到上限，报名失败！")
         }
       },
@@ -275,7 +296,6 @@ Page({
       }, callback)
     }
   },
-
   prevStep: function () {
     this.setData({
       step: this.data.step - 1
