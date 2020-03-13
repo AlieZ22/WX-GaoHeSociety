@@ -1,5 +1,5 @@
 // pages/hezhiyuan/hezhiyuan.js
-
+import WxValidate from '../utils/WxValidate.js'
 const app = getApp()
 
 
@@ -18,6 +18,7 @@ Page({
  
   
   onLoad: function (options) {
+    console.log(options)
     var that = this;
     //1、引用数据库   
     const db = wx.cloud.database({
@@ -38,6 +39,7 @@ Page({
         console.log("小程序获取服务数据失败", res)
       }
     })
+    this.initValidate()//验证规则函数
   },
   serviceContent1: function (e) {
     this.setData({
@@ -74,7 +76,15 @@ Page({
       location: e.detail.value
     })
   },
-  onAdd: function () {
+  formSubmit: function (e) {
+    console.log(e.detail.value)
+    const params = e.detail.value
+    //校验表单
+    if (!this.WxValidate.checkForm(params)) {
+      const error = this.WxValidate.errorList[0]
+      this.showModal(error)
+      return false
+    }
     let that = this
      const db = wx.cloud.database()
      // 可能会出现curr>=max导致添加失败
@@ -169,6 +179,55 @@ Page({
         console.log("查询合志愿表失败")
       }
     })
+  },
+  //报错 
+  showModal(error) {
+    wx.showModal({
+      content: error.msg,
+      showCancel: false,
+    })
+  },
+  //验证函数
+  initValidate() {
+    const rules = {
+      name: {
+        required: true,
+        minlength: 2
+      },
+      age: {
+        required: true,
+        min: 0
+      },
+      contact: {
+        required: true,
+        tel: true
+      },
+      location: {
+        required: true,
+        location: true
+      }
+
+    }
+    const messages = {
+      name: {
+        required: '请填写姓名',
+        minlength: '请输入正确的姓名'
+      },
+      age: {
+        required: '请填写年龄',
+        min: '数字需要>=1'
+      },
+      contact: {
+        required: '请填写手机号',
+        tel: '请填写正确的手机号（11位）'
+      },
+      location: {
+        required: '请填写楼号',
+        location: '楼号填写格式不正确'
+      }
+
+    }
+    this.WxValidate = new WxValidate(rules, messages)
   },
 
   onQuery: function() {
@@ -296,6 +355,7 @@ Page({
       }, callback)
     }
   },
+
   prevStep: function () {
     this.setData({
       step: this.data.step - 1

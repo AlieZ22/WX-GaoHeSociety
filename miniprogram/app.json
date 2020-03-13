@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/hezhiyuan/hezhiyuan",
     "pages/main/main",
     "pages/index/index",
     "pages/wode/wode",

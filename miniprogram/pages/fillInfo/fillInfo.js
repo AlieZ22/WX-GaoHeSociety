@@ -19,6 +19,7 @@ Page({
   // 提交按钮
   formSubmit:function(e){
     console.log('form发生了submit事件，携带的数据为：', e.detail.value)
+    console.log(this.data.sex)
     const params = e.detail.value
     //校验表单
     if (!this.WxValidate.checkForm(params)) {

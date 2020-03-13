@@ -24,20 +24,13 @@
   <view class="panel__hd">活动招募</view>
   <view class="panel__hd">请您如实填写以下信息</view>
   <view class="weui-cells weui-cells_after-title">
-  <view class="weui-cell ">
-      <view class="weui-cell__hd">
-          <view class="weui-label">楼号</view>
-      </view>
-      <view class="weui-cell__bd">
-          <input class="weui-input" input id="up_input" name="location" placeholder="请输入楼号" bindinput ="location1"/>
-      </view>
- </view>
+  <form bindsubmit="formSubmit">
   <view class="weui-cell ">
     <view class="weui-cell__hd">
         <view class="weui-label">姓名</view>
     </view>
     <view class="weui-cell__bd">
-        <input class="weui-input" input id="up_input" name="name" placeholder="请输入姓名" bindinput ="name1"/>
+        <input class="weui-input" input id="up_input" name="name" value='{{name}}' placeholder="请输入姓名" bindinput ="name1"/>
     </view>
   </view>
   <view class="weui-cell ">
@@ -45,7 +38,7 @@
           <view class="weui-label">性别</view>
       </view>
       <view class="weui-cell__bd">
-          <input class="weui-input" input id="up_input" name="sex" placeholder="请输入性别" bindinput ="sex1"/>
+          <input class="weui-input" input id="up_input" name="sex" value='{{sex}}' placeholder="请输入性别" bindinput ="sex1"/>
       </view>
   </view>
   <view class="weui-cell ">
@@ -53,12 +46,23 @@
           <view class="weui-label">联系方式</view>
       </view>
       <view class="weui-cell__bd">
-          <input class="weui-input" input id="up_input" name="contact" placeholder="请输入联系方式" bindinput ="contact1"/>
+          <input class="weui-input" input id="up_input" name="contact" value='{{contact}}' placeholder="请输入联系方式" bindinput ="contact1"/>
       </view>
   </view>
+  <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">楼号</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="location" value='{{location}}' placeholder="请输入楼号" bindinput ="location1"/>
+      </view>
+ </view>
   
+  
+  <button class="weui-btn" formType="submit">确认报名</button>
+  </form>
 </view>
-<button class="weui-btn" bindtap="onAdd">确认报名</button>
+
     <!-- 报名界面结束 -->  
      </view>
 
