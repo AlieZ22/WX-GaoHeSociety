@@ -7,8 +7,9 @@
     "pages/services/services",
     "pages/share/share",
     "pages/func/func",
-    "pages/hedangjian/hedangjian",
-    "pages/fillInfo/fillInfo"
+    "pages/fillInfo/fillInfo",
+    "pages/hedangjian/hedangjian"
+    
   ],
   "window": {
     "navigationBarBackgroundColor": "#ff6969",

@@ -40,6 +40,7 @@ class WxValidate {
             messages: {
                 required: '这是必填字段。',
                 email: '请输入有效的电子邮件地址。',
+                location:'请输入正确的楼号（X栋X单元）',
                 tel: '请输入11位的手机号码。',
                 url: '请输入有效的网址。',
                 date: '请输入有效的日期。',
@@ -84,6 +85,12 @@ class WxValidate {
              */
             email(value) {
                 return that.optional(value) || /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/.test(value)
+            },
+            /**
+            * 验证一个是否是正确的楼号X栋X单元
+            */
+            location(value, param) {
+              return that.optional(value) ||/^[1-9]+-+[1-9]$/.test(value)
             },
             /**
              * 验证手机格式
@@ -174,7 +181,8 @@ class WxValidate {
              */
             range(value, param) {
                 return that.optional(value) || (value >= param[0] && value <= param[1])
-            },
+            }
+
         }
     }
 
@@ -188,6 +196,8 @@ class WxValidate {
         this.methods[name] = method
         this.defaults.messages[name] = message !== undefined ? message : this.defaults.messages[name]
     }
+
+
 
     /**
      * 判断验证方法是否存在
