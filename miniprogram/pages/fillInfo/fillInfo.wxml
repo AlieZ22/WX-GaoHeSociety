@@ -1,0 +1,79 @@
+<view class="panel__hd">请您如实填写以下信息</view>
+<view class="weui-cells weui-cells_after-title">
+  <form bindsubmit="formSubmit">
+      <view class="weui-cell ">
+          <view class="weui-cell__hd">
+              <view class="weui-label">姓名</view>
+          </view>
+          <view class="weui-cell__bd">
+           <input class="weui-input" name='name' placeholder="请输入姓名"  bindinput="addName"/>
+          </view>
+      </view>
+
+      <view class="weui-cell ">
+        <view class="weui-cell__hd">
+            <view class="weui-label">年龄</view>
+        </view>
+        <view class="weui-cell__bd">
+            <input class="weui-input" name='age' placeholder="请输入年龄" bindinput="addAge"/>
+        </view>
+      </view>
+
+      <view class="weui-cell ">
+        <view class="weui-cell__hd">
+            <view class="weui-label">性别</view>
+        </view>
+        <view class="weui-cell__bd">
+            <radio-group bindchange="sex_radioChange"> 
+                <radio style="margin-right: 30rpx;" value="男"><text>男</text></radio>
+                <radio value="女"><text>女</text></radio>
+            </radio-group>
+        </view>
+      </view>
+
+      <view class="weui-cell ">
+          <view class="weui-cell__hd">
+              <view class="weui-label">联系方式</view>
+          </view>
+          <view class="weui-cell__bd">
+           <input class="weui-input" name='contact' type='number' placeholder="请输入手机号" bindinput="addContact"/>
+          </view>
+      </view>
+
+      <view class="weui-cell ">
+          <view class="weui-cell__hd">
+              <view class="weui-label">楼号</view>
+          </view>
+          <view class="weui-cell__bd">
+              <input class="weui-input" name='location' placeholder="请输入楼号(x栋x单元)" bindinput="addLocation"/>
+          </view>
+      </view>
+
+      <view class="weui-cell ">
+        <view class="weui-cell__hd">
+            <view class="weui-label">社区管理人员</view>
+        </view>
+        <view class="weui-cell__bd">
+            <radio-group bindchange="manager_radioChange"> 
+                <radio style="margin-right: 30rpx;" value="false"><text>否</text></radio>
+                <radio value="true"><text>是</text></radio>
+            </radio-group>
+        </view>
+      </view>
+
+      <view class="weui-cell " hidden="{{!isManager}}">
+          <view class="weui-cell__hd">
+              <view class="weui-label">管理者代码</view>
+          </view>
+          <view class="weui-cell__bd">
+              <input class="weui-input" name='helpContent'  placeholder="非社区管理者请勿填写！" bindinput="addCode"/>
+          </view>
+      </view>
+
+      <view class="weui-cell ">
+          <button class="weui-btn" bindtap="submitBtn" >提交</button>
+          </view>
+     </form>
+   
+ </view>
+ 
