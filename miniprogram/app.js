@@ -47,6 +47,36 @@ App({
           console.log("获取openid成功",res)
           that.globalData._openid = res.result.openid
           console.log(that.globalData._openid)
+          // 拿user
+          wx.cloud.database().collection("users").where({
+            _openid:res.result.openid
+          }).get({
+            success:function(res){
+              console.log("获取用户成功",res)
+              if(res.data.length!=0){
+                that.globalData.user = res.data[0]
+              }else{
+                // 弹对话框提示完善信息
+                wx.showModal({
+                  title:"提示",
+                  content:"您当前未注册，快去完善信息吧！",
+                  success:function(res){
+                    if(res.confirm){
+                      // 跳转到表单页面，进行填写
+                      wx.navigateTo({
+                        url:'../fillInfo/fillInfo'
+                      })
+                    }else if(res.cancel){
+                      console.log("用户取消注册!")
+                    }
+                  }
+                })
+              }
+            },
+            fail:function(res){
+              console.log("获取用户失败",res)
+            }
+          })
         },
         fail(res){
           console.log("获取openid失败", res)
@@ -58,7 +88,9 @@ App({
 
   globalData:{
     _openid:"",
-      ne:null,
-      userInfo:null
+    appid:"wx9e2d10f6dc0c617f",
+    ne:null,
+    userInfo:null,
+    user:null
   }
 })
