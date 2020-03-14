@@ -1,45 +1,71 @@
 <!--pages/xunxi_fuwu/xunxi_fuwu.wxml-->
-  <view class='page_row' bindtap="suo">
-    <view class="search">
-      <view class="df search_arr">
-        <icon class="searchcion" size='20' type='search'></icon>
-        <input class="" disabled placeholder="请输入关键字" value="{{searchValue}}"/>
-      </view>
-    </view>
-    <view class="search-btn">
-      <button class='sousuo' size="mini">搜索</button> 
-    </view>
-  </view>
 
+<text>这里是居民查询页面</text>
+
+
+<view  wx:if="{{user!==null&&user.isManager==false}}">
+    <!-- 导航条开始 -->
+  <view class="nav">
+    <view bindtap="navSwitch" data-index="0" class="{{navState==0 ? 'nav-switch-style':'nav-noswitch-style'}}">我是求助人</view>
+    <view bindtap="navSwitch" data-index="1" class="{{navState==1 ? 'nav-switch-style':'nav-noswitch-style'}}">我是志愿者</view>
+  </view>
+   <!-- 导航条结束 -->
+  <!-- 不可滑动页 -->
+  <view>
+    <view wx:if="{{navState==0}}" class="style-default">
+    <!-- 求助人 -->
   <view class="page">
     <view class="page__bd">
-         <view class="panel">
-             <view class="panel__bd">
-                 <navigator wx:if="{{item.state=='0'}}" wx:for="{{meihaoList}}" wx:key="index" url="" class="media-box media-box_appmsg" hover-class="cell_active">
-                     <view class="media-box__hd media-box__hd_in-appmsg">
-                         <image class="media-box__thumb" src="{{item.fileUrl[0]}}" />
-                     </view>
-                     <view class="media-box__bd media-box__bd_in-appmsg">
-                         <view class="media-box__desc">作品名称：{{item.title}}</view>
-                         <view class="media-box__desc">创作时间：{{item.createTime}}</view>
-                         <view class="media-box__desc">作品简介：{{item.desc}}</view>
-                         <view class="shenhe">
-                            <button class="func-btn" bindtap="btnClick" size="default" style="margin-right:30rpx;">详情</button>
-                            <button  class="func-btn" bindtap="btnClick" size="default">审核中</button>
-                         </view>
-                     </view>
-                 </navigator>
-             </view>
-             
-         </view>
-         <!-- <view class="share_bot">
-           <button class="weui-btn" bindtap="btnClick">我要投稿</button>
-         </view> -->
-        
+          <view class="panel">
+              <view class="panel__bd">
+                  <view wx:for="{{fuwuList}}" wx:key="index"  class="media-box media-box_appmsg" hover-class="cell_active" wx:if="{{item.state==='2'}}">
+                      
+                      <view class="media-box__bd media-box__bd_in-appmsg">
+                        
+                          <view class="media-box__desc">姓名：{{item.author}}</view>
+                          <view class="media-box__desc">联系方式：{{item.contact}}</view>
+                          <view class="media-box__desc">楼号：{{item.location}}</view>
+                        
+                      </view>
+                        <button class="func-btn" bindtap="btnClick1" size="mini" >详情</button>
+                              <button  class="func-btn" bindtap="btnClick2" size="mini">状态</button>
+              
+                  </view>
+              </view>
     </view>
+    </view>
+  </view>
     
- </view>
+    </view>
+    <!-- 求助人结束 -->
+    <!-- 志愿者开始 -->
+    <view wx:elif="{{navState==1}}" class="style-default">
+    <view class="page">
+    <view class="page__bd">
+          <view class="panel">
+              <view class="panel__bd">
+                  <view wx:for="{{fuwuList}}" wx:key="index"  class="media-box media-box_appmsg" hover-class="cell_active" wx:if="{{item.state==='0'}}">
+                      
+                      <view class="media-box__bd media-box__bd_in-appmsg">
+                        
+                          <view class="media-box__desc">姓名：{{item.author}}</view>
+                          <view class="media-box__desc">联系方式：{{item.contact}}</view>
+                          <view class="media-box__desc">楼号：{{item.location}}</view>
+                        
+                      </view>
+                        <button class="func-btn" bindtap="btnClick1" size="mini" >详情</button>
+                              <button  class="func-btn" bindtap="btnClick2" size="mini">状态</button>
+              
+                  </view>
+              </view>
+            </view>
+          </view>
+    </view>
 
+    </view>
+  
+  </view>
 
- <view class="Manage" wx:if="{{_openid}}"></view>
- <view class="Mine"></view>
+  <!-- 志愿者结束 -->
+</view>  
+

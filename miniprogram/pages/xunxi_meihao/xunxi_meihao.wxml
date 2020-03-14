@@ -1,5 +1,5 @@
 <!--pages/xunxi_fuwu/xunxi_fuwu.wxml-->
-<view  wx:if="{{user!==null&&user.isManager==true}}">
+<view  wx:if="{{user!==null&&user.isManager==false}}">
   <view class='page_row' bindtap="suo">
     <view class="search">
       <view class="df search_arr">
@@ -41,7 +41,7 @@
  </view>
 </view>
 
- <view wx:if="{{user!=null&&user.isManager==false}}">
+ <view wx:if="{{user!=null&&user.isManager==true}}">
    <view class='page_row' bindtap="suo">
     <view class="search">
       <view class="df search_arr">
