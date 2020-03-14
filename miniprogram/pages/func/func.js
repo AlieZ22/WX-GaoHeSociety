@@ -1,4 +1,5 @@
 // pages/func/func.js
+const app = getApp()
 Page({
 
   /**
@@ -6,7 +7,8 @@ Page({
    */
   data: {
     imageFileId:"",
-    videoFileId:""
+    videoFileId:"",
+    my_hezhiyuan:[]  // 作为工作人员发布的合服务
   },
   // 文件上传功能
   uploadImage:function(){
@@ -63,12 +65,30 @@ Page({
       }
     })
   },
+  shenheBtn:function(e){
+    console.log("审核志愿者",e)
+    zhiyuan_id = e.currentTarget.dataset.index
+    
+  },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    let that = this
+    // 上限获取20个合志愿
+    if (app.globalData.user != null && app.globalData.user.isManager){
+      wx.cloud.database().collection("hezhiyuan").where({
+        _openid:app.globalData._openid
+      }).get({
+        success:function(res){
+          that.setData({
+            my_hezhiyuan:res.data
+          })
+          console.log(that.data.my_hezhiyuan)
+        }
+      })
+    }
   },
 
   /**

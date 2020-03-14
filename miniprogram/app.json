@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/hezhiyuan/hezhiyuan",
     "pages/main/main",
+    "pages/hezhiyuan/hezhiyuan",
     "pages/index/index",
     "pages/wode/wode",
     "pages/xunxi_fuwu/xunxi_fuwu",

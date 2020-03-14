@@ -1,7 +1,20 @@
-<button type="primary" bindtap="uploadImage">图片上传</button>
-<view class="imgshow-view">
-    <image src="{{imageFileId}}" mode="aspectFix"></image>
-</view>
-
-<button type="primary" bindtap="uploadVideo">视频上传</button>
-<video wx:if="{{imageFileId!=''}}" src="{{imageFileId}}" controls></video>
+<!--pages/hezhiyuan/hezhiyuan.wxml-->
+    <!-- 展示招募信息 -->
+      <view class="guide">
+        <view  class="panel__bd" wx:for="{{my_hezhiyuan}}" wx:key="index"  class="media-box media-box_appmsg" hover-class="cell_active"><!--wx:for是微信数据绑定的一种方式，该数组有多少数据就显示多少个view-->
+          <!--index为每个数据对应的下标-->
+          <view class="media-box__hd media-box__hd_in-appmsg">
+            <image class="media-box__thumb" src="{{item.imagePath}}" />
+          </view>
+            <!--item就相当于数组名+下标的结合体，适用于调用数组所有数据-->
+            <view class="media-box__bd media-box__bd_in-appmsg">
+            <view class="media-box__title">{{item.serviceContent}}</view>
+            <view class="media-box__desc">服务时间：{{item.serviceTime}}</view>
+            <view class="media-box__desc">工作内容：{{item.statement}}</view>
+            <view class="media-box__desc">招募人数：{{item.maxVoluNum}}</view>  
+            <view class="media-box__desc">当前报名：{{item.volunteers.length}}</view>
+            <button class="weui-btn" bindtap="shenheBtn" data-index="{{item._id}}">审核志愿者</button>
+        </view>
+      </view>
+  </view>
+  <!-- 展示招募信息结束 -->
