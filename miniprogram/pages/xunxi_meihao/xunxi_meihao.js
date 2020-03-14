@@ -1,11 +1,14 @@
 // pages/xunxi_fuwu/xunxi_fuwu.js
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    meihaoList: []
+    meihaoList: [],
+    user:'',
+    user_id: '',
   },
   // 获取云端数据(合美好)
   getMeihaoData: function () {
@@ -16,6 +19,10 @@ Page({
         console.log("小程序获取数据", res)
         that.setData({ meihaoList: res.result.data })
         console.log(that.data.meihaoList)
+        that.setData({ user: app.globalData.user })
+        console.log(that.data.user)
+        that.setData({user_id: app.globalData._openid })
+        console.log(that.data.user_id)
       },
       fail: function (res) {
         console.log("小程序获取美好数据失败", res)
@@ -27,6 +34,8 @@ Page({
    */
   onLoad: function (options) {
     this.getMeihaoData()
+    var that = this;
+    
   },
 
   /**

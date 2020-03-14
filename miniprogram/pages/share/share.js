@@ -1,11 +1,15 @@
 // pages/share/share.js
+
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    meihaoList:[]
+    meihaoList:[],
+    user:app.globalData.user,
+    user_id:app.globalData._openid
   },
 
   // 获取云端数据(合美好)
@@ -24,6 +28,22 @@ Page({
     })
   },
   btnClick: function () {
+    if (app.globalData.user == null) {
+      wx.showModal({
+        content: "您当前未注册，快去完善信息吧！",
+        success: function (res) {
+          if (res.confirm) {
+            // 跳转到表单页面，进行填写
+            wx.navigateTo({
+              url: '../fillInfo/fillInfo'
+            })
+          } else if (res.cancel) {
+            console.log("用户取消注册!")
+          }
+        }
+      })
+      return false
+    }
     wx.navigateTo({
       url: '../m_logs/m_logs',
       success: function (res) { },

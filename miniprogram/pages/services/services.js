@@ -1,4 +1,6 @@
 // pages/news/news.js
+const app = getApp()
+
 Page({
 
   /**
@@ -28,6 +30,23 @@ Page({
     })
   },
   btnClick_shouzhu: function(){
+    console.log(app.globalData.user)
+    if (app.globalData.user == null) {
+      wx.showModal({
+        content:"您当前未注册，快去完善信息吧！",
+        success:function(res){
+          if(res.confirm){
+            // 跳转到表单页面，进行填写
+            wx.navigateTo({
+              url:'../fillInfo/fillInfo'
+            })
+          }else if(res.cancel){
+            console.log("用户取消注册!")
+          }
+        }
+      })
+      return false
+    }
       wx.navigateTo({
         url: '../s_logs/s_logs',
         success: function(res) {},
@@ -36,6 +55,22 @@ Page({
       })
   },
   btnClick_helper: function (event) {
+    if (app.globalData.user == null) {
+      wx.showModal({
+        content: "您当前未注册，快去完善信息吧！",
+        success: function (res) {
+          if (res.confirm) {
+            // 跳转到表单页面，进行填写
+            wx.navigateTo({
+              url: '../fillInfo/fillInfo'
+            })
+          } else if (res.cancel) {
+            console.log("用户取消注册!")
+          }
+        }
+      })
+      return false
+    }
     //console.log("帮助", event.target.dataset.content)
     let content = event.target.dataset.content
     wx.navigateTo({

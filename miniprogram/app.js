@@ -55,6 +55,7 @@ App({
               console.log("获取用户成功",res)
               if(res.data.length!=0){
                 that.globalData.user = res.data[0]
+                console.log("user 是！！", that.globalData.user)
               }else{
                 // 弹对话框提示完善信息
                 wx.showModal({

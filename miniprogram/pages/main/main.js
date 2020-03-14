@@ -34,50 +34,9 @@ Page({
     })
   },
   logNext4: function () {
-    wx.showLoading({               // 加载动画
-      title: '加载中...',
+    wx.navigateTo({
+    url: "../share/share"
     })
-    wx.cloud.callFunction({
-      name: "verify",
-      data: {
-        _openid: app.globalData._openid
-      },
-      success: function (res) {
-        console.log("hello",res)
-        wx.hideLoading()
-        if(res.result.data.length==0){
-          console.log("null")
-          wx.showModal({
-            title: '提示',
-            content: '您的信息尚未录入，是否创建',
-            confirmText: "是",
-            cancelText: "我再逛逛",
-            success: function (res) {
-              console.log(res);
-              if (res.confirm) {
-                wx.navigateTo({
-                  url: "../self/self"
-                })
-              } else {
-                wx.navigateTo({
-                  url: "../share/share"
-                })
-              }
-            }
-          });
-        }else{
-          wx.navigateTo({
-            url: "../share/share"
-          })
-        }
-
-      },
-      fail: function (res) {
-        console.log("获取服务信息失败", res)
-        
-      }
-    })
-    
   },
   /**
    * 生命周期函数--监听页面加载

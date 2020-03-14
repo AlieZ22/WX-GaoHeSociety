@@ -1,5 +1,48 @@
 <!--pages/xunxi_fuwu/xunxi_fuwu.wxml-->
+<view  wx:if="{{user!==null&&user.isManager==true}}">
   <view class='page_row' bindtap="suo">
+    <view class="search">
+      <view class="df search_arr">
+        <icon class="searchcion" size='20' type='search'></icon>
+        <input class="" disabled placeholder="请输入关键字" value="{{searchValue}}"/>
+      </view>
+    </view>
+    <view class="search-btn">
+      <button class='sousuo' size="mini">搜索</button> 
+    </view>
+  </view>
+
+  <view class="page">
+    <view class="page__bd">
+         <view class="panel">
+             <view class="panel__bd">
+                 <navigator wx:if="{{item._openid==user_id}}" wx:for="{{meihaoList}}" wx:key="index" url="" class="media-box media-box_appmsg" hover-class="cell_active">
+                     <view class="media-box__hd media-box__hd_in-appmsg">
+                         <image class="media-box__thumb" src="{{item.fileUrl[0]}}" />
+                     </view>
+                     <view class="media-box__bd media-box__bd_in-appmsg">
+                         <view class="media-box__desc">作品名称：{{item.title}}</view>
+                         <view class="media-box__desc">创作时间：{{item.createTime}}</view>
+                         <view class="media-box__desc">作品简介：{{item.desc}}</view>
+                         <view class="shenhe">
+                            
+<button  class="func-btn" wx:if="{{item.state==='-1'}}" size="default">审核失败</button>
+<button  class="func-btn" wx:if="{{item.state==='0'}}" size="default">待审核</button>
+<button  class="func-btn" wx:if="{{item.state==='2'}}" size="default">审核成功</button>
+                         </view>
+                     </view>
+                 </navigator>
+             </view>
+             
+         </view>
+        
+    </view>
+    
+ </view>
+</view>
+
+ <view wx:if="{{user!=null&&user.isManager==false}}">
+   <view class='page_row' bindtap="suo">
     <view class="search">
       <view class="df search_arr">
         <icon class="searchcion" size='20' type='search'></icon>
@@ -24,22 +67,19 @@
                          <view class="media-box__desc">创作时间：{{item.createTime}}</view>
                          <view class="media-box__desc">作品简介：{{item.desc}}</view>
                          <view class="shenhe">
-                            <button class="func-btn" bindtap="btnClick" size="default" style="margin-right:30rpx;">详情</button>
-                            <button  class="func-btn" bindtap="btnClick" size="default">审核中</button>
+<button  class="func-btn"  size="mini">详情</button>                            
+<button  class="func-btn"  size="mini">发布</button>
+<button  class="func-btn"  size="mini">撤销</button>
                          </view>
                      </view>
                  </navigator>
              </view>
              
          </view>
-         <!-- <view class="share_bot">
-           <button class="weui-btn" bindtap="btnClick">我要投稿</button>
-         </view> -->
         
     </view>
     
  </view>
-
-
- <view class="Manage" wx:if="{{_openid}}"></view>
- <view class="Mine"></view>
+ 
+ </view>
+ 
