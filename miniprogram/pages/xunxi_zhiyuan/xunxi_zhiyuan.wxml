@@ -1,5 +1,66 @@
 <!--pages/xunxi_fuwu/xunxi_fuwu.wxml-->
-  <view class='page_row' bindtap="suo">
+  <view class="panel__hd" wx:if="{{my_info.isManager}}"> 尊敬的管理者：{{my_info.name}}
+    <view class="panel__hd">活动信息</view>
+  <view class="weui-cells weui-cells_after-title">
+  <view class="weui-cell ">
+    <view class="weui-cell__hd">
+        <view class="weui-label">活动名称</view>
+    </view>
+    <view class="weui-cell__bd">
+        <input class="weui-input" input id="up_input" name="serviceContent" placeholder="请输入活动名称" bindinput ="serviceContent1"/>
+    </view>
+  </view>
+  <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label"> 活动时间</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="serviceTime" placeholder="请输入活动时间" bindinput ="serviceTime1"/>
+      </view>
+  </view>
+  <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">工作内容</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="statement" placeholder="请输入工作内容" bindinput ="statement1"/>
+      </view>
+  </view>
+  <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">活动人数</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="maxVoluNum" placeholder="请输入活动人数" bindinput ="maxVoluNum1"/>
+      </view>
+    </view>
+    <view class="weui-cell ">
+            <view class="weui-cell__hd">
+                <view class="weui-label">上传作品</view>
+            </view>
+            <!--
+            <view class="weui-cell__bd">
+              <view class="weui-uploader__files" id="uploaderFiles">
+                <block wx:for="{{files}}" wx:key="*this">
+                    <view class="weui-uploader__file" bindtap="previewImage" id="{{item}}">
+                        <image class="weui-uploader__img" input id="up_input" name="imagePath" src="{{item}}" mode="aspectFill" bindinput ="imagePath1" />
+                    </view>
+                </block>
+                <view class="weui-uploader__input-box">
+                  <view bindtap="chooseImage"class="weui-uploader__input"></view>   
+                </view>   
+          <button size="mini" type="default" bindtap="onAdd">上传照片</button>
+              </view>
+            </view>
+            -->
+            <button size="mini" type="default" bindtap="uploadImage">上传照片</button>
+            
+          </view>
+       <button size="mini" type="default" bindtap="onAdd">发布活动</button>
+ </view>
+    </view>
+<view wx:else>
+<view class='page_row' bindtap="suo">
     <view class="search">
       <view class="df search_arr">
         <icon class="searchcion" size='20' type='search'></icon>
@@ -14,20 +75,19 @@
   <view class="page">
     <view class="page__bd">
          <view class="panel">
-             <view class="panel__bd">
-                 <navigator wx:if="{{item.state=='0'}}" wx:for="{{meihaoList}}" wx:key="index" url="" class="media-box media-box_appmsg" hover-class="cell_active">
-                     <view class="media-box__hd media-box__hd_in-appmsg">
-                         <image class="media-box__thumb" src="{{item.fileUrl[0]}}" />
-                     </view>
-                     <view class="media-box__bd media-box__bd_in-appmsg">
-                         <view class="media-box__desc">作品名称：{{item.title}}</view>
-                         <view class="media-box__desc">创作时间：{{item.createTime}}</view>
-                         <view class="media-box__desc">作品简介：{{item.desc}}</view>
-                         <view class="shenhe">
-                            <button class="func-btn" bindtap="btnClick" size="default" style="margin-right:30rpx;">详情</button>
-                            <button  class="func-btn" bindtap="btnClick" size="default">审核中</button>
-                         </view>
-                     </view>
+             <view class="panel__bd">  
+                <navigator  wx:for="{{hezhiyuanlist}}" wx:key="index"  class="media-box media-box_appmsg" hover-class="cell_active"><!--wx:for是微信数据绑定的一种方式，该数组有多少数据就显示多少个view-->
+                  <!--index为每个数据对应的下标-->
+                  <view class="media-box__hd media-box__hd_in-appmsg">
+                    <image class="media-box__thumb" src="{{item.imagePath}}" />
+                  </view>
+                    <!--item就相当于数组名+下标的结合体，适用于调用数组所有数据-->
+                    <view class="media-box__bd media-box__bd_in-appmsg">
+                      <view class="media-box__title">{{item.serviceContent}}</view>
+                      <view class="media-box__desc">服务时间：{{item.serviceTime}}</view>
+                      <view class="media-box__desc">工作内容：{{item.statement}}</view>
+                      <view class="media-box__desc">招募人数：{{item.maxVoluNum}}</view>
+            </view>
                  </navigator>
              </view>
              
@@ -39,7 +99,4 @@
     </view>
     
  </view>
-
-
- <view class="Manage" wx:if="{{_openid}}"></view>
- <view class="Mine"></view>
+</view>

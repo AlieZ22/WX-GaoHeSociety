@@ -194,9 +194,9 @@ Page({
         required: true,
         minlength: 2
       },
-      age: {
+      sex: {
         required: true,
-        min: 0
+        minlength: 1
       },
       contact: {
         required: true,
@@ -213,9 +213,9 @@ Page({
         required: '请填写姓名',
         minlength: '请输入正确的姓名'
       },
-      age: {
-        required: '请填写年龄',
-        min: '数字需要>=1'
+      sex: {
+        required: '请填写性别',
+        minlength: '请输入性别'
       },
       contact: {
         required: '请填写手机号',
