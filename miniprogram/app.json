@@ -7,10 +7,10 @@
     "pages/xunxi_fuwu/xunxi_fuwu",
     "pages/services/services",
     "pages/share/share",
-    "pages/func/func",
     "pages/fillInfo/fillInfo",
-    "pages/hedangjian/hedangjian"
-    
+    "pages/hedangjian/hedangjian",
+    "pages/xunxi_zhiyuan/xunxi_zhiyuan",
+    "pages/shenhe_zhiyuan/shenhe_zhiyuan"
   ],
   "window": {
     "navigationBarBackgroundColor": "#ff6969",
@@ -31,14 +31,6 @@
       {
         "pagePath": "pages/wode/wode",
         "text": "我的"
-      },
-      {
-        "pagePath": "pages/index/index",
-        "text": "以前的首页"
-      },
-      {
-        "pagePath": "pages/func/func",
-        "text": "功能"
       }
     ]
   },

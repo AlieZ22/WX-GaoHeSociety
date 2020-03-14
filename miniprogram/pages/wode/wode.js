@@ -70,7 +70,14 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    
+    //更新全局user
+    if(app.globalData.user){
+      wx.cloud.database().collection("users").doc(app.globalData.user._id).get({
+        success:function(res){
+          app.globalData.user = res.data
+        }
+      })
+    }
   },
 
   /**

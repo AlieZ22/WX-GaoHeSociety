@@ -1,0 +1,15 @@
+<view class="nav">
+    <view bindtap="navSwitch" data-index="0" class="{{navState==0 ? 'nav-switch-style':'nav-noswitch-style'}}">未审核</view>
+    <view bindtap="navSwitch" data-index="1" class="{{navState==1 ? 'nav-switch-style':'nav-noswitch-style'}}">已审核</view>
+</view>
+<view wx:if="{{navState==0}}">  <!--未审核-->
+    <view wx:for="{{notDone_volulist}}" wx:key="index">
+        <text>{{item.name}}</text>
+    </view>
+</view>
+
+<view wx:if="{{navState==1}}">  <!--已审核-->
+    <view wx:for="{{done_volulist}}" wx:key="index">
+        <text>{{item.name}}</text>
+    </view>
+</view>

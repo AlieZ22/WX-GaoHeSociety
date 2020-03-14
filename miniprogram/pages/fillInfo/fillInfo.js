@@ -90,7 +90,6 @@ Page({
     })
   },
   addLocation:function(e){
-    console.log
     this.setData({
       location:e.detail.value
     })
