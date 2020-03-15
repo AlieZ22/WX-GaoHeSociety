@@ -10,6 +10,40 @@ Page({
     user:'',
     user_id: '',
   },
+  publish:function(e){
+    console.log(e)
+    wx.cloud.callFunction({
+      name: "change_hemeihaostate", 
+      data: {
+        dataId: e.currentTarget.id,
+        name: "hemeihao",
+        state: '2'  // -1表示审核不通过（2表示审核通过）
+      },
+      success: function (res) {
+        console.log("hemeihao表状态修改完毕", res)
+      },
+      fail:function(res){
+        console.log("失败", res)
+      }
+    })
+  },
+  delete:function(e){
+    console.log(e)
+    wx.cloud.callFunction({
+      name: "change_hemeihaostate",
+      data: {
+        dataId: e.currentTarget.id,
+        name: "hemeihao",
+        state: '-1'  // -1表示审核不通过（2表示审核通过）
+      },
+      success: function (res) {
+        console.log("hemeihao表状态修改完毕", res)
+      },
+      fail: function (res) {
+        console.log("失败", res)
+      }
+    })
+  },
   // 获取云端数据(合美好)
   getMeihaoData: function () {
     let that = this   // 防止异步处理造成this指向改变

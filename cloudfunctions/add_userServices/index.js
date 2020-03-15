@@ -15,7 +15,7 @@ exports.main = async (event, context) => {
     _openid:event._openid
   }).update({
     data:{
-      services:_.push({
+        services:_.push({
         info: event.info,
         way: event.way   // 1表示为合服务志愿者（0表示合服务受助者）
       })

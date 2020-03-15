@@ -58,7 +58,7 @@
     <view class="page__bd">
          <view class="panel">
              <view class="panel__bd">
-                 <navigator wx:if="{{item.state=='0'}}" wx:for="{{meihaoList}}" wx:key="index" url="" class="media-box media-box_appmsg" hover-class="cell_active">
+                 <navigator  wx:for="{{meihaoList}}" wx:key="index" url="" class="media-box media-box_appmsg" hover-class="cell_active">
                      <view class="media-box__hd media-box__hd_in-appmsg">
                          <image class="media-box__thumb" src="{{item.fileUrl[0]}}" />
                      </view>
@@ -67,9 +67,11 @@
                          <view class="media-box__desc">创作时间：{{item.createTime}}</view>
                          <view class="media-box__desc">作品简介：{{item.desc}}</view>
                          <view class="shenhe">
-<button  class="func-btn"  size="mini">详情</button>                            
-<button  class="func-btn"  size="mini">发布</button>
-<button  class="func-btn"  size="mini">撤销</button>
+<button  class="func-btn"  wx:if="{{item.state==='-1'}}" size="mini">审核失败</button>         
+<button  class="func-btn"  wx:if="{{item.state==='0'}}"size="mini">待审核</button>
+<button  class="func-btn"  wx:if="{{item.state==='0'}}" id="{{item._id}}" bindtap="publish" size="mini">发布</button>
+<button  class="func-btn"  wx:if="{{item.state==='0'}}" bindtap="delete" id="{{item._id}}" size="mini">禁止</button>
+<button  class="func-btn"  wx:if="{{item.state==='2'}}"size="mini">审核成功</button>
                          </view>
                      </view>
                  </navigator>
