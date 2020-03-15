@@ -51,7 +51,7 @@ Page({
         author: this.data.fuwu.name,
         location: this.data.fuwu.location,
         hefuwu_id: this.data.initData._id,
-        state: 0,
+        state: '0',
         helpContent: this.data.fuwu.helpContent,
         statement: this.data.fuwu.statement,
         time: this.data.fuwu.time,

@@ -93,7 +93,7 @@
   <button class='sousuo' size="mini">搜索</button> 
 </view>
 </view>
-
+<view class="panel__hd" > {{my_info.name}}好，这是您的志愿者报名情况：</view>
 <view class="page">
 <view class="page__bd">
      <view class="panel">
@@ -114,9 +114,7 @@
          </view>
          
      </view>
-     <!-- <view class="share_bot">
-       <button class="weui-btn" bindtap="btnClick">我要投稿</button>
-     </view> -->
+    
     
 </view>
 

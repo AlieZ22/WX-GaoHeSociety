@@ -31,18 +31,24 @@
   text-align: center;
 }
 button:not([size='mini']) {
-  min-height:40px;
+  height:30px;
   width:180rpx;
-  margin-left:auto;
-  margin-right:auto;
+  text-align: center;
+  line-height: 30rpx;
+  display: inline-block;
+  padding: 20rpx;
 }
 .func-btn {
   font-size: 30rpx;
   color: white;
   background-color: #ff6969;
   border-radius: 10rpx;
-  margin-right:20rpx;
-  display: inline-block;
+}
+.state-btn {
+  font-size: 30rpx;
+  color: #ff6969;
+  background-color: white;
+  border-radius: 10rpx;
 }
 .search{
   width: 80%;

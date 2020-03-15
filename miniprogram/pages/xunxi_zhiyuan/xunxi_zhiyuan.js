@@ -90,9 +90,11 @@ Page({
                 that.setData({
                   hezhiyuanlist: that.data.hezhiyuanlist.concat(res.data)
                 })
+                
               }
             })
           }
+         
         },
         fail: function (res) {
           console.log("获取用户失败", res)
@@ -177,6 +179,7 @@ Page({
       my_info:app.globalData.user
     })
     console.log(that.data.my_info)
+   
   },
 
   /**
@@ -191,6 +194,7 @@ Page({
    */
   onShow: function () {
     this.updateData()
+    
   },
 
   /**
