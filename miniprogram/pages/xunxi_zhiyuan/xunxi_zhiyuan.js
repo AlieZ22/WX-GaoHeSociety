@@ -96,7 +96,14 @@ Page({
       }
     })
   },
-
+  //生成随机数
+  createNonceStr: function () {
+    var str = "cloud://zzmine-3cgx9.7a7a-zzmine-3cgx9-1301387315/ui/pic",
+      // 随机产生
+      range = Math.round(Math.random() * (50)) + 1;
+    str = str + range + ".png";
+    return str;
+  },
   // 发布
   formSubmit:function(e){
     this.setData({
@@ -106,6 +113,7 @@ Page({
     let that = this
     console.log('form发生了submit事件，携带的数据为：', e.detail.value)
     const params = e.detail.value
+    var imgPath = this.createNonceStr();
     //校验表单
     if (!this.WxValidate.checkForm(params)) {
       const error = this.WxValidate.errorList[0]
@@ -122,7 +130,7 @@ Page({
         statement:formdata.statement,
         currentVoluNum:0,
         volunteers:[],
-        imagePath:"cloud://zzmine-3cgx9.7a7a-zzmine-3cgx9-1301387315/1582946876858.png"
+        imagePath: imgPath
       },
       success:function(res){
         wx.showToast({

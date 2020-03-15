@@ -1,174 +1,160 @@
-<!--pages/xunxi_fuwu/xunxi_fuwu.wxml-->
-
-<view  wx:if="{{user!==null&&user.isManager==false}}">
- <view class="panel__hd">居民用户：{{user.name}}，欢迎你的到来</view>
-    <!-- 导航条开始 -->
-  <view class="nav">
-    <view bindtap="navSwitch" data-index="0" class="{{navState==0 ? 'nav-switch-style':'nav-noswitch-style'}}">我是求助人</view>
-    <view bindtap="navSwitch" data-index="1" class="{{navState==1 ? 'nav-switch-style':'nav-noswitch-style'}}">我是志愿者</view>
-  </view>
-   <!-- 导航条结束 -->
-  <!-- 不可滑动页 -->
-  <view>
-    <view wx:if="{{navState==0}}" class="style-default">
-    <!-- 求助人 -->
-  <view class="page">
-    <view class="page__bd">
-          <view class="panel">
-              <view class="panel__bd">
-                  <navigator wx:for="{{qiuzhu}}" wx:key="index"  class="media-box media-box_appmsg" hover-class="cell_active" wx:key="index">
-                                
-                        <view class="media-box__bd media-box__bd_in-appmsg">
-                         <view class="media-box__title">求助内容：{{item.helpContent}}</view>
-                          <view class="media-box__desc">求助人：{{item.author}}</view>
-                          <view class="media-box__desc">联系方式：{{item.contact}}</view>
-                        
-                      </view>
-                        <button class="func-btn" bindtap="btnClick1" size="mini" >详情</button>
-                        <button  class="state-btn" wx:if="{{item.state==='-1'}}" size="default">审核失败</button>
-<button  class="state-btn" wx:if="{{item.state==='0'}}" size="default">待审核</button>
-<button  class="state-btn" wx:if="{{item.state==='2'}}" size="default">审核成功</button>
-              
-                  </navigator>
-                   
-              
-              </view>
-    </view>
-    </view>
-  </view>
-    
-    </view>
-    <!-- 求助人结束 -->
-    <!-- 志愿者开始 -->
-    <view wx:elif="{{navState==1}}" class="style-default">
-    <view class="page">
-    <view class="page__bd">
-          <view class="panel">
-              <view class="panel__bd">
-                  <view wx:for="{{zhiyuan}}" wx:key="index"  class="media-box media-box_appmsg" hover-class="cell_active" >
-                      
-                      <view class="media-box__bd media-box__bd_in-appmsg">
-                        
-                          <view class="media-box__title">帮助内容：{{item.helpContent}}</view>
-                          <view class="media-box__desc">时间：{{item.time}}</view>
-                          <view class="media-box__desc">楼号：{{item.location}}</view>
-                        
-                      </view>
-                       <button class="func-btn" bindtap="btnClick1" size="mini" >详情</button>
-                             <button  class="state-btn" wx:if="{{item.state==='-1'}}" size="default">审核失败</button>
-<button  class="state-btn" wx:if="{{item.state==='0'}}" size="default">待审核</button>
-<button  class="state-btn" wx:if="{{item.state==='2'}}" size="default">审核成功</button>
-              
-                  </view>
-              </view>
-            </view>
-          </view>
-    </view>
-
-    </view>
-  
-  </view>
-
-  <!-- 志愿者结束 -->
-</view>  
-<view  wx:wx:if="{{user!==null&&user.isManager==true}}">
- <view class="panel__hd">管理员用户：{{user.name}}，欢迎你的到来</view>
+<view  wx:if="{{user!==null&&user.isManager==true}}">
+  <view class="panel__hd">管理员用户：{{user.name}}，欢迎你的到来</view>
     <!-- 导航条开始 -->
   <view class="nav">
     <view bindtap="navSwitch" data-index="0" class="{{navState==0 ? 'nav-switch-style':'nav-noswitch-style'}}">求助内容审核</view>
     <view bindtap="navSwitch" data-index="1" class="{{navState==1 ? 'nav-switch-style':'nav-noswitch-style'}}">报名志愿审核</view>
   </view>
    <!-- 导航条结束 -->
-  <!-- 不可滑动页 -->
-  <view>
-    <view wx:if="{{navState==0}}" class="style-default">
-    <!-- 求助人 -->
-  <view class="page">
-    <view class="page__bd">
-          <view class="panel">
-              <view class="panel__bd">
-                  <navigator wx:for="{{super_fuwulist}}" wx:key="index"  class="media-box media-box_appmsg" hover-class="cell_active" wx:key="index" wx:if="{{item.state==='0'}}">
-                                
-                        <view class="media-box__bd media-box__bd_in-appmsg">
-                          <view class="media-box__title">求助内容：{{item.helpContent}}</view>
-                          <view class="media-box__desc">求助人：{{item.author}}</view>
-                          <view class="media-box__desc">联系方式：{{item.contact}}</view>
-                      </view>
-                        <button class="func-btn" bindtap="showRule" data-name='{{item}}' size="mini" >详情</button>
-                         <!--  规则提示  -->
-                          <view class="ruleZhezhao {{isRuleTrue?'isRuleShow':'isRuleHide'}}">
-                              <view class='ruleZhezhaoContent'>
-                                  <view class='ruleZhezhaoText'>
-                                      <text>求助内容：</text><text>{{detail.helpContent}}</text>
-                                  </view>
-                                   <view class='ruleZhezhaoText'>
-                                      <text>求助对象：</text><text>{{detail.author}}</text>
-                                  </view>
-                                   <view class='ruleZhezhaoText'>
-                                      <text>联系方式：</text><text>{{detail.contact}}</text>
-                                  </view>
-                                   <view class='ruleZhezhaoText'>
-                                      <text>志愿时间：</text><text>{{detail.time}}</text>
-                                  </view>
-                                   <view class='ruleZhezhaoText'>
-                                      <text>需要人数：</text><text>{{detail.maxVoluNum}}</text>
-                                  </view>
-                                   <view class='ruleZhezhaoText'>
-                                      <text>具体地址：</text><text>{{detail.location}}</text>
-                                  </view>
-                                  <view class='ruleZhezhaoText'>
-                                      <text>详细描述：</text><text>{{detail.statement}}</text>
-                                  </view>
-                                  <icon type='clear' color='#ff6969' class='ruleHide' bindtap='hideRule'> </icon>
-                              </view>
-                          </view>
-                      <!--  end  -->
-<button  class="func-btn"  wx:if="{{item.state==='0'}}" id="{{item._id}}" bindtap="publish" size="mini">发布</button>
-<button  class="func-btn"  wx:if="{{item.state==='0'}}" bindtap="delete" id="{{item._id}}" size="mini">禁止</button>
 
-
-                  </navigator>
-                   
-              
-              </view>
-    </view>
-    </view>
-  </view>
-    
-    </view>
-    <!-- 求助人结束 -->
-    <!-- 志愿者开始 -->
-    <view wx:elif="{{navState==1}}" class="style-default">
+    <!-- 不可滑动页 -->
+  <view wx:if="{{navState==0}}" class="style-default">
+      <!-- 求助人 -->
     <view class="page">
-    <view class="page__bd">
-          <view class="panel">
-              <view class="panel__bd">
-                  <view wx:for="{{super_fuwulist}}" wx:key="index"  class="media-box media-box_appmsg" hover-class="cell_active" wx:if="{{item.state==='2'}}">
-                      
-                      <view class="media-box__bd media-box__bd_in-appmsg">
-                        
-                          <view class="media-box__title">帮助内容：{{item.helpContent}}</view>
-                          <view class="media-box__desc">时间：{{item.time}}</view>
-                          <view class="media-box__desc">楼号：{{item.location}}</view>
-                        
+      <view class="page__bd">
+        <view class="panel">
+          <view class="panel__bd">
+            <navigator wx:for="{{super_fuwulist}}" wx:key="index"  class="media-box media-box_appmsg" hover-class="cell_active" wx:key="index" wx:if="{{item.state==='0'}}">
+                                  
+              <view class="media-box__bd media-box__bd_in-appmsg">
+                  <view class="media-box__title">求助内容：{{item.helpContent}}</view>
+                  <view class="media-box__desc">求助人：{{item.author}}</view>
+                  <view class="media-box__desc">联系方式：{{item.contact}}</view>
+              </view>
+              <button class="func-btn" bindtap="showRule" data-name='{{item}}' size="mini" >详情</button>
+              <!--  规则提示  -->
+              <view class="ruleZhezhao {{isRuleTrue?'isRuleShow':'isRuleHide'}}">
+                  <view class='ruleZhezhaoContent'>
+                      <view class='ruleZhezhaoText'>
+                          <text>求助内容：</text><text>{{detail.helpContent}}</text>
                       </view>
-                       <button class="func-btn" bindtap="btnClick1" size="mini" >详情</button>
-                             <button  class="state-btn" wx:if="{{item.state==='-1'}}" size="default">审核失败</button>
-<button  class="state-btn" wx:if="{{item.state==='0'}}" size="default">待审核</button>
-
-<button  class="state-btn" wx:if="{{item.state==='2'}}" size="default">审核成功</button>
-              
+                       <view class='ruleZhezhaoText'>
+                          <text>求助对象：</text><text>{{detail.author}}</text>
+                      </view>
+                       <view class='ruleZhezhaoText'>
+                          <text>联系方式：</text><text>{{detail.contact}}</text>
+                      </view>
+                       <view class='ruleZhezhaoText'>
+                          <text>志愿时间：</text><text>{{detail.time}}</text>
+                      </view>
+                       <view class='ruleZhezhaoText'>
+                          <text>需要人数：</text><text>{{detail.maxVoluNum}}</text>
+                      </view>
+                       <view class='ruleZhezhaoText'>
+                          <text>具体地址：</text><text>{{detail.location}}</text>
+                      </view>
+                      <view class='ruleZhezhaoText'>
+                          <text>详细描述：</text><text>{{detail.statement}}</text>
+                      </view>
+                      <icon type='clear' color='#ff6969' class='ruleHide' bindtap='hideRule'> </icon>
                   </view>
               </view>
+              <!--  end  -->
+              <button  class="func-btn"  wx:if="{{item.state==='0'}}" id="{{item._id}}" bindtap="publish" size="mini">发布</button>
+              <button  class="func-btn"  wx:if="{{item.state==='0'}}" bindtap="delete" id="{{item._id}}" size="mini">禁止</button>
+            </navigator>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view><!-- 求助人结束 -->
+      
+  <!-- 志愿者开始 -->
+  <view wx:elif="{{navState==1}}" class="style-default">
+    <view class="page">
+      <view class="page__bd">
+        <view class="panel">
+          <view class="panel__bd">
+            <view wx:for="{{super_fuwulist}}" wx:key="index"  class="media-box media-box_appmsg" hover-class="cell_active" wx:if="{{item.state==='2'}}">
+              <view class="media-box__hd media-box__hd_in-appmsg">
+                  <image class="media-box__thumb" src="{{item.imagePath}}" />
+              </view>
+              <view class="media-box__bd media-box__bd_in-appmsg">
+                  <view class="media-box__title">{{item.helpContent}}志愿者</view>
+                  <view class="media-box__desc">姓名：{{item.author}}</view>
+                  <view class="media-box__desc">联系方式：{{item.contact}}</view>
+                  <view class="media-box__desc">楼号：{{item.location}}</view>
+                  <view class="media-box__desc">求助时间：{{item.time}}</view>
+              </view>
+              <button class="func-btn" bindtap="btnClick1" size="mini" >详情</button>
+              <button  class="state-btn" wx:if="{{item.state==='-1'}}" size="default">审核失败</button>
+              <button  class="state-btn" wx:if="{{item.state==='0'}}" size="default">待审核</button>
+              <button  class="state-btn" wx:if="{{item.state==='2'}}" size="default">审核成功</button>
+                
             </view>
           </view>
+        </view>
+      </view>
     </view>
-
-    </view>
-  
   </view>
 
-  <!-- 志愿者结束 -->
-</view>  
+</view>
+
+<view  wx:else>
+
+  <view class="panel__hd">居民用户：{{user.name}}，欢迎你的到来</view>
+    <!-- 导航条开始 -->
+  <view class="nav">
+    <view bindtap="navSwitch" data-index="0" class="{{navState==0 ? 'nav-switch-style':'nav-noswitch-style'}}">我是求助人</view>
+    <view bindtap="navSwitch" data-index="1" class="{{navState==1 ? 'nav-switch-style':'nav-noswitch-style'}}">我是志愿者</view>
+  </view>
+   <!-- 导航条结束 -->
+
+    <!-- 不可滑动页 -->
+  <view wx:if="{{navState==0}}" class="style-default">
+      <!-- 求助人 -->
+    <view class="page">
+      <view class="page__bd">
+        <view class="panel">
+          <view class="panel__bd">
+            <navigator wx:for="{{qiuzhu}}" wx:key="index"  class="media-box media-box_appmsg" hover-class="cell_active" wx:key="index">
+             <view class="media-box__hd media-box__hd_in-appmsg">
+                  <image class="media-box__thumb" src="{{item.imagePath}}" />
+              </view>
+              <view class="media-box__bd media-box__bd_in-appmsg">
+                <view class="media-box__title">求助内容：{{item.helpContent}}</view>
+                <view class="media-box__desc">姓名：{{item.author}}</view>
+                <view class="media-box__desc">联系方式：{{item.contact}}</view>
+                <view class="media-box__desc">楼号：{{item.location}}</view>
+                <view class="media-box__desc">求助时间：{{item.time}}</view>
+                <button  class="state-btn" wx:if="{{item.state==='-1'}}" size="default">审核失败</button>
+                <button  class="state-btn" wx:if="{{item.state==='0'}}" size="default">待审核</button>
+                <button  class="state-btn" wx:if="{{item.state==='2'}}" size="default">审核成功</button>
+              </view>
+            
+            </navigator>
+          </view> <!-- panel__bd -->
+        </view><!-- panel -->
+      </view><!-- page__bd -->
+    </view><!-- page -->
+  </view>  <!-- if判断求助人结束 -->    
+
+      <!-- 志愿者开始 -->
+    <view wx:elif="{{navState==1}}" class="style-default">
+      <view class="page">
+        <view class="page__bd">
+          <view class="panel">
+            <view class="panel__bd">
+              <view wx:for="{{zhiyuan}}" wx:key="index"  class="media-box media-box_appmsg" hover-class="cell_active" >
+                <view class="media-box__hd media-box__hd_in-appmsg">
+                  <image class="media-box__thumb" src="{{item.imagePath}}" />
+              </view>
+              <view class="media-box__bd media-box__bd_in-appmsg">
+                <view class="media-box__title">{{item.helpContent}}志愿者</view>
+                <view class="media-box__desc">姓名：{{item.author}}</view>
+                <view class="media-box__desc">联系方式：{{item.contact}}</view>
+                <view class="media-box__desc">楼号：{{item.location}}</view>
+                <view class="media-box__desc">求助时间：{{item.time}}</view>
+              </view>
+               
+
+              </view><!-- 循环页面结束 -->
+            </view><!-- panel__bd -->
+          </view><!-- panel -->
+        </view><!-- page__bd -->
+      </view><!-- page -->
+    </view><!-- if判断志愿者结束 -->    
+
+</view><!-- 居民页面结束 -->  
 
 

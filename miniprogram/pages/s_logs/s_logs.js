@@ -33,7 +33,14 @@ Page({
       idx: id
     })
   },
-
+  //生成随机数
+  createNonceStr: function () {
+    var str = "cloud://zzmine-3cgx9.7a7a-zzmine-3cgx9-1301387315/ui/pic",
+      // 随机产生
+      range = Math.round(Math.random() * (50)) + 1;
+    str = str + range + ".png";
+    return str;
+  },
   //调用验证函数
   formSubmit: function (e) {
     this.setData({
@@ -41,6 +48,7 @@ Page({
     })
     console.log('form发生了submit事件，携带的数据为：', e.detail.value)
     const params = e.detail.value
+    var imgPath = this.createNonceStr();
     //校验表单
     if (!this.WxValidate.checkForm(params)) {
       const error = this.WxValidate.errorList[0]
@@ -61,7 +69,7 @@ Page({
         time: this.data.fuwu.time,
         maxVoluNum: this.data.fuwu.maxVoluNum,
         volunteers:[],
-        imagePath:''
+        imagePath: imgPath
       },
       success: function (res) {
         console.log("添加服务信息成功", res)

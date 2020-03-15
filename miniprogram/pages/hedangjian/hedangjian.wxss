@@ -3,6 +3,7 @@
 @import "../s_logs/s_logs.wxss";
 .guide{
   background-color: white;
+  padding: 10rpx;
 }
 
 .scroll-view-x{
@@ -32,21 +33,23 @@
   height: 200rpx;
   display: flex;
   margin-left: 10rpx;
-  border-top: silver 2rpx solid;
+  border-bottom: #ececec 2rpx solid;
 }
 
 .nav-zixun .inner{
   width: 200rpx;
   height: 180rpx;
-  margin-top: 10rpx;
+  margin-top: 20rpx;
   margin-bottom: 10rpx;
+  margin-right:20rpx;
 }
 
 .nav-zixun .text1{
   display: flex;
   flex-grow:3;
   flex-wrap: wrap;
-  margin-left: 10rpx;
+  margin-left: 20rpx;
+  padding: 20rpx;
 }
 
 .nav-zixun .image1{
