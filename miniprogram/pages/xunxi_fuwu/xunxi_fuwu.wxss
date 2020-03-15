@@ -145,7 +145,14 @@ button:not([size='mini']) {
   flex-direction: row;
   justify-content: space-around;
 }
-
+.tubiao{
+  width: 125rpx; 
+  height: 165rpx;
+  display: block; 
+  margin-right:50rpx;
+  margin-left:15rpx;
+  border-radius: 10%;
+}
 
 /* 规则提示层  */
 .isRuleShow{
@@ -167,7 +174,7 @@ button:not([size='mini']) {
     padding: 20rpx 0;
     width: 80%;
     background: white;
-    margin: 40% auto;
+    margin: 20% auto;
     border-radius: 20rpx;
     display: flex;
     flex-direction: column;
