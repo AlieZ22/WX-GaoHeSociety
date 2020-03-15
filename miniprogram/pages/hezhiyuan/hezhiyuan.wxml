@@ -23,7 +23,7 @@
   <view class="guide" wx:if="{{step === 2}}">
   <view class="panel__hd">活动招募</view>
   <view class="panel__hd">请您如实填写以下信息</view>
-  <view class="weui-cells weui-cells_after-title">
+  <view class="weui-cells weui-cells_after-title" style="margin-bottom: 20rpx;">
   <form bindsubmit="formSubmit">
   <view class="weui-cell ">
     <view class="weui-cell__hd">
@@ -59,7 +59,7 @@
  </view>
   
   
-  <button class="weui-btn" formType="submit">确认报名</button>
+  <button class="weui-btn"  formType="submit">确认报名</button>
   </form>
 </view>
 

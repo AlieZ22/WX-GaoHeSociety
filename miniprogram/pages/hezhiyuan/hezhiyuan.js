@@ -124,6 +124,9 @@ Page({
                 success: function (res) {
                   // 在users表中的volunteers加入表项
                   wx.hideLoading()
+                  wx.showToast({
+                    title: '报名成功',
+                  })
                   wx.cloud.callFunction({
                     name: "add_userVolunteers",
                     data: {
@@ -133,9 +136,6 @@ Page({
                     success: function (res) {
                       let pages = getCurrentPages(); //获取当前页面js里面的pages里的所有信息。
                       let prevPage = pages[pages.length - 2];
-                      wx.showToast({
-                        title: '报名成功',
-                      })
                       wx.navigateBack({
                         delta: 1
                       })
