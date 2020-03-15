@@ -3,40 +3,39 @@
     <view bindtap="navSwitch" data-index="1" class="{{navState==1 ? 'nav-switch-style':'nav-noswitch-style'}}">已审核</view>
 </view>
 <view wx:if="{{navState==0}}" class="card-container">  <!--未审核-->
-    <view wx:for="{{notDone_volulist}}" wx:key="index" class="card" wx-index="index">
-       <view class="weui-cell__hd">
-           <image src="cloud://zzmine-3cgx9.7a7a-zzmine-3cgx9-1301387315/main/u10.png"  class="tubiao"/>
-          </view>
-        <view class="media-box__bd media-box__bd_in-appmsg">
-            <view class="media-box__title">{{item.name}}</view>
-            <view class="media-box__desc">性别：{{item.sex}}</view>
-            <view class="media-box__desc">联系方式：{{item.contact}}</view>
-            <view class="media-box__desc">通讯地址：{{item.location}}</view>
-        </view>
-        <view class="icon">
-          <view bindtap="passBtn" data-id="{{item._id}}" style="border: red 2rpx solid;">
+  <view class="card" wx-index="index">
+    <view style=" margin-right: 30rpx;">序号:</view>
+    <text>姓名：</text>
+    <text>联系方式：</text>
+    <text>楼号：</text>
+  </view>
+  <view wx:for="{{notDone_volulist}}" wx:key="index" class="card" wx-index="index">
+      <text>{{index+1}}</text>
+      <text>{{item.name}}</text>
+      <text>{{item.contact}}</text>
+      <text>{{item.location}}</text>
+      <view class="icon">
+          <view bindtap="passBtn" data-id="{{item._id}}" >
             <icon type='success' size="30"></icon>
           </view>
-          <view bindtap="cancelBtn" data-id="{{item._id}}" style="border: red 2rpx solid;">
+          <view bindtap="cancelBtn" data-id="{{item._id}}" >
             <icon type='clear' size="30"color="grey"></icon>
           </view>
-        </view>
-     
-        
+      </view>
     </view>
 </view>
 
 <view wx:if="{{navState==1}}"class="card-container">  <!--已审核-->
     <view class="card" wx-index="index">
-        <text style="margin-right: 40rpx;">序号:</text>
-        <text style="margin-right: 40rpx;">姓名：</text>
-        <text style="margin-right: 40rpx;">联系方式：</text>
+        <view >序号:</view>
+        <text >姓名：</text>
+        <text >联系方式：</text>
         <text>楼号：</text>
     </view>
     <view wx:for="{{done_volulist}}" wx:key="index" class="card" wx-index="index">
-        <text style="margin-right: 60rpx;">{{index+1}}</text>
-        <text style="margin-right: 60rpx;">{{item.name}}</text>
-         <text style="margin-right: 60rpx;">{{item.contact}}</text>
+        <text>{{index+1}}</text>
+        <text>{{item.name}}</text>
+        <text>{{item.contact}}</text>
         <text>{{item.location}}</text>
     </view>
 </view>

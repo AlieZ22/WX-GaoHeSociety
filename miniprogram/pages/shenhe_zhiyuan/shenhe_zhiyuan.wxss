@@ -86,6 +86,31 @@ button:not([size='mini']) {
     align-items: center;
     border-bottom: 1px #ececec solid
 }
+.card text:nth-child(1){
+    color: #fff;
+    font-size: 40rpx;
+    height: 60rpx;
+    width: 60rpx;
+    background: #ff6969;
+    display: block;
+    text-align: center;
+    line-height: 60rpx;
+    border-radius: 30rpx;
+    margin-right: 30rpx;
+   
+}
+.card text:nth-child(2){
+    flex-wrap:wrap;
+    width: 15%;
+}
+.card text:nth-child(3){
+    flex-wrap:wrap;
+    width: 30%;
+}
+.card text:nth-child(4){
+    flex-wrap:wrap;
+    width: 20%;
+}
 
 
 
