@@ -31,7 +31,7 @@ Page({
           wechatPostList: that.data.wechatPostList.concat(data[i].content.news_item[j])
         })
       }
-      wx.cloud.database().collection("hedangjian").where({
+      /*wx.cloud.database().collection("hedangjian").where({
         media_id: data[i].media_id
       }).get({
         success:function(res){
@@ -59,7 +59,7 @@ Page({
             })
           }
         } 
-      })
+      })*/
     }
     console.log(that.data.wechatPostList)
   },
@@ -74,7 +74,6 @@ Page({
       // 云函数名称
       name: 'getAccessToken',
       success: function (res) {
-        console.log("getAccessToken result")
         that.setData({
           accessToken: res.result
         })

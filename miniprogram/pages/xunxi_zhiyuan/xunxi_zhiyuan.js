@@ -42,10 +42,12 @@ Page({
 
   // 撤销
   chexiaoBtn:function(e){
+    let that = this
     let zhiyuan_id = e.currentTarget.dataset.index
     db.collection("hezhiyuan").doc(zhiyuan_id).get({
       success:function(res){
-        if(res.data.volunteers.length==0){
+        let len = res.data.volunteers.length
+        if(len==0){
           wx.showModal({
             title:"提示",
             content:"确定撤销这个服务吗？",
@@ -59,18 +61,33 @@ Page({
                       icon:"success",
                       duration:1500
                     })
+                    that.updateData()
                   }
                 })
               }
             }
           })
         }else{
-          x.showModal({
+          console.log(res)
+          wx.showModal({
             title:"提示",
             content:"确定撤销这个服务吗？当前报名的志愿者会被取消",
             success:function(res){
               if(res.confirm){
-                // 删除
+                // 删除参加这个hezhiyuan的志愿者
+                for(let i=0;i<len;i++){
+                  db.collection("hezhiyuan_volunteer").doc(res.data.volunteers[i]).remove({})
+                }
+                db.collection("hezhiyuan").doc(zhiyuan_id).remove({
+                  success:function(res){
+                    wx.showToast({
+                      title:"删除成功",
+                      icon:"success",
+                      duration:1500
+                    })
+                    that.updateData()
+                  }
+                })
               }
             }
           })
@@ -112,6 +129,7 @@ Page({
         that.setData({
           navState:0
         })
+        this.updateData()
       }
     })
   },
