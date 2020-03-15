@@ -13,6 +13,58 @@ Page({
     qiuzhu:[],    //求助报名情况
     user: '',
     user_id: '',
+    detail:{},
+  },
+
+  //打开规则提示
+  showRule: function (e) {
+    console.log(e)
+    this.setData({
+      isRuleTrue: true,
+      detail: e.currentTarget.dataset.name
+    })
+  },
+  //关闭规则提示
+  hideRule: function (e) {
+    console.log(e)
+    this.setData({
+      isRuleTrue: false
+    })
+  },
+
+  publish: function (e) {
+    console.log(e)
+    wx.cloud.callFunction({
+      name: "change_hefuwustate",
+      data: {
+        dataId: e.currentTarget.id,
+        name: "hefuwu",
+        state: '2'  // -1表示审核不通过（2表示审核通过）
+      },
+      success: function (res) {
+        console.log("hefuwu表状态修改完毕", res)
+      },
+      fail: function (res) {
+        console.log("失败", res)
+      }
+    })
+  },
+  delete: function (e) {
+    console.log(e)
+    wx.cloud.callFunction({
+      name: "change_hefuwustate",
+      data: {
+        dataId: e.currentTarget.id,
+        name: "hefuwu",
+        state: '-1'  // -1表示审核不通过（2表示审核通过）
+      },
+      success: function (res) {
+        console.log("hefuwu表状态修改完毕", res)
+      },
+      fail: function (res) {
+        console.log("失败", res)
+      }
+    })
   },
   //监听滑块
   bindchange(e) {

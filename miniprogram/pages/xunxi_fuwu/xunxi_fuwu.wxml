@@ -93,13 +93,40 @@
                           <view class="media-box__title">求助内容：{{item.helpContent}}</view>
                           <view class="media-box__desc">求助人：{{item.author}}</view>
                           <view class="media-box__desc">联系方式：{{item.contact}}</view>
-                        
                       </view>
-                        <button class="func-btn" bindtap="btnClick1" size="mini" >详情</button>
-                        <button  class="state-btn" wx:if="{{item.state==='-1'}}" size="default">审核失败</button>
-<button  class="state-btn" wx:if="{{item.state==='0'}}" size="default">待审核</button>
-<button  class="state-btn" wx:if="{{item.state==='2'}}" size="default">审核成功</button>
-              
+                        <button class="func-btn" bindtap="showRule" data-name='{{item}}' size="mini" >详情</button>
+                         <!--  规则提示  -->
+                          <view class="ruleZhezhao {{isRuleTrue?'isRuleShow':'isRuleHide'}}">
+                              <view class='ruleZhezhaoContent'>
+                                  <view class='ruleZhezhaoText'>
+                                      <text>求助内容：</text><text>{{detail.helpContent}}</text>
+                                  </view>
+                                   <view class='ruleZhezhaoText'>
+                                      <text>求助对象：</text><text>{{detail.author}}</text>
+                                  </view>
+                                   <view class='ruleZhezhaoText'>
+                                      <text>联系方式：</text><text>{{detail.contact}}</text>
+                                  </view>
+                                   <view class='ruleZhezhaoText'>
+                                      <text>志愿时间：</text><text>{{detail.time}}</text>
+                                  </view>
+                                   <view class='ruleZhezhaoText'>
+                                      <text>需要人数：</text><text>{{detail.maxVoluNum}}</text>
+                                  </view>
+                                   <view class='ruleZhezhaoText'>
+                                      <text>具体地址：</text><text>{{detail.location}}</text>
+                                  </view>
+                                  <view class='ruleZhezhaoText'>
+                                      <text>详细描述：</text><text>{{detail.statement}}</text>
+                                  </view>
+                                  <icon type='clear' color='#ff6969' class='ruleHide' bindtap='hideRule'> </icon>
+                              </view>
+                          </view>
+                      <!--  end  -->
+<button  class="func-btn"  wx:if="{{item.state==='0'}}" id="{{item._id}}" bindtap="publish" size="mini">发布</button>
+<button  class="func-btn"  wx:if="{{item.state==='0'}}" bindtap="delete" id="{{item._id}}" size="mini">禁止</button>
+
+
                   </navigator>
                    
               
@@ -128,6 +155,7 @@
                        <button class="func-btn" bindtap="btnClick1" size="mini" >详情</button>
                              <button  class="state-btn" wx:if="{{item.state==='-1'}}" size="default">审核失败</button>
 <button  class="state-btn" wx:if="{{item.state==='0'}}" size="default">待审核</button>
+
 <button  class="state-btn" wx:if="{{item.state==='2'}}" size="default">审核成功</button>
               
                   </view>
