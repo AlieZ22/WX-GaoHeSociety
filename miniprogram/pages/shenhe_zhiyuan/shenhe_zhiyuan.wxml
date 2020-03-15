@@ -4,7 +4,7 @@
 </view>
 <view wx:if="{{navState==0}}" class="card-container">  <!--未审核-->
   <view class="card" wx-index="index">
-    <view style=" margin-right: 30rpx;">序号:</view>
+    <view style=" margin-right: 30rpx; margin-left: 10rpx">序号:</view>
     <text>姓名：</text>
     <text>联系方式：</text>
     <text>楼号：</text>
@@ -27,7 +27,7 @@
 
 <view wx:if="{{navState==1}}"class="card-container">  <!--已审核-->
     <view class="card" wx-index="index">
-        <view >序号:</view>
+        <view style=" margin-right: 30rpx; margin-left: 10rpx">序号:</view>
         <text >姓名：</text>
         <text >联系方式：</text>
         <text>楼号：</text>

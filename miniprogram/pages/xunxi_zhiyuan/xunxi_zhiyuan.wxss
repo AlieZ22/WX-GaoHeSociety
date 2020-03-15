@@ -37,10 +37,10 @@ button:not([size='mini']) {
   margin-right:auto;
 }
 .func-btn {
-  font-size: 25rpx;
+  font-size: 26rpx;
   color: white;
   background-color: #ff6969;
   border-radius: 10rpx;
-  margin-right:20rpx;
+  margin-right:6rpx;
   display: inline-block;
 }

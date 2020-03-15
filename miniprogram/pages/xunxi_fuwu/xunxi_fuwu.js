@@ -33,6 +33,7 @@ Page({
   },
 
   publish: function (e) {
+    let that = this
     console.log(e)
     wx.cloud.callFunction({
       name: "change_hefuwustate",
@@ -43,6 +44,7 @@ Page({
       },
       success: function (res) {
         console.log("hefuwu表状态修改完毕", res)
+        that.getFuwuData()
       },
       fail: function (res) {
         console.log("失败", res)
@@ -50,6 +52,7 @@ Page({
     })
   },
   delete: function (e) {
+    let that = this
     console.log(e)
     wx.cloud.callFunction({
       name: "change_hefuwustate",
@@ -60,6 +63,7 @@ Page({
       },
       success: function (res) {
         console.log("hefuwu表状态修改完毕", res)
+        that.getFuwuData()
       },
       fail: function (res) {
         console.log("失败", res)
