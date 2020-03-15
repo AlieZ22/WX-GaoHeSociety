@@ -9,18 +9,23 @@
             <view  class="panel__bd" wx:for="{{super_zhiyuanlist}}" wx:key="index"  class="media-box media-box_appmsg" hover-class="cell_active"><!--wx:for是微信数据绑定的一种方式，该数组有多少数据就显示多少个view-->
               <!--index为每个数据对应的下标-->
               <view class="media-box__hd media-box__hd_in-appmsg">
+                
                 <image class="media-box__thumb" src="{{item.imagePath}}" />
+               
+          
               </view>
                 <!--item就相当于数组名+下标的结合体，适用于调用数组所有数据-->
                 <view class="media-box__bd media-box__bd_in-appmsg">
-                <view class="media-box__title">{{item.serviceContent}}</view>
-                <view class="media-box__desc">服务时间：{{item.serviceTime}}</view>
-                <view class="media-box__desc">工作内容：{{item.statement}}</view>
-                <view class="media-box__desc">招募人数：{{item.maxVoluNum}}</view>  
-                <view class="media-box__desc">当前报名：{{item.volunteers.length}}</view>
-                <button class="func-btn" bindtap="shenheBtn" data-index="{{item._id}}" size="mini">审核志愿者</button>
-                <button class="func-btn" bindtap="chexiaoBtn" data-index="{{item._id}}" size="mini">撤销服务</button>
-            </view>
+                
+                    <view class="media-box__title">{{item.serviceContent}}</view>
+                    <view class="media-box__desc">{{item.serviceTime}}</view>
+                    <view class="media-box__desc">{{item.statement}}</view>
+                    <view class="media-box__desc">招募人数：{{item.maxVoluNum}}</view>  
+                    <view class="media-box__desc">当前报名：{{item.volunteers.length}}</view>
+                    <icon class="delete-btn" type='clear' color='#ff6969' bindtap="chexiaoBtn" data-index="{{item._id}}" > </icon>
+                    <button class="func-btn" bindtap="shenheBtn" data-index="{{item._id}}" size="mini">审核志愿者 </button>       
+                </view>
+              
           </view>
       </view>
     </view>
