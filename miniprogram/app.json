@@ -10,7 +10,8 @@
     "pages/fillInfo/fillInfo",
     "pages/hedangjian/hedangjian",
     "pages/xunxi_zhiyuan/xunxi_zhiyuan",
-    "pages/shenhe_zhiyuan/shenhe_zhiyuan"
+    "pages/shenhe_zhiyuan/shenhe_zhiyuan",
+    "pages/article/article"
   ],
   "window": {
     "navigationBarBackgroundColor": "#ff6969",

@@ -92,6 +92,7 @@ App({
     appid:"wx9e2d10f6dc0c617f",
     ne:null,
     userInfo:null,
-    user:null
+    user:null,
+    article_url:""
   }
 })

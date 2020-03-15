@@ -1,18 +1,99 @@
 // miniprogram/pages/hedangjian/hedangjian.js
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    accessToken:"",
+    wechatPostList:[]    // 同步公众号的列表
+  },
 
+  seeDetail:function(res){
+    // 将http换成https
+    let tempUrl = res.currentTarget.dataset.index
+    tempUrl = tempUrl.slice(0,4)+"s"+tempUrl.slice(4)
+    console.log(tempUrl)
+    app.globalData.article_url = tempUrl
+    wx.navigateTo({
+      url: '../article/article'
+    })
+  },
+
+  updateArticles:function(data){
+    let that = this
+    let len = data.length
+    for(let i=0;i<len;i++){
+      let len2 = data[i].content.news_item.length
+      for(let j=0;j<len2;j++){
+        that.setData({
+          wechatPostList: that.data.wechatPostList.concat(data[i].content.news_item[j])
+        })
+      }
+      wx.cloud.database().collection("hedangjian").where({
+        media_id: data[i].media_id
+      }).get({
+        success:function(res){
+          if(res.data.length==0){        // 没有存入这一天的公众号投稿
+            wx.cloud.database().collection("hedangjian").add({
+              data: {
+                media_id: data[i].media_id,
+                update_time: data[i].content.update_time,
+                news_item: data[i].content.news_item
+              },
+              success: function (res) {
+                console.log("合党建添加成功", res)
+              }
+            })
+          }else{                // 更新
+            wx.cloud.database().collection("hedangjian").doc(res.data[0]._id).set({
+              data:{
+                media_id: data[i].media_id,
+                update_time: data[i].content.update_time,
+                news_item: data[i].content.news_item
+              },
+              success:function(res){
+                //console.log("更新合党建成功",res)
+              }
+            })
+          }
+        }
+      })
+    }
+    console.log(that.data.wechatPostList)
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    // 获取access token
+    let that = this;
+    wx.cloud.callFunction({
+      // 云函数名称
+      name: 'getAccessToken',
+      success: function (res) {
+        console.log("getAccessToken result")
+        that.setData({
+          accessToken: res.result
+        })
+        wx.cloud.callFunction({
+          // 云函数名称
+          name: 'getWechatPosts',
+          data: {
+            accessToken: that.data.accessToken
+          },
+          success: function (res) {
+            console.log("getWechatPosts result")
+            console.log(res.result)
+            that.updateArticles(res.result.item)    // 更新公众号文章
+          },
+          fail: console.error
+        })
+      },
+      fail: console.error
+    })
   },
 
   /**

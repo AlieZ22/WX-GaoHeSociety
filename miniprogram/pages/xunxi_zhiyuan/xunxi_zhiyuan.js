@@ -40,6 +40,45 @@ Page({
     })
   },
 
+  // 撤销
+  chexiaoBtn:function(e){
+    let zhiyuan_id = e.currentTarget.dataset.index
+    db.collection("hezhiyuan").doc(zhiyuan_id).get({
+      success:function(res){
+        if(res.data.volunteers.length==0){
+          wx.showModal({
+            title:"提示",
+            content:"确定撤销这个服务吗？",
+            success:function(res){
+              if(res.confirm){
+                // 删除
+                db.collection("hezhiyuan").doc(zhiyuan_id).remove({
+                  success:function(res){
+                    wx.showToast({
+                      title:"删除成功",
+                      icon:"success",
+                      duration:1500
+                    })
+                  }
+                })
+              }
+            }
+          })
+        }else{
+          x.showModal({
+            title:"提示",
+            content:"确定撤销这个服务吗？当前报名的志愿者会被取消",
+            success:function(res){
+              if(res.confirm){
+                // 删除
+              }
+            }
+          })
+        }
+      }
+    })
+  },
+
   // 发布
   formSubmit:function(e){
     this.initValidate()//验证规则函数

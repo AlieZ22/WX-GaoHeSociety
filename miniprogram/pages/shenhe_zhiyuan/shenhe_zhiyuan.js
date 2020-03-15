@@ -43,7 +43,6 @@ Page({
         let volunteers = res.data.volunteers
         let len = volunteers.length
         for(let i=0;i<len;i++){
-          console.log(i)
           db.collection("hezhiyuan_volunteer").doc(volunteers[i]).get({
             success:function(res){
               let volunteer = res.data
