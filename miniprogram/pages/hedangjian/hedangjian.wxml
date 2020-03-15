@@ -9,7 +9,7 @@
         <view class="inner text1">
           <view class="media-box__bd media-box__bd_in-appmsg">
             <view class="media-box__title">{{item.title}}</view>
-            <view class="media-box__desc">描述：{{item.digest}}</view>
+            <view class="media-box__desc">详情：{{item.digest}}</view>
           </view>
         </view>
         <view class="inner image1">

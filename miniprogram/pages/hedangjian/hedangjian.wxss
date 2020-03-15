@@ -12,7 +12,7 @@
 
 .scroll-view-x .scroll-item{
   display: inline-block;
-  font-size: 36rpx;
+  font-size: 40rpx;
   color: gray;
   margin-right: 14rpx;
   margin-left: 10rpx;
@@ -51,16 +51,5 @@
 
 .nav-zixun .image1{
   flex-grow:1;
-}
-
-.nav-zixun .inner .down{
-  width:100%;
-  display: flex;
-  margin-top: 10rpx;
-  justify-content: space-between;
-  flex-wrap: nowrap;
-}
-.nav-zixun .inner .down .info{
-  font-size: 20rpx;
-  color: silver;
+  height: 190rpx;
 }
