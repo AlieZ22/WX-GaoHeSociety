@@ -27,6 +27,12 @@
   padding: 10rpx 40rpx;
   border:2rpx #ff6969 solid;
 }
+.btn-noswitch-style{
+  display:none;
+}
+.btn-switch-style{
+  display:inline;
+}
 .style-default{
   text-align: center;
 }
@@ -44,3 +50,42 @@ button:not([size='mini']) {
   margin-right:20rpx;
   display: inline-block;
 }
+
+.card-container{
+    width: 100%;
+    background: white;
+    border-radius: 20rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+}
+
+.tubiao{
+   width: 150rpx; 
+  height: 150rpx;
+  display: block; 
+  margin-right:20rpx;
+  margin-left:15rpx;
+  border-radius: 10%;
+}
+.icon{
+  width: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+}
+.card{
+   padding: 30rpx;
+    width: 100%;
+    font-size: 30rpx;
+    color: #000;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-bottom: 1px #ececec solid
+}
+
+
+

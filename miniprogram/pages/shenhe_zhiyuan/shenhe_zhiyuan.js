@@ -8,7 +8,8 @@ Page({
   data: {
     hezhiyuan_id:"",
     navState:0,
-    done_volulist:[],     // 已审核的志愿者
+    btnState: true,
+    done_volulist:[],       // 已审核的志愿者
     notDone_volulist:[]     // 未审核的志愿者
   },
 
@@ -21,6 +22,7 @@ Page({
       navState: index
     })
   },
+
   //点击导航
   navSwitch: function (e) {
     // console.log(e.currentTarget.dataset.index)
@@ -28,6 +30,21 @@ Page({
     this.setData({
       navState: index
     })
+  },
+  //选择按钮
+  btnSwitch: function () {
+    console.log(this.data.btnState)
+    let index = this.data.btnState;
+    if(index){
+      this.setData({
+        btnState: false,
+      })
+    }else{
+      this.setData({
+        btnState:true,
+      })
+    }
+   
   },
   /**
    * 生命周期函数--监听页面加载
