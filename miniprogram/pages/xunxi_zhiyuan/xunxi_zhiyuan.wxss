@@ -32,12 +32,12 @@
 }
 button:not([size='mini']) {
   min-height:40px;
-  width:180rpx;
+  width:auto;
   margin-left:auto;
   margin-right:auto;
 }
 .func-btn {
-  font-size: 30rpx;
+  font-size: 25rpx;
   color: white;
   background-color: #ff6969;
   border-radius: 10rpx;

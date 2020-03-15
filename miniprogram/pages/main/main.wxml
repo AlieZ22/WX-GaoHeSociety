@@ -31,11 +31,11 @@
     </view>
   </view>
 </view>
-<view class="header">
+<!-- <view class="header">
   <text>疫情讯息</text>
-</view>
+</view> -->
 
-<view class="selection">
+<!-- <view class="selection">
 <view class="panel">
     <view class="panel__bd">
         <view class="media-box media-box_text">
@@ -49,7 +49,7 @@
         </view>
     </view>
 </view>
-</view>
+</view> -->
 
 
 
