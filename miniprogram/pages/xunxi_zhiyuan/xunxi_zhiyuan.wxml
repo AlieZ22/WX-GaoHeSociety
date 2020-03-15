@@ -18,7 +18,7 @@
                 <view class="media-box__desc">工作内容：{{item.statement}}</view>
                 <view class="media-box__desc">招募人数：{{item.maxVoluNum}}</view>  
                 <view class="media-box__desc">当前报名：{{item.volunteers.length}}</view>
-                <button class="weui-btn" bindtap="shenheBtn" data-index="{{item._id}}">审核志愿者</button>
+                <button class="weui-btn" bindtap="shenheBtn" data-index="{{item._id}}" style="width: 300rpx;">审核志愿者</button>
             </view>
           </view>
       </view>

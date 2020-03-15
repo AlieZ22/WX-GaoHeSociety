@@ -103,6 +103,9 @@ Page({
               act_id: that.data.currentAct_id
             },
             success: res => {
+              wx.showLoading({
+                title:"提交中..."
+              })
               // 在返回结果中会包含新创建的记录的 _id
               that.setData({
                 counterId: res._id,         // 合志愿 志愿者的_id
@@ -120,6 +123,10 @@ Page({
                 },
                 success: function (res) {
                   // 在users表中的volunteers加入表项
+                  wx.hideLoading()
+                  wx.showToast({
+                    title: '报名成功',
+                  })
                   wx.cloud.callFunction({
                     name: "add_userVolunteers",
                     data: {
@@ -129,13 +136,8 @@ Page({
                     success: function (res) {
                       let pages = getCurrentPages(); //获取当前页面js里面的pages里的所有信息。
                       let prevPage = pages[pages.length - 2];
-                      prevPage.setData({
-                      })
                       wx.navigateBack({
                         delta: 1
-                      })
-                      wx.showToast({
-                        title: '报名成功',
                       })
                       console.log("云函数添加志愿者成功", res)
                       console.log("users表项添加完毕", res)
@@ -145,10 +147,6 @@ Page({
                 fail: function (res) {
                   console.log("合志愿添加志愿者失败，可能是人数达到上限", res)
                 }
-              })
-
-              wx.showToast({
-                title: '报名成功',
               })
               console.log('[数据库] [新增记录] 成功，记录 _id: ', res._id)
             },

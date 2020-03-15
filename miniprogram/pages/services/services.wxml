@@ -13,8 +13,8 @@
                          <view class="media-box__desc">联系方式：{{item.contact}}</view>
                          <view class="media-box__desc">楼号：{{item.location}}</view>
                          <view class="media-box__desc">求助时间：{{item.time}}</view>
-                         <button class="weui-btn" data-content="{{item}}" bindtap="btnClick_helper">我要帮助</button>
-                         
+                         <button wx:if="{{item.volunteers.length<item.maxVoluNum}}" class="weui-btn" data-content="{{item}}" bindtap="btnClick_helper">我要帮助</button>
+                         <button wx:else class="weui-btn" style="color: gray;">人数已满</button>
                      </view>
                  </view>
             </view>
