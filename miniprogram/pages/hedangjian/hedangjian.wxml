@@ -1,17 +1,22 @@
 <!--miniprogram/pages/hedangjian/hedangjian.wxml-->
 <!--展示党建信息-->
+<scroll-view class="scroll-view-x" scroll-x="true">
+  <view class="scroll-item-selected">最新资讯</view>
+</scroll-view>
 <view class="guide">
-        <view  class="panel__bd" wx:for="{{wechatPostList}}" wx:key="index"  class="media-box media-box_appmsg" hover-class="cell_active"><!--wx:for是微信数据绑定的一种方式，该数组有多少数据就显示多少个view-->
-          <!--index为每个数据对应的下标-->
-          <view class="media-box__hd media-box__hd_in-appmsg">
-            <image class="media-box__thumb" src="{{item.thumb_url}}" lazy-load="true"/>
-          </view>
-            <!--item就相当于数组名+下标的结合体，适用于调用数组所有数据-->
-            <view class="media-box__bd media-box__bd_in-appmsg">
+      <view wx:for="{{wechatPostList}}" wx:key="index" bindtap="seeDetail" data-index="{{item.url}}" >
+        <navigator class="nav-zixun">
+        <view class="inner text1">
+          <view class="media-box__bd media-box__bd_in-appmsg">
             <view class="media-box__title">{{item.title}}</view>
-            <view class="media-box__desc">描述：{{item.digest}}</view>
-            <button class="weui-btn" bindtap="seeDetail" data-index="{{item.url}}">查看</button>
+            <view class="media-box__desc">详情：{{item.digest}}</view>
+          </view>
         </view>
-      </view>
-  </view>
+        <view class="inner image1">
+          <image style="margin-right:6rpx;margin-left:6rpx" class="media-box__thumb" src="{{item.thumb_url}}" lazy-load="true" />
+        </view>
+      </navigator>
+    </view>
+      
+</view>
   <!--展示党建信息结束-->

@@ -29,7 +29,7 @@ class AccessToken {
 
   // 获取保存在数据库的公众号access_token
   async getCachedWechatAccessToken() {
-    let collection = 'wx-access-token'; //数据库集合名称
+    /*let collection = 'wx-access-token'; //数据库集合名称
     let gapTime = 300000; // 5 分钟
     cloud.init();
     let db = cloud.database();
@@ -76,7 +76,11 @@ class AccessToken {
         });
         return accessTokenBody.access_token;
       }
-    }
+    }*/
+    let accessTokenBody = await this.getWechatAccessToken();
+    let act = accessTokenBody.access_token;
+    let ein = accessTokenBody.expires_in * 1000;
+    return act;
   }
 }
 module.exports = AccessToken

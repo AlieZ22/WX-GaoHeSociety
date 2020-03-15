@@ -93,6 +93,8 @@ App({
     ne:null,
     userInfo:null,
     user:null,
-    article_url:""
+    article_url:"",
+    articles:[],
+    isCached:false    // 提高获取公众号文章的性能
   }
 })

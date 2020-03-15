@@ -4,3 +4,52 @@
 .guide{
   background-color: white;
 }
+
+.scroll-view-x{
+  white-space: nowrap;
+  margin: 10rpx;
+}
+
+.scroll-view-x .scroll-item{
+  display: inline-block;
+  font-size: 40rpx;
+  color: gray;
+  margin-right: 14rpx;
+  margin-left: 10rpx;
+}
+
+.scroll-view-x .scroll-item-selected{
+  display: inline-block;
+  font-size: 36rpx;
+  color: red;
+  margin-right: 14rpx;
+  margin-left: 10rpx;
+  border-left: 8rpx red solid;
+  padding-left: 6rpx;
+}
+.nav-zixun{
+  width: 720rpx;
+  height: 200rpx;
+  display: flex;
+  margin-left: 10rpx;
+  border-top: silver 2rpx solid;
+}
+
+.nav-zixun .inner{
+  width: 200rpx;
+  height: 180rpx;
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+}
+
+.nav-zixun .text1{
+  display: flex;
+  flex-grow:3;
+  flex-wrap: wrap;
+  margin-left: 10rpx;
+}
+
+.nav-zixun .image1{
+  flex-grow:1;
+  height: 190rpx;
+}
