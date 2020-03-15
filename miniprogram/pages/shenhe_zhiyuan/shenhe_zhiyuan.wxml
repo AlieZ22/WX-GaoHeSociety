@@ -14,10 +14,10 @@
             <view class="media-box__desc">通讯地址：{{item.location}}</view>
         </view>
         <view class="icon">
-          <view bindtap="btnSwitch" wx:if="{{btnState==true}}">
+          <view bindtap="passBtn" data-id="{{item._id}}" style="border: red 2rpx solid;">
             <icon type='success' size="30"></icon>
           </view>
-          <view bindtap="btnSwitch" wx:if="{{btnState==false}}">
+          <view bindtap="cancelBtn" data-id="{{item._id}}" style="border: red 2rpx solid;">
             <icon type='clear' size="30"color="grey"></icon>
           </view>
         </view>
@@ -27,11 +27,16 @@
 </view>
 
 <view wx:if="{{navState==1}}"class="card-container">  <!--已审核-->
+    <view class="card" wx-index="index">
+        <text style="margin-right: 40rpx;">序号:</text>
+        <text style="margin-right: 40rpx;">姓名：</text>
+        <text style="margin-right: 40rpx;">联系方式：</text>
+        <text>楼号：</text>
+    </view>
     <view wx:for="{{done_volulist}}" wx:key="index" class="card" wx-index="index">
-        <text>{{index+1}}</text>
-        <text>{{item.name}}</text>
-         <text>{{item.contact}}</text>
+        <text style="margin-right: 60rpx;">{{index+1}}</text>
+        <text style="margin-right: 60rpx;">{{item.name}}</text>
+         <text style="margin-right: 60rpx;">{{item.contact}}</text>
         <text>{{item.location}}</text>
-        <icon type='success' ></icon>
     </view>
 </view>
