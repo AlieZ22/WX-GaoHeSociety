@@ -74,7 +74,7 @@
                 </view>
 
                 <view class="weui-cell ">
-                    <button class="weui-btn" formType="submit" >提交</button>
+                    <button class="weui-btn" formType="submit" disabled="{{disable}}">提交</button>
                     </view>
                 </form>
    

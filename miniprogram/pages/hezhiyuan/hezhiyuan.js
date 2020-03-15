@@ -9,6 +9,7 @@ const app = getApp()
 Page({
 
   data: {
+    disable: false,      // 防止表单重复提交
     currentAct_id:"",   // 当前选择报名的合志愿活动的id
     step: 1,
     counterId: '',
@@ -77,6 +78,9 @@ Page({
     })
   },
   formSubmit: function (e) {
+    this.setData({
+      disable:true
+    })
     console.log(e.detail.value)
     const params = e.detail.value
     //校验表单
@@ -183,6 +187,9 @@ Page({
     wx.showModal({
       content: error.msg,
       showCancel: false,
+    })
+    this.setData({
+      disable: false
     })
   },
   //验证函数

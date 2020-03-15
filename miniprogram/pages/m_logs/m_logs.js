@@ -8,6 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    disable: false,      // 防止表单重复提交
     files: [],    // 临时图片文件
     fileUrl : [],       // 存放上传成功的图片的fileID
     author:"",
@@ -39,6 +40,9 @@ Page({
 
 
   formSubmit: function (e){
+    this.setData({
+      disable:true
+    })
     console.log('form发生了submit事件，携带的数据为：', e.detail.value)
     const params = e.detail.value
     //校验表单
@@ -140,6 +144,9 @@ Page({
     wx.showModal({
       content: error.msg,
       showCancel: false,
+    })
+    this.setData({
+      disable:false
     })
   },
   //验证函数

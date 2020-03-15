@@ -8,6 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    disable: false,      // 防止表单重复提交
     hezhiyuanlist: [],   // 作为居民的合志愿列表   
     super_zhiyuanlist:[],  // 作为管理者的合志愿列表
     my_info:null,
@@ -98,6 +99,9 @@ Page({
 
   // 发布
   formSubmit:function(e){
+    this.setData({
+      disable:true
+    })
     this.initValidate()//验证规则函数
     let that = this
     console.log('form发生了submit事件，携带的数据为：', e.detail.value)
@@ -127,7 +131,8 @@ Page({
           duration:1500
         })
         that.setData({
-          navState:0
+          navState:0,
+          disable:false
         })
         this.updateData()
       }
@@ -174,6 +179,9 @@ Page({
     wx.showModal({
       content: error.msg,
       showCancel: false,
+    })
+    this.setData({
+      disable:false
     })
   },
   //验证函数

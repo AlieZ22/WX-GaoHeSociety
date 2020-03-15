@@ -51,7 +51,7 @@
               </view>
             </view>
           </view>
-      <button class="weui-btn" formType="submit"  data-from="{{fuwu}}" >提交</button>
+      <button class="weui-btn" formType="submit"  data-from="{{fuwu}}" disabled="{{disable}}">提交</button>
   </form>    
 </view>
 

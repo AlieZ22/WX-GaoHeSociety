@@ -9,6 +9,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    disable:false,   // 防止表单重复提交
     volunteer:{
       contact:'',
       name:'',
@@ -29,6 +30,9 @@ Page({
 
   //调用验证函数
   formSubmit: function (e) {
+    this.setData({
+      disable:true
+    })
     console.log('form发生了submit事件，携带的数据为：', e.detail.value)
     const params = e.detail.value
     //校验表单
@@ -86,7 +90,6 @@ Page({
                       console.log("云函数添加志愿者失败",res)
                     }
                   })
-
                   wx.showModal({
                     title:"提示",
                     content:"报名成功！",
@@ -158,6 +161,9 @@ Page({
     wx.showModal({
       content: error.msg,
       showCancel: false,
+    })
+    this.setData({
+      disable: false
     })
   },
   //验证函数

@@ -42,7 +42,7 @@
               <view class="weui-label">需要人数</view>
           </view>
           <view class="weui-cell__bd">
-              <input class="weui-input" name='maxVolNum' value='{{fuwu.maxVolNum}}' placeholder="请输入帮助内容" bindinput="addMaxVolNum"/>
+              <input class="weui-input" name='maxVoluNum' value='{{fuwu.maxVoluNum}}' placeholder="请输入人数上限" bindinput="addMaxVoluNum"/>
           </view>
       </view>
 
@@ -66,7 +66,7 @@
       </view>
 
       <view class="weui-cell ">
-          <button class="weui-btn" formType="submit"  data-from="{{fuwu}}" >提交</button>
+          <button class="weui-btn" formType="submit"  data-from="{{fuwu}}" disabled="{{disable}}">提交</button>
           </view>
      </form>
    

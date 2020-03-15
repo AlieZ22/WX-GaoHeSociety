@@ -17,7 +17,7 @@
              
          </view>
          <view class="share_bot">
-           <button class="weui-btn" bindtap="btnClick">我要投稿</button>
+           <button class="weui-btn" bindtap="btnClick" >我要投稿</button>
          </view>
         
     </view>

@@ -49,7 +49,7 @@
           </view>
       </view>
       <view class="weui-cell ">
-          <button class="weui-btn" formType="submit"  data-from="{{volunteer}}" >提交</button>
+          <button class="weui-btn" formType="submit"  data-from="{{volunteer}}" disabled="{{disable}}">提交</button>
           </view>
      </form>
    

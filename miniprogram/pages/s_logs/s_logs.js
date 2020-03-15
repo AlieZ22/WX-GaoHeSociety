@@ -9,6 +9,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    disable:false,      // 防止表单重复提交
     fuwu: {
       contact: '',
       name: '',
@@ -17,7 +18,7 @@ Page({
       time: '',
       state: '2',
       location: '',
-      maxVolNum: ''
+      maxVoluNum: ''
 
     },
     initData: {},
@@ -35,6 +36,9 @@ Page({
 
   //调用验证函数
   formSubmit: function (e) {
+    this.setData({
+      disable:true
+    })
     console.log('form发生了submit事件，携带的数据为：', e.detail.value)
     const params = e.detail.value
     //校验表单
@@ -55,7 +59,7 @@ Page({
         helpContent: this.data.fuwu.helpContent,
         statement: this.data.fuwu.statement,
         time: this.data.fuwu.time,
-        maxVolNum: this.data.fuwu.maxVolNum,
+        maxVoluNum: this.data.fuwu.maxVoluNum,
         volunteers:[],
         imagePath:''
       },
@@ -113,8 +117,8 @@ Page({
     let v_time = "fuwu.time"
     this.setData({ [v_time]: event.detail.value })
   },
-  addMaxVolNum: function (event) {
-    let v_max = "fuwu.maxVolNum"
+  addMaxVoluNum: function (event) {
+    let v_max = "fuwu.maxVoluNum"
     this.setData({ [v_max]: event.detail.value })
   },
   addImagePath: function (event) {
@@ -145,6 +149,9 @@ Page({
       content: error.msg,
       showCancel: false,
     })
+    this.setData({
+      disable:false
+    })
   },
   //验证函数
   initValidate() {
@@ -165,7 +172,7 @@ Page({
         required: true,
         minlength: 2
       },
-      maxVolNum: {
+      maxVoluNum: {
         required: true,
         min: 0
       }
@@ -188,7 +195,7 @@ Page({
         required: '请填写求助内容',
         minlength: '起码输入两字符'
       },
-      maxVolNum: {
+      maxVoluNum: {
         required: '请填写需要志愿者的人数',
         min: '数字需要>=1',
       }

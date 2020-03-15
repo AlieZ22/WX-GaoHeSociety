@@ -59,7 +59,7 @@
  </view>
   
   
-  <button class="weui-btn"  formType="submit">确认报名</button>
+  <button class="weui-btn"  formType="submit" disabled="{{disable}}">确认报名</button>
   </form>
 </view>
 
