@@ -1,18 +1,7 @@
 {
   "pages": [
     "pages/main/main",
-    "pages/hezhiyuan/hezhiyuan",
-    "pages/index/index",
-    "pages/wode/wode",
-    "pages/xunxi_fuwu/xunxi_fuwu",
-    "pages/services/services",
-    "pages/share/share",
-    "pages/fillInfo/fillInfo",
-    "pages/hedangjian/hedangjian",
-    "pages/xunxi_zhiyuan/xunxi_zhiyuan",
-    "pages/shenhe_zhiyuan/shenhe_zhiyuan",
-    "pages/shenhe_fuwu/shenhe_fuwu",
-    "pages/article/article"
+    "pages/wode/wode"
   ],
   "window": {
     "navigationBarBackgroundColor": "#ff6969",
@@ -23,7 +12,7 @@
     "backgroundTextStyle": "dark"
   },
   "tabBar": {
-    "color": "#ffffff",
+    "color": "#e6e6e6",
     "selectedColor": "#2c2c2c",
     "backgroundColor": "#ff6969",
     "borderStyle": "black",

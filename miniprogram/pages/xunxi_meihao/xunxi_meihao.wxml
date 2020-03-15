@@ -1,6 +1,6 @@
 <!--pages/xunxi_fuwu/xunxi_fuwu.wxml-->
 <view  wx:if="{{user!==null&&user.isManager==false}}">
-  <view class='page_row' bindtap="suo">
+  <!--<view class='page_row' bindtap="suo">
     <view class="search">
       <view class="df search_arr">
         <icon class="searchcion" size='20' type='search'></icon>
@@ -10,7 +10,7 @@
     <view class="search-btn">
       <button class='sousuo' size="mini">搜索</button> 
     </view>
-  </view>
+  </view>-->
 
   <view class="page">
     <view class="page__bd">
@@ -42,7 +42,7 @@
 </view>
 
  <view wx:if="{{user!=null&&user.isManager==true}}">
-   <view class='page_row' bindtap="suo">
+   <!--<view class='page_row' bindtap="suo">
     <view class="search">
       <view class="df search_arr">
         <icon class="searchcion" size='20' type='search'></icon>
@@ -52,7 +52,7 @@
     <view class="search-btn">
       <button class='sousuo' size="mini">搜索</button> 
     </view>
-  </view>
+  </view>-->
 
   <view class="page">
     <view class="page__bd">

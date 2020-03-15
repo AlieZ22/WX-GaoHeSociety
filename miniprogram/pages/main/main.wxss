@@ -4,7 +4,7 @@
   border-bottom: 5px solid #ddd;
 }
 swiper{
-  height: 500rpx;
+  height: 460rpx;
   width: 100%;
 }
 swiper image{
