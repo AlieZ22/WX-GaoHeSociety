@@ -31,6 +31,7 @@ Page({
           wechatPostList: that.data.wechatPostList.concat(data[i].content.news_item[j])
         })
       }
+      // 存入云数据库
       /*wx.cloud.database().collection("hedangjian").where({
         media_id: data[i].media_id
       }).get({
@@ -70,29 +71,41 @@ Page({
   onLoad: function (options) {
     // 获取access token
     let that = this;
-    wx.cloud.callFunction({
-      // 云函数名称
-      name: 'getAccessToken',
-      success: function (res) {
-        that.setData({
-          accessToken: res.result
-        })
-        wx.cloud.callFunction({
-          // 云函数名称
-          name: 'getWechatPosts',
-          data: {
-            accessToken: that.data.accessToken
-          },
-          success: function (res) {
-            console.log("getWechatPosts result")
-            console.log(res.result)
-            that.updateArticles(res.result.item)    // 更新公众号文章
-          },
-          fail: console.error
-        })
-      },
-      fail: console.error
-    })
+    if(!app.globalData.isCached){       // 未缓存
+      wx.showLoading({
+        title: '加载中',
+      })
+      wx.cloud.callFunction({
+        // 云函数名称
+        name: 'getAccessToken',
+        success: function (res) {
+          that.setData({
+            accessToken: res.result
+          })
+          wx.cloud.callFunction({
+            // 云函数名称
+            name: 'getWechatPosts',
+            data: {
+              accessToken: that.data.accessToken
+            },
+            success: function (res) {
+              console.log("getWechatPosts result")
+              console.log(res.result)
+              that.updateArticles(res.result.item)    // 更新公众号文章
+              wx.hideLoading()
+              app.globalData.articles = that.data.wechatPostList
+              app.globalData.isCached = true
+            },
+            fail: console.error
+          })
+        },
+        fail: console.error
+      })
+    }else{                         // 已缓存
+      that.setData({
+        wechatPostList:app.globalData.articles
+      })
+    }
   },
 
   /**
@@ -126,8 +139,42 @@ Page({
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
-
+  onPullDownRefresh: function () { 
+    // 重新获取公众号文章
+    // 先清空wechatlist
+    let that = this
+    that.setData({
+      wechatPostList:[]
+    })
+    wx.showLoading({
+      title: '加载中',
+    })
+    wx.cloud.callFunction({
+      // 云函数名称
+      name: 'getAccessToken',
+      success: function (res) {
+        that.setData({
+          accessToken: res.result
+        })
+        wx.cloud.callFunction({
+          // 云函数名称
+          name: 'getWechatPosts',
+          data: {
+            accessToken: that.data.accessToken
+          },
+          success: function (res) {
+            console.log("getWechatPosts result")
+            console.log(res.result)
+            that.updateArticles(res.result.item)    // 更新公众号文章
+            wx.hideLoading()
+            app.globalData.articles = that.data.wechatPostList
+            app.globalData.isCached = true
+          },
+          fail: console.error
+        })
+      },
+      fail: console.error
+    })
   },
 
   /**
