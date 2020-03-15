@@ -1,5 +1,6 @@
 // pages/xunxi_fuwu/xunxi_fuwu.js
 const app = getApp()
+const db = wx.cloud.database()
 Page({
 
   /**
@@ -7,7 +8,9 @@ Page({
    */
   data: {
     navState: 0,   //导航状态,
-    FuwuList: [],
+    zhiyuan: [],
+    super_fuwulist:[],
+    qiuzhu:[],    //求助报名情况
     user: '',
     user_id: '',
   },
@@ -30,28 +33,64 @@ Page({
   // 获取云端数据(合服务)
   getFuwuData: function () {
     let that = this   // 防止异步处理造成this指向改变
-    wx.cloud.callFunction({
-      name: "get_fuwudata",
-      success: function (res) {
-        console.log("小程序获取数据", res)
-        that.setData({ fuwuList: res.result.data })
-        console.log(that.data.fuwuList)
-        that.setData({ user: app.globalData.user })
-        console.log(that.data.user)
-        that.setData({ user_id: app.globalData._openid })
-        console.log(that.data.user_id)
-      },
-      fail: function (res) {
-        console.log("小程序获取服务数据失败", res)
-      }
-    })
+    that.setData({ user: app.globalData.user })
+    console.log(that.data.user)
+    that.setData({ user_id: app.globalData._openid })
+    console.log(that.data.user_id)
+    if (!that.data.user.isManager) {                // 如果是居民
+      db.collection('users').doc(that.data.user._id).get({
+        success: function (res) {
+          let len = res.data.services.length
+          for (let i = 0; i < len; i++) {
+            console.log("i==",res.data.services[i])
+            if (res.data.services[i].way == 1) {  ////如果是志愿者
+              let vol_act_id = res.data.services[i].info
+              console.log("vol_act_id", vol_act_id)
+              db.collection("hefuwu").doc(vol_act_id).get({
+                success: function (res) {
+                  console.log("志愿 res.data", res.data)
+                  that.setData({
+                    zhiyuan: that.data.zhiyuan.concat(res.data)
+                  })
+                }
+              })
+            }else{
+              let vol_act_id = res.data.services[i].info
+              db.collection("hefuwu").doc(vol_act_id).get({
+                success: function (res) {
+                  console.log("求助 res.data", res.data)
+                  that.setData({
+                    qiuzhu: that.data.qiuzhu.concat(res.data)
+                  })
+                }
+              })
+            }
+            
+          }
+        },
+        fail: function (res) {
+          console.log("获取用户失败", res)
+        }
+      })
+    } else {                                    // 如果是管理者
+      wx.cloud.callFunction({
+        name: "get_fuwudata",
+        success: function (res) {
+          that.setData({
+            super_fuwulist: res.result.data
+          })
+        }
+      })
+
+    }
+
   },
+  
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getFuwuData()
-    var that = this;
+    
 
   },
 
@@ -66,7 +105,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getFuwuData()
   },
 
   /**

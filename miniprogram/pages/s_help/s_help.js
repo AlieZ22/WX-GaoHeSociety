@@ -52,7 +52,7 @@ Page({
               name:that.data.volunteer.name,
               location:that.data.volunteer.location,
               hefuwu_id:that.data.initData._id,
-              state:0
+              state:'0'
             },
             success:function(res){
               console.log("添加志愿者成功",res)
