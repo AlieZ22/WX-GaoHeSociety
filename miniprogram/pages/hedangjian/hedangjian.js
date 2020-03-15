@@ -58,7 +58,7 @@ Page({
               }
             })
           }
-        }
+        } 
       })
     }
     console.log(that.data.wechatPostList)
