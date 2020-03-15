@@ -31,6 +31,13 @@ Page({
       isRuleTrue: false
     })
   },
+  // 居民通过的合服务， 对志愿者进行审核
+  shenheVolu:function(e){
+    let hefuwu_id = e.currentTarget.dataset.id
+    wx.navigateTo({
+      url: '../shenhe_fuwu/shenhe_fuwu?_id='+hefuwu_id
+    })
+  },
 
   publish: function (e) {
     let that = this
@@ -98,7 +105,7 @@ Page({
         success: function (res) {
           let len = res.data.services.length
           for (let i = 0; i < len; i++) {
-            console.log("i==",res.data.services[i])
+            //console.log("i==",res.data.services[i])
             if (res.data.services[i].way == 1) {  ////如果是志愿者
               let vol_act_id = res.data.services[i].info
               console.log("vol_act_id", vol_act_id)
@@ -114,7 +121,7 @@ Page({
               let vol_act_id = res.data.services[i].info
               db.collection("hefuwu").doc(vol_act_id).get({
                 success: function (res) {
-                  console.log("求助 res.data", res.data)
+                  //console.log("求助 res.data", res.data)
                   that.setData({
                     qiuzhu: that.data.qiuzhu.concat(res.data)
                   })
@@ -161,6 +168,10 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    this.setData({
+      qiuzhu:[],
+      zhiyuan:[]
+    })
     this.getFuwuData()
   },
 

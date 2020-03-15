@@ -1,0 +1,116 @@
+@import "../s_logs/s_logs.wxss";
+@import "../services/services";
+@import "../xunxi_meihao/xunxi_meihao";
+
+.nav{
+  display:flex;
+  justify-content: space-around;
+  padding: 20rpx 20rpx;
+  color:#ff6969;
+  background-color:white;
+  font-size: 30rpx;
+  width:100%;
+  border-bottom: 1px #ececec solid;
+}
+.nav-switch-style{
+ 
+  display:block;
+  border-radius: 15rpx;
+  color: snow;
+  background-color: #ff6969;
+  padding: 10rpx 40rpx;
+  
+}
+.nav-noswitch-style{
+  display:block;
+  border-radius: 15rpx;
+  padding: 10rpx 40rpx;
+  border:2rpx #ff6969 solid;
+}
+.btn-noswitch-style{
+  display:none;
+}
+.btn-switch-style{
+  display:inline;
+}
+.style-default{
+  text-align: center;
+}
+button:not([size='mini']) {
+  min-height:40px;
+  width:180rpx;
+  margin-left:auto;
+  margin-right:auto;
+}
+.func-btn {
+  font-size: 30rpx;
+  color: white;
+  background-color: #ff6969;
+  border-radius: 10rpx;
+  margin-right:20rpx;
+  display: inline-block;
+}
+
+.card-container{
+    width: 100%;
+    background: white;
+    border-radius: 20rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+}
+
+.tubiao{
+   width: 150rpx; 
+  height: 150rpx;
+  display: block; 
+  margin-right:20rpx;
+  margin-left:15rpx;
+  border-radius: 10%;
+}
+.icon{
+  width: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+}
+.card{
+   padding: 30rpx;
+    width: 100%;
+    font-size: 30rpx;
+    color: #000;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-bottom: 1px #ececec solid
+}
+.card text:nth-child(1){
+    color: #fff;
+    font-size: 40rpx;
+    height: 60rpx;
+    width: 60rpx;
+    background: #ff6969;
+    display: block;
+    text-align: center;
+    line-height: 60rpx;
+    border-radius: 30rpx;
+    margin-right: 30rpx;
+   
+}
+.card text:nth-child(2){
+    flex-wrap:wrap;
+    width: 15%;
+}
+.card text:nth-child(3){
+    flex-wrap:wrap;
+    width: 30%;
+}
+.card text:nth-child(4){
+    flex-wrap:wrap;
+    width: 20%;
+}
+
+
+

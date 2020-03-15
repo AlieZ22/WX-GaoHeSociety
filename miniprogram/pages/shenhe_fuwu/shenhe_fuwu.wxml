@@ -1,0 +1,41 @@
+<view class="nav">
+    <view bindtap="navSwitch" data-index="0" class="{{navState==0 ? 'nav-switch-style':'nav-noswitch-style'}}">未审核</view>
+    <view bindtap="navSwitch" data-index="1" class="{{navState==1 ? 'nav-switch-style':'nav-noswitch-style'}}">已审核</view>
+</view>
+<view wx:if="{{navState==0}}" class="card-container">  <!--未审核-->
+  <view class="card" wx-index="index">
+    <view style=" margin-right: 30rpx; margin-left: 10rpx">序号:</view>
+    <text>姓名：</text>
+    <text>联系方式：</text>
+    <text>楼号：</text>
+  </view>
+  <view wx:for="{{notDone_volulist}}" wx:key="index" class="card" wx-index="index">
+      <text>{{index+1}}</text>
+      <text>{{item.name}}</text>
+      <text>{{item.contact}}</text>
+      <text>{{item.location}}</text>
+      <view class="icon">
+          <view bindtap="passBtn" data-id="{{item._id}}" >
+            <icon type='success' size="30"></icon>
+          </view>
+          <view bindtap="cancelBtn" data-id="{{item._id}}" >
+            <icon type='clear' size="30"color="grey"></icon>
+          </view>
+      </view>
+    </view>
+</view>
+
+<view wx:if="{{navState==1}}"class="card-container">  <!--已审核-->
+    <view class="card" wx-index="index">
+        <view style=" margin-right: 30rpx; margin-left: 10rpx">序号:</view>
+        <text >姓名：</text>
+        <text >联系方式：</text>
+        <text>楼号：</text>
+    </view>
+    <view wx:for="{{done_volulist}}" wx:key="index" class="card" wx-index="index">
+        <text>{{index+1}}</text>
+        <text>{{item.name}}</text>
+        <text>{{item.contact}}</text>
+        <text>{{item.location}}</text>
+    </view>
+</view>
