@@ -46,7 +46,7 @@
           <view class="weui-label">联系方式</view>
       </view>
       <view class="weui-cell__bd">
-          <input class="weui-input" input id="up_input" name="contact" value='{{contact}}' placeholder="请输入联系方式" bindinput ="contact1"/>
+          <input class="weui-input" type='number' input id="up_input" name="contact" value='{{contact}}' placeholder="请输入联系方式" bindinput ="contact1"/>
       </view>
   </view>
   <view class="weui-cell ">
@@ -54,12 +54,13 @@
           <view class="weui-label">楼号</view>
       </view>
       <view class="weui-cell__bd">
-          <input class="weui-input" input id="up_input" name="location" value='{{location}}' placeholder="请输入楼号" bindinput ="location1"/>
+          <input class="weui-input" input id="up_input" name="location" value='{{location}}' placeholder="格式(x-x):表示x栋x单元" bindinput ="location1"/>
       </view>
  </view>
   
   
   <button class="weui-btn"  formType="submit" disabled="{{disable}}">确认报名</button>
+  <button class="weui-btn"  formType="reset" bindtap="cancelJoin">取消报名</button>
   </form>
 </view>
 

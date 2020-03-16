@@ -1,10 +1,7 @@
 // pages/hezhiyuan/hezhiyuan.js
 import WxValidate from '../utils/WxValidate.js'
 const app = getApp()
-
-
-//1、引用数据库
-
+const db = wx.cloud.database()
 
 Page({
 
@@ -20,13 +17,12 @@ Page({
   
   onLoad: function (options) {
     console.log(options)
-    var that = this;
-    //1、引用数据库   
-    const db = wx.cloud.database({
-      //这个是环境ID不是环境名称     
-      env: 'zzmine-3cgx9'
-    })
-    //2、开始查询数据了  news对应的是集合的名称   
+    var that = this; 
+    that.updateData()
+    that.initValidate()//验证规则函数
+  },
+  updateData:function(){
+    let that = this
     db.collection('hezhiyuan').get({
       //如果查询成功的话    
       success: res => {
@@ -40,8 +36,8 @@ Page({
         console.log("小程序获取服务数据失败", res)
       }
     })
-    this.initValidate()//验证规则函数
   },
+
   serviceContent1: function (e) {
     this.setData({
       serviceContent: e.detail.value
@@ -140,9 +136,15 @@ Page({
                     success: function (res) {
                       let pages = getCurrentPages(); //获取当前页面js里面的pages里的所有信息。
                       let prevPage = pages[pages.length - 2];
-                      wx.navigateBack({
-                        delta: 1
+                      // 返回页面，清除缓存
+                      that.setData({
+                        step:1,
+                        name:"",
+                        sex:"",
+                        contact:"",
+                        location:""
                       })
+                      that.updateData()
                       console.log("云函数添加志愿者成功", res)
                       console.log("users表项添加完毕", res)
                     }
@@ -180,6 +182,11 @@ Page({
       fail:function(res){
         console.log("查询合志愿表失败")
       }
+    })
+  },
+  cancelJoin:function(){
+    this.setData({
+      step:1
     })
   },
   //报错 
@@ -234,93 +241,11 @@ Page({
     }
     this.WxValidate = new WxValidate(rules, messages)
   },
-
-  onQuery: function() {
-    // const db = wx.cloud.database()
-    // // 查询当前用户所有的 counters
-    // db.collection('counters').where({
-    //   _openid: this.data.openid
-    // }).get({
-    //   success: res => {
-    //     this.setData({
-    //       queryResult: JSON.stringify(res.data, null, 2)
-    //     })
-    //     console.log('[数据库] [查询记录] 成功: ', res)
-    //   },
-    //   fail: err => {
-    //     wx.showToast({
-    //       icon: 'none',
-    //       title: '查询记录失败'
-    //     })
-    //     console.error('[数据库] [查询记录] 失败：', err)
-    //   }
-    // })
-  },
-
-  onCounterInc: function() {
-    // const db = wx.cloud.database()
-    // const newCount = this.data.count + 1
-    // db.collection('counters').doc(this.data.counterId).update({
-    //   data: {
-    //     count: newCount
-    //   },
-    //   success: res => {
-    //     this.setData({
-    //       count: newCount
-    //     })
-    //   },
-    //   fail: err => {
-    //     icon: 'none',
-    //     console.error('[数据库] [更新记录] 失败：', err)
-    //   }
-    // })
-  },
-
-  onCounterDec: function() {
-    // const db = wx.cloud.database()
-    // const newCount = this.data.count - 1
-    // db.collection('counters').doc(this.data.counterId).update({
-    //   data: {
-    //     count: newCount
-    //   },
-    //   success: res => {
-    //     this.setData({
-    //       count: newCount
-    //     })
-    //   },
-    //   fail: err => {
-    //     icon: 'none',
-    //     console.error('[数据库] [更新记录] 失败：', err)
-    //   }
-    // })
-  },
-
-  onRemove: function() {
-    // if (this.data.counterId) {
-    //   const db = wx.cloud.database()
-    //   db.collection('counters').doc(this.data.counterId).remove({
-    //     success: res => {
-    //       wx.showToast({
-    //         title: '删除成功',
-    //       })
-    //       this.setData({
-    //         counterId: '',
-    //         count: null,
-    //       })
-    //     },
-    //     fail: err => {
-    //       wx.showToast({
-    //         icon: 'none',
-    //         title: '删除失败',
-    //       })
-    //       console.error('[数据库] [删除记录] 失败：', err)
-    //     }
-    //   })
-    // } else {
-    //   wx.showToast({
-    //     title: '无记录可删，请见创建一个记录',
-    //   })
-    // }
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+    this.updateData()
   },
 
   nextStep: function (event) {
@@ -329,42 +254,6 @@ Page({
       step:2,
       currentAct_id:event.currentTarget.dataset.index
     })
-    // 在第一步，需检查是否有 openid，如无需获取
-    /*if (this.data.step === 1 && !this.data.openid) {
-      wx.cloud.callFunction({
-        name: 'login',
-        data: {},
-        success: res => {
-          app.globalData._openid = res.result.openid
-          this.setData({
-            step: 2,
-            openid: res.result.openid
-          })
-        },
-        fail: err => {
-          wx.showToast({
-            icon: 'none',
-            title: '获取 openid 失败，请检查是否有部署 login 云函数',
-          })
-          console.log('[云函数] [login] 获取 openid 失败，请检查是否有部署云函数，错误信息：', err)
-        }
-      })
-    } else {
-      const callback = this.data.step !== 6 ? function() {} : function() {
-        console.group('数据库文档')
-        console.log('https://developers.weixin.qq.com/miniprogram/dev/wxcloud/guide/database.html')
-        console.groupEnd()
-      }
-      this.setData({
-        step: this.data.step + 1
-      }, callback)
-    }
-  },
-
-  prevStep: function () {
-    this.setData({
-      step: this.data.step - 1
-    })*/
   },
 
   goHome: function() {

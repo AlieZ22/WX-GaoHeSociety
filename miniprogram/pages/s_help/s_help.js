@@ -90,16 +90,9 @@ Page({
                       console.log("云函数添加志愿者失败",res)
                     }
                   })
-                  wx.showModal({
-                    title:"提示",
-                    content:"报名成功！",
-                    success:function(res){
-                      wx.navigateTo({
-                        url: "../services/services"
-                      })
-                    }
+                  wx.navigateTo({
+                    url: "../msg_success/msg_success"
                   })
-
                 },
                 fail:function(res){
                   console.log("获取志愿者失败",res)

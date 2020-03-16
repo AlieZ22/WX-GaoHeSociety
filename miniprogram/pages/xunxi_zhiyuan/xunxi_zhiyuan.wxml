@@ -88,7 +88,7 @@
 </view>
 
 <view wx:else>
-<view class='page_row' bindtap="suo">
+<!--<view class='page_row' bindtap="suo">
 <view class="search">
   <view class="df search_arr">
     <icon class="searchcion" size='20' type='search'></icon>
@@ -98,7 +98,7 @@
 <view class="search-btn">
   <button class='sousuo' size="mini">搜索</button> 
 </view>
-</view>
+</view>-->
 <view class="panel__hd" > {{my_info.name}}好，这是您的志愿者报名情况：</view>
 <view class="page">
 <view class="page__bd">
@@ -115,6 +115,7 @@
                   <view class="media-box__desc">服务时间：{{item.serviceTime}}</view>
                   <view class="media-box__desc">工作内容：{{item.statement}}</view>
                   <view class="media-box__desc">招募人数：{{item.maxVoluNum}}</view>
+                  <view class="media-box__desc">当前人数：{{item.currentVoluNum}}</view>
         </view>
              </navigator>
          </view>

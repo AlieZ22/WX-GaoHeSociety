@@ -109,9 +109,9 @@
                 <view class="media-box__desc">联系方式：{{item.contact}}</view>
                 <view class="media-box__desc">楼号：{{item.location}}</view>
                 <view class="media-box__desc">求助时间：{{item.time}}</view>
-              <button  class="state-btn" wx:if="{{item.state==='-1'}}" size="default">审核失败</button>
-              <button  class="state-btn" wx:if="{{item.state==='0'}}" size="default">待审核</button>
-              <button  class="state-btn" wx:if="{{item.state==='2'}}" size="default">审核成功</button>
+              <button  class="state-btn" wx:if="{{item.state=='-1'}}" size="default">审核失败</button>
+              <button  class="state-btn" wx:if="{{item.state=='0'}}" size="default">待审核</button>
+              <button  class="state-btn" wx:if="{{item.state=='2'}}" size="default">审核成功</button>
               </view>
                
 

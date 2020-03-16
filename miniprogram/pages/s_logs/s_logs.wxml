@@ -24,7 +24,7 @@
               <view class="weui-label">楼号</view>
           </view>
           <view class="weui-cell__bd">
-              <input class="weui-input" name='location' value='{{fuwu.location}}' placeholder="请输入楼号" bindinput="addLocation"/>
+              <input class="weui-input" name='location' value='{{fuwu.location}}' placeholder="格式(x-x):表示x栋x单元)" bindinput="addLocation"/>
           </view>
       </view>
 
@@ -42,7 +42,7 @@
               <view class="weui-label">需要人数</view>
           </view>
           <view class="weui-cell__bd">
-              <input class="weui-input" name='maxVoluNum' value='{{fuwu.maxVoluNum}}' placeholder="请输入人数上限" bindinput="addMaxVoluNum"/>
+              <input class="weui-input" name='maxVoluNum' type='number' value='{{fuwu.maxVoluNum}}' placeholder="请输入人数上限" bindinput="addMaxVoluNum"/>
           </view>
       </view>
 

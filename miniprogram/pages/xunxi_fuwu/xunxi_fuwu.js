@@ -111,9 +111,20 @@ Page({
               console.log("vol_act_id", vol_act_id)
               db.collection("hefuwu").doc(vol_act_id).get({
                 success: function (res) {
-                  console.log("志愿 res.data", res.data)
-                  that.setData({
-                    zhiyuan: that.data.zhiyuan.concat(res.data)
+                  let currHefuwu = res.data
+                  //console.log("志愿 res.data", res.data)
+                  // 注意，需要修改res.data.state 因为这只是这个合服务的state，而不是志愿审核的state
+                  db.collection("hefuwu_volunteer").where({
+                    _openid:app.globalData._openid,
+                    hefuwu_id:currHefuwu._id
+                  }).get({
+                    success:function(res){
+                      let state = res.data[0].state
+                      currHefuwu.state = state
+                      that.setData({
+                        zhiyuan: that.data.zhiyuan.concat(currHefuwu)
+                      })
+                    }
                   })
                 }
               })
