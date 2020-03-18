@@ -1,7 +1,22 @@
 {
   "pages": [
     "pages/main/main",
-    "pages/wode/wode"
+    "pages/wode/wode",
+    "pages/hedangjian/hedangjian",
+    "pages/article/article",
+    "pages/fillInfo/fillInfo",
+    "pages/hezhiyuan/hezhiyuan",
+    "pages/m_logs/m_logs",
+    "pages/msg_success/msg_success",
+    "pages/s_help/s_help",
+    "pages/s_logs/s_logs",
+    "pages/services/services",
+    "pages/share/share",
+    "pages/shenhe_fuwu/shenhe_fuwu",
+    "pages/shenhe_zhiyuan/shenhe_zhiyuan",
+    "pages/xunxi_fuwu/xunxi_fuwu",
+    "pages/xunxi_meihao/xunxi_meihao",
+    "pages/xunxi_zhiyuan/xunxi_zhiyuan"
   ],
   "window": {
     "navigationBarBackgroundColor": "#ff6969",

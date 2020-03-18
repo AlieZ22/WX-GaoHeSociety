@@ -7,7 +7,8 @@ Page({
    */
   data: {
     accessToken:"",
-    wechatPostList:[]    // 同步公众号的列表
+    wechatPostList:[],    // 同步公众号的列表
+    count:0
   },
 
   seeDetail:function(res){
@@ -27,8 +28,12 @@ Page({
     for(let i=0;i<len;i++){
       let len2 = data[i].content.news_item.length
       for(let j=0;j<len2;j++){
+        if(that.data.count==2){
+          wx.hideLoading()
+        }
         that.setData({
-          wechatPostList: that.data.wechatPostList.concat(data[i].content.news_item[j])
+          wechatPostList: that.data.wechatPostList.concat(data[i].content.news_item[j]),
+          count:that.data.count+1
         })
       }
       // 存入云数据库
@@ -92,7 +97,6 @@ Page({
               console.log("getWechatPosts result")
               console.log(res.result)
               that.updateArticles(res.result.item)    // 更新公众号文章
-              wx.hideLoading()
               app.globalData.articles = that.data.wechatPostList
               app.globalData.isCached = true
             },
@@ -144,7 +148,8 @@ Page({
     // 先清空wechatlist
     let that = this
     that.setData({
-      wechatPostList:[]
+      wechatPostList:[],
+      count:0
     })
     wx.showLoading({
       title: '加载中',
@@ -166,7 +171,6 @@ Page({
             console.log("getWechatPosts result")
             console.log(res.result)
             that.updateArticles(res.result.item)    // 更新公众号文章
-            wx.hideLoading()
             app.globalData.articles = that.data.wechatPostList
             app.globalData.isCached = true
           },
