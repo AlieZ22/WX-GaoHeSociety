@@ -95,6 +95,7 @@ App({
     user:null,
     article_url:"",
     articles:[],
-    isCached:false    // 提高获取公众号文章的性能
+    isCached:false,    // 提高获取公众号文章的性能
+    offset: 0         // 用于获取之后的文章列表(合党建)
   }
 })

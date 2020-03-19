@@ -9,7 +9,7 @@ Page({
     accessToken:"",
     wechatPostList:[],    // 同步公众号的列表
     count:0,
-    offset:0          // 用于获取之后的文章列表
+    offset:app.globalData.offset    // 用于获取之后的文章列表
   },
 
   seeDetail:function(res){
@@ -104,6 +104,7 @@ Page({
               that.setData({
                 offset:that.data.offset+7
               })
+              app.globalData.offset = that.data.offset
             },
             fail: console.error
           })
@@ -112,7 +113,8 @@ Page({
       })
     }else{                         // 已缓存
       that.setData({
-        wechatPostList:app.globalData.articles
+        wechatPostList:app.globalData.articles,
+        offset:app.globalData.offset
       })
     }
   },
@@ -142,7 +144,7 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    
   },
 
   /**
@@ -186,6 +188,7 @@ Page({
             that.setData({
               offset: that.data.offset + 7
             })
+            app.globalData.offset = that.data.offset
           },
           fail: console.error
         })
@@ -199,6 +202,7 @@ Page({
    */
   onReachBottom: function () {
     let that = this
+    console.log("触底：", that.data.offset)
     // 加载后面的文章
     wx.showLoading({
       title: '加载中',
@@ -229,6 +233,7 @@ Page({
             that.setData({
               offset: that.data.offset + 2
             })
+            app.globalData.offset = that.data.offset
           },
           fail: console.error
         })
