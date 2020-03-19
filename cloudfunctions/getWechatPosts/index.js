@@ -11,8 +11,8 @@ exports.main = async (event, context) => {
     uri: url,
     body: {
       "type": "news",
-      "offset": 0,
-      "count": 30
+      "offset": event.offset,
+      "count": event.count
     }
   }
   const result = await rp(options)
