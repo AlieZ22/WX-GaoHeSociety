@@ -9,6 +9,7 @@ Page({
     motto:"hello world",
     userInfo:{},
     hasUserInfo: false,
+    user:null,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
   fuwu: function () {
@@ -24,6 +25,11 @@ Page({
   zhiyuan: function () {
     wx.navigateTo({
       url: "../xunxi_zhiyuan/xunxi_zhiyuan"
+    })
+  },
+  dangjian: function () {
+    wx.navigateTo({
+      url: "../fabu_djInfo/fabu_djInfo"
     })
   },
 
@@ -70,11 +76,15 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    let that = this
     //更新全局user
     if(app.globalData.user){
       wx.cloud.database().collection("users").doc(app.globalData.user._id).get({
         success:function(res){
-          app.globalData.user = res.data
+          app.globalData.user = res.data,
+          that.setData({
+            user:res.data
+          })
         }
       })
     }

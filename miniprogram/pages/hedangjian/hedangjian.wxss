@@ -13,7 +13,7 @@
 
 .scroll-view-x .scroll-item{
   display: inline-block;
-  font-size: 40rpx;
+  font-size: 36rpx;
   color: gray;
   margin-right: 14rpx;
   margin-left: 10rpx;
@@ -21,7 +21,7 @@
 
 .scroll-view-x .scroll-item-selected{
   display: inline-block;
-  font-size: 36rpx;
+  font-size: 40rpx;
   color: red;
   margin-right: 14rpx;
   margin-left: 10rpx;

@@ -1,0 +1,46 @@
+<view class="panel__hd">请您如实填写以下待发布的信息</view>
+<view class="weui-cells weui-cells_after-title">
+  <form bindsubmit="formSubmit">
+      <view class="weui-cell ">
+          <view class="weui-cell__hd">
+              <view class="weui-label">标题</view>
+          </view>
+          <view class="weui-cell__bd">
+           <input class="weui-input" name='title' placeholder="请输入标题"  bindinput="addTitle"/>
+          </view>
+      </view>
+
+      <view class="weui-cell ">
+          <view class="weui-cell__hd">
+              <view class="weui-label">姓名</view>
+          </view>
+          <view class="weui-cell__bd">
+           <input class="weui-input" name='name' placeholder="请输入姓名" bindinput="addName"/>
+          </view>
+      </view>
+
+      <view class="weui-cell ">
+        <view class="weui-cell__hd">
+            <view class="weui-label">链接</view>
+        </view>
+        <view class="weui-cell__bd">
+         <input class="weui-input" name='url' placeholder="请输入链接地址"  bindinput="addUrl"/>
+        </view>
+    </view>
+
+      <view class="weui-cell ">
+          <view class="weui-cell__hd">
+              <view class="weui-label">内容</view>
+          </view>
+          <view class="weui-cell__bd">
+            <textarea class="weui-input" style="width: 100%;" name='content' bindblur="bindTextAreaBlur" auto-height placeholder="请填写详细内容"  />                    
+        </view>
+      </view>
+
+      <view class="weui-cell ">
+          <button class="weui-btn" formType="submit"  disabled="{{disable}}">发布</button>
+          </view>
+     </form>
+   
+ </view>
+ 

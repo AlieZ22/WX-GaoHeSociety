@@ -16,7 +16,8 @@
     "pages/shenhe_zhiyuan/shenhe_zhiyuan",
     "pages/xunxi_fuwu/xunxi_fuwu",
     "pages/xunxi_meihao/xunxi_meihao",
-    "pages/xunxi_zhiyuan/xunxi_zhiyuan"
+    "pages/xunxi_zhiyuan/xunxi_zhiyuan",
+    "pages/fabu_djInfo/fabu_djInfo"
   ],
   "window": {
     "navigationBarBackgroundColor": "#ff6969",

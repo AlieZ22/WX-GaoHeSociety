@@ -1,9 +1,10 @@
 <!--miniprogram/pages/hedangjian/hedangjian.wxml-->
 <!--展示党建信息-->
 <scroll-view class="scroll-view-x" scroll-x="true">
-  <view class="scroll-item-selected">最新资讯</view>
+  <view class="{{nowPage==1?'scroll-item-selected':'scroll-item'}}" data-id="{{1}}" bindtap="changePage">最新资讯</view>
+  <view class="{{nowPage==2?'scroll-item-selected':'scroll-item'}}" data-id="{{2}}" bindtap="changePage">链接信息</view>
 </scroll-view>
-<view class="guide">
+<view wx:if="{{nowPage==1}}" class="guide">
       <view wx:for="{{wechatPostList}}" wx:key="index" bindtap="seeDetail" data-index="{{item.url}}" >
         <navigator class="nav-zixun">
         <view class="inner text1">
@@ -16,7 +17,18 @@
           <image style="margin-right:6rpx;margin-left:6rpx" class="media-box__thumb" src="{{item.thumb_url}}" lazy-load="true" />
         </view>
       </navigator>
-    </view>
-      
+    </view>     
 </view>
-  <!--展示党建信息结束-->
+<view wx:if="{{nowPage==2}}" class="guide">
+  <view wx:for="{{djInfoList}}" wx:key="index"  >
+    <navigator class="nav-zixun" url="">
+      <view>
+        <view class="media-box__bd media-box__bd_in-appmsg">
+          <view class="media-box__title">{{item.title}}</view>
+          <view class="media-box__desc">详情：{{item.content}}</view>
+          <view class="media-box__desc">链接：{{item.url}}</view>
+        </view>
+      </view>
+    </navigator>
+  </view>
+</view>

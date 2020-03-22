@@ -6,10 +6,40 @@ Page({
    * 页面的初始数据
    */
   data: {
+    nowPage:1,
+    page2cached:false, 
     accessToken:"",
     wechatPostList:[],    // 同步公众号的列表
+    djInfoList:[],       // 2页面，链接信息列表
     count:0,
     offset:app.globalData.offset    // 用于获取之后的文章列表
+  },
+
+  changePage:function(e){
+    console.log(e)
+    let pageId = e.currentTarget.dataset.id
+    this.setData({
+      nowPage:pageId
+    })
+    // 对2界面加载
+    if(pageId==2&&!this.data.page2cached){
+      let that = this
+      // 获取数据
+      wx.cloud.callFunction({
+        name:"get_djInfodata",
+        success:function(res){
+          // 标志已缓存
+          console.log("获取党建发布信息成功",res)
+          that.setData({
+            djInfoList:res.result.data,
+            page2cached:true
+          })
+        },
+        fail:function(res){
+          console.log("获取党建发布信息失败",res)
+        }
+      })
+    }
   },
 
   seeDetail:function(res){
@@ -151,95 +181,99 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () { 
-    // 重新获取公众号文章
-    // 先清空wechatlist
-    let that = this
-    that.setData({
-      wechatPostList:[],
-      count:0,
-      offset:0
-    })
-    wx.showLoading({
-      title: '加载中',
-    })
-    wx.cloud.callFunction({
-      // 云函数名称
-      name: 'getAccessToken',
-      success: function (res) {
-        that.setData({
-          accessToken: res.result
-        })
-        wx.cloud.callFunction({
-          // 云函数名称
-          name: 'getWechatPosts',
-          data: {
-            accessToken: that.data.accessToken,
-            offset:that.data.offset,
-            count:7
-          },
-          success: function (res) {
-            console.log("getWechatPosts result")
-            console.log(res.result)
-            that.updateArticles(res.result.item)    // 更新公众号文章
-            wx.hideLoading()
-            app.globalData.articles = that.data.wechatPostList
-            app.globalData.isCached = true
-            //更新offset
-            that.setData({
-              offset: that.data.offset + 7
-            })
-            app.globalData.offset = that.data.offset
-          },
-          fail: console.error
-        })
-      },
-      fail: console.error
-    })
+    if(this.data.nowPage==1){
+      // 重新获取公众号文章
+      // 先清空wechatlist
+      let that = this
+      that.setData({
+        wechatPostList:[],
+        count:0,
+        offset:0
+      })
+      wx.showLoading({
+        title: '加载中',
+      })
+      wx.cloud.callFunction({
+        // 云函数名称
+        name: 'getAccessToken',
+        success: function (res) {
+          that.setData({
+            accessToken: res.result
+          })
+          wx.cloud.callFunction({
+            // 云函数名称
+            name: 'getWechatPosts',
+            data: {
+              accessToken: that.data.accessToken,
+              offset:that.data.offset,
+              count:7
+            },
+            success: function (res) {
+              console.log("getWechatPosts result")
+              console.log(res.result)
+              that.updateArticles(res.result.item)    // 更新公众号文章
+              wx.hideLoading()
+              app.globalData.articles = that.data.wechatPostList
+              app.globalData.isCached = true
+              //更新offset
+              that.setData({
+                offset: that.data.offset + 7
+              })
+              app.globalData.offset = that.data.offset
+            },
+            fail: console.error
+          })
+        },
+        fail: console.error
+      })
+    }
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    let that = this
-    console.log("触底：", that.data.offset)
-    // 加载后面的文章
-    wx.showLoading({
-      title: '加载中',
-    })
-    wx.cloud.callFunction({
-      // 云函数名称
-      name: 'getAccessToken',
-      success: function (res) {
-        that.setData({
-          accessToken: res.result
-        })
-        wx.cloud.callFunction({
-          // 云函数名称
-          name: 'getWechatPosts',
-          data: {
-            accessToken: that.data.accessToken,
-            offset: that.data.offset,
-            count:2        // 下拉更新一次三天
-          },
-          success: function (res) {
-            console.log("getWechatPosts result")
-            console.log(res.result)
-            that.updateArticles(res.result.item)    // 更新公众号文章
-            wx.hideLoading()
-            app.globalData.articles = that.data.wechatPostList
-            app.globalData.isCached = true
-            //更新offset
-            that.setData({
-              offset: that.data.offset + 2
-            })
-            app.globalData.offset = that.data.offset
-          },
-          fail: console.error
-        })
-      },
-      fail: console.error
-    })
+    if(this.data.nowPage==1){
+      let that = this
+      console.log("触底：", that.data.offset)
+      // 加载后面的文章
+      wx.showLoading({
+        title: '加载中',
+      })
+      wx.cloud.callFunction({
+        // 云函数名称
+        name: 'getAccessToken',
+        success: function (res) {
+          that.setData({
+            accessToken: res.result
+          })
+          wx.cloud.callFunction({
+            // 云函数名称
+            name: 'getWechatPosts',
+            data: {
+              accessToken: that.data.accessToken,
+              offset: that.data.offset,
+              count:2        // 下拉更新一次三天
+            },
+            success: function (res) {
+              console.log("getWechatPosts result")
+              console.log(res.result)
+              that.updateArticles(res.result.item)    // 更新公众号文章
+              wx.hideLoading()
+              app.globalData.articles = that.data.wechatPostList
+              app.globalData.isCached = true
+              //更新offset
+              that.setData({
+                offset: that.data.offset + 2
+              })
+              app.globalData.offset = that.data.offset
+            },
+            fail: console.error
+          })
+        },
+        fail: console.error
+      })
+    }
   },
 
   /**
