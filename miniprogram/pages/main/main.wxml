@@ -29,6 +29,10 @@
       <image src="cloud://zzmine-3cgx9.7a7a-zzmine-3cgx9-1301387315/main/u18.png" class="img"></image>
       <text class="textfont">合美好 </text>
     </view>
+    <view class="textbar" bindtap="logNext5">
+      <image src= class="img"></image>
+      <text class="textfont">合信息 </text>
+    </view>
   </view>
 </view>
 <!-- <view class="header">

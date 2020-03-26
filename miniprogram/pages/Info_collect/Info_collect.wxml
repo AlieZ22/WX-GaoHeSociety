@@ -1,0 +1,345 @@
+<!--miniprogram/pages/Xinxishouji/Xinxishouji.wxml-->
+<view class="panel__hd">请您如实填写以下信息（带<text style='color:red'>*</text>为必填）</view>
+  <view class="panel__hd">产权信息</view>
+  <view class="weui-cells weui-cells_after-title" style="margin-bottom: 20rpx;">
+  <form bindsubmit="formSubmit">
+  <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">住房性质<text style='color:red'>*</text></view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="house" value='{{house}}' placeholder="自有/租住/混合/空房/空挂" bindinput ="house1"/>
+      </view>
+  </view>
+  <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">产权人姓名</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="pro_name" value='{{pro_name}}' placeholder="请输入产权人姓名" bindinput ="pro_name1"/>
+      </view>
+  </view>
+  <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">联系方式</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" type="number" input id="up_input" name="contact" value='{{contact}}' placeholder="请输入联系方式" bindinput ="contact1"/>
+      </view>
+ </view>
+ <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">购房时间</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input"  input id="up_input" name="buy_time" value='{{buy_time}}' placeholder="请输入购房时间（1900/01/01）" bindinput ="buy_time1"/>
+      </view>
+ </view> 
+ <view class="panel__hd">居住人口信息</view>
+  <view class="weui-cell ">
+    <view class="weui-cell__hd">
+        <view class="weui-label">门牌号<text style='color:red'>*</text></view>
+    </view>
+    <view class="weui-cell__bd">
+        <input class="weui-input" input id="up_input" name="housenum" value='{{housenum}}' placeholder="请填写门牌号" bindinput ="housenum1"/>
+    </view>
+  </view>
+  <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">居住人数</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" type="number" input id="up_input" name="l_num" value='{{l_num}}' placeholder="请输入居住人数" bindinput ="l_num1"/>
+      </view>
+ </view>
+ <view class="panel__hd">户主信息</view>
+ <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">户主姓名<text style='color:red'>*</text></view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input"  input id="up_input" name="owner_name" value='{{owner_name}}' placeholder="请输入户主姓名" bindinput ="owner_name1"/>
+      </view>
+ </view>
+ <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">性别<text style='color:red'>*</text></view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input"  input id="up_input" name="sex" value='{{sex}}' placeholder="请输户主入性别" bindinput ="sex1"/>
+      </view>
+ </view>
+ <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">民族<text style='color:red'>*</text></view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="nation" value='{{nation}}' placeholder="请输入户主民族" bindinput ="nation1"/>
+      </view>
+ </view>
+ <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">身份证号<text style='color:red'>*</text></view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" type="number" input id="up_input" name="id_num"value='{{id_num}}' placeholder="请输入户主身份证号" bindinput ="id_num1"/>
+      </view>
+ </view>
+ <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">手机号码<text style='color:red'>*</text></view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" type="number" input id="up_input" name="phone_num" value='{{phone_num}}' placeholder="请输入户主手机号码" bindinput ="phone_num1"/>
+      </view>
+ </view>
+ <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">应急联系方式</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" type="number" input id="up_input" name="ephone_num" value='{{ephone_num}}' placeholder="请输入应急联系方式" bindinput ="ephone_num1"/>
+      </view>
+ </view>
+ <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">文化程度<text style='color:red'>*</text></view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="edu" value='{{edu}}' placeholder="小学/初中/高中/本科/硕士/博士" bindinput ="edu1"/>
+      </view>
+ </view>
+ <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">政治面貌<text style='color:red'>*</text></view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="political" value='{{political}}' placeholder="群众/中共党员" bindinput ="political1"/>
+      </view>
+ </view>
+ <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">初婚日期<text style='color:red'>*</text></view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="m_date" value='{{m_date}}' placeholder="请输入初婚日期(1900/1/1)" bindinput ="m_date1"/>
+      </view>
+ </view>
+ <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">户籍所在地<text style='color:red'>*</text></view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="area" value='{{area}}' placeholder="省/市/区/家庭住址" bindinput ="area1"/>
+      </view>
+ </view>
+ <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">职业<text style='color:red'>*</text></view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="job" value='{{job}}' placeholder="单位/学校/个体经营/退休/无" bindinput ="job1"/>
+      </view>
+ </view>
+ <view class="panel__hd">家庭成员/同住人信息（按照直系亲属关系顺序填报）</view>
+ <view class="panel__hd">家庭成员1</view>
+ <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">姓名</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="name_1" value='{{name_1}}' placeholder="请输入姓名" bindinput ="name_11"/>
+      </view>
+ </view>
+ <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">性别</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input"  input id="up_input" name="sex_1" value='{{sex_1}}' placeholder="请输入性别" bindinput ="sex_11"/>
+      </view>
+ </view>
+ <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">民族</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="nation_1" value='{{nation_1}}' placeholder="请输入民族" bindinput ="nation_11"/>
+      </view>
+ </view>
+ <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">身份证号</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" type="number" input id="up_input" name="id_num_1"value='{{id_num_1}}' placeholder="请输入身份证号" bindinput ="id_num_11"/>
+      </view>
+ </view>
+ <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">文化程度</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="edu_1" value='{{edu_1}}' placeholder="小学/初中/高中/本科/硕士/博士" bindinput ="edu_11"/>
+      </view>
+ </view>
+ <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">政治面貌</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="political_1" value='{{political_1}}' placeholder="请输入政治面貌" bindinput ="political_11"/>
+      </view>
+ </view>
+ <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">户籍所在地</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="area_1" value='{{area_1}}' placeholder="省/市/区/家庭住址" bindinput ="area_11"/>
+      </view>
+ </view>
+ <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">职业</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="job_1" value='{{job_1}}' placeholder="单位/学校/个体经营/退休/无" bindinput ="job_11"/>
+      </view>
+ </view>
+  <view class="panel__hd">家庭成员2</view>
+ <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">姓名</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="name_2" value='{{name_2}}' placeholder="请输入姓名" bindinput ="name_21"/>
+      </view>
+ </view>
+ <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">性别</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input"  input id="up_input" name="sex_2" value='{{sex_2}}' placeholder="请输入性别" bindinput ="sex_21"/>
+      </view>
+ </view>
+ <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">民族</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="nation_2" value='{{nation_2}}' placeholder="请输入民族" bindinput ="nation_21"/>
+      </view>
+ </view>
+ <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">身份证号</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" type="number" input id="up_input" name="id_num_2"value='{{id_num_2}}' placeholder="请输入身份证号" bindinput ="id_num_21"/>
+      </view>
+ </view>
+ <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">文化程度</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="edu_2" value='{{edu_2}}' placeholder="小学/初中/高中/本科/硕士/博士" bindinput ="edu_21"/>
+      </view>
+ </view>
+ <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">政治面貌</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="political_2" value='{{political_2}}' placeholder="群众/中共党员" bindinput ="political_21"/>
+      </view>
+ </view>
+ <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">户籍所在地</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="area_2" value='{{area_2}}' placeholder="省/市/区/家庭住址" bindinput ="area_21"/>
+      </view>
+ </view>
+ <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">职业</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="job_2" value='{{job_2}}' placeholder="单位/学校/个体经营/退休/无" bindinput ="job_21"/>
+      </view>
+ </view>
+ <view class="panel__hd">家庭成员3</view>
+ <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">姓名</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="name_3" value='{{name_3}}' placeholder="请输入姓名" bindinput ="name_31"/>
+      </view>
+ </view>
+ <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">性别</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input"  input id="up_input" name="sex_3" value='{{sex_3}}' placeholder="请输入性别" bindinput ="sex_31"/>
+      </view>
+ </view>
+ <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">民族</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="nation_3" value='{{nation_3}}' placeholder="请输入民族" bindinput ="nation_31"/>
+      </view>
+ </view>
+ <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">身份证号</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" type="number" input id="up_input" name="id_num_3"value='{{id_num_3}}' placeholder="请输入身份证号" bindinput ="id_num_31"/>
+      </view>
+ </view>
+<view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">文化程度</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="edu_3" value='{{edu_3}}' placeholder="小学/初中/高中/本科/硕士/博士" bindinput ="edu_31"/>
+      </view>
+ </view>
+ <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">政治面貌</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="political_3" value='{{political_3}}' placeholder="群众/中共党员" bindinput ="political_31"/>
+      </view>
+ </view>
+ <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">户籍所在地</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="area_3" value='{{area_3}}' placeholder="省/市/区/家庭住址" bindinput ="area_31"/>
+      </view>
+ </view>
+ <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">职业</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="job_3" value='{{job_3}}' placeholder="单位/学校/个体经营/退休/无" bindinput ="job_31"/>
+      </view>
+ </view>
+  <button class="weui-btn"  formType="submit" disabled="{{disable}}">确认提交</button>
+  <button class="weui-btn"  formType="reset" bindtap="cancelJoin">取消</button>
+   </form>
+</view>
+
+

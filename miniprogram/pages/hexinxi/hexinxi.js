@@ -1,3 +1,4 @@
+// miniprogram/pages/hexinxi/hexinxi.js
 const DB = wx.cloud.database()
 const _ = DB.command
 const app = getApp()
@@ -12,43 +13,30 @@ Page({
       'cloud://zzmine-3cgx9.7a7a-zzmine-3cgx9-1301387315/main/u5.jpg',
       'cloud://zzmine-3cgx9.7a7a-zzmine-3cgx9-1301387315/main/u7.jpg'
     ],
-
   },
-
   logNext1: function () {
     console.log(app.globalData._openid)
-   
+
 
     wx.navigateTo({
-      url: "../services/services"
+      url: "../rent/rent"
     })
   },
   logNext2: function () {
     wx.navigateTo({
-      url: "../hedangjian/hedangjian"
+      url: "../buy_house/buy_house"
     })
   },
   logNext3: function () {
     wx.navigateTo({
-      url: "../hezhiyuan/hezhiyuan"
-    })
-  },
-  logNext4: function () {
-    wx.navigateTo({
-    url: "../share/share"
-    })
-  },
-  logNext5: function () {
-    wx.navigateTo({
-      url: "../hexinxi/hexinxi"
+      url: "../Info_collect/Info_collect"
     })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
-   
+
   },
 
   /**

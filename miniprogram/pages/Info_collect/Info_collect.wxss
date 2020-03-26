@@ -1,0 +1,43 @@
+/* miniprogram/pages/Xinxishouji/Xinxishouji.wxss */
+@import "../services/services";
+@import "../s_logs/s_logs.wxss";
+@import "../xunxi_meihao/xunxi_meihao";
+.list-msg {
+      padding: 0 20rpx;
+      background-color: #fff; 
+     position: relative;
+     }
+ .list-msg1 {
+       height: 60rpx;
+       display: flex;
+       align-items: center;
+       justify-content: space-between;
+       } 
+.list-msg .list-msg2 {
+      height: 60rpx;
+      display: flex; 
+      align-items: center;
+      justify-content: space-between; 
+      border: 1px solid #ccc;    padding: 0 10rpx;}
+ .select_box {    
+      background-color: #eee;    
+      padding: 0 10rpx;    
+      width: 93%;   
+      position: absolute;    
+      top: 130rpx;    z-index: 1;    
+      overflow: hidden;    
+      animation: myfirst 0.5s;
+      }
+       @keyframes myfirst {
+             from {       
+                height: 0rpx;   
+              }    
+              to {       
+                height: 210rpx;   
+              }
+      } 
+      .select_one {   
+         height: 60rpx;    
+         line-height: 60rpx;    
+         border-bottom: 1px solid #ccc;
+         }

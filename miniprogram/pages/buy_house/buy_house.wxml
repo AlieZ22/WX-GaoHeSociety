@@ -1,0 +1,74 @@
+<!--miniprogram/pages/buy_house/buy_house.wxml-->
+<view class="guide" wx:if="{{step ===1}}">
+        <view  class="panel__bd" wx:for="{{ne}}" wx:key="index"  class="media-box media-box_appmsg" hover-class="cell_active"><!--wx:for是微信数据绑定的一种方式，该数组有多少数据就显示多少个view-->
+          <!--index为每个数据对应的下标-->
+          <view class="media-box__hd media-box__hd_in-appmsg">
+            <image class="media-box__thumb" src="{{item.fileUrl[0]}}" />
+          </view>
+            <!--item就相当于数组名+下标的结合体，适用于调用数组所有数据-->
+            <view class="media-box__bd media-box__bd_in-appmsg">
+            <view class="media-box__title">房源信息</view>
+            <view class="media-box__desc">联系人：{{item.name}}</view>
+            <view class="media-box__desc">联系方式：{{item.contact}}</view>
+            <view class="media-box__desc">房源信息：{{item.infor}}</view>
+        </view>
+      </view>
+      <button class="weui-btn" bindtap="nextStep" >我要卖房</button>
+  </view>
+  <!-- 展示招募信息结束 -->
+
+
+<!-- 报名界面 -->
+  <view class="guide" wx:if="{{step === 2}}">
+  <view class="panel__hd">房源信息</view>
+  <view class="panel__hd">请您如实填写以下信息</view>
+  <view class="weui-cells weui-cells_after-title" style="margin-bottom: 20rpx;">
+  <form bindsubmit="formSubmit">
+  <view class="weui-cell ">
+    <view class="weui-cell__hd">
+        <view class="weui-label">联系人</view>
+    </view>
+    <view class="weui-cell__bd">
+        <input class="weui-input" input id="up_input" name="name" value='{{name}}' placeholder="请输入姓名" bindinput ="name1"/>
+    </view>
+  </view>
+  <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">联系方式</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" type='number' input id="up_input" name="contact" value='{{contact}}' placeholder="请输入联系方式" bindinput ="contact1"/>
+      </view>
+  </view>
+  <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">房源信息</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="infor" value='{{location}}' placeholder="位置、价格、其他特点等" bindinput ="infor1"/>
+      </view>
+ </view>
+  <view class="weui-cell ">
+            <view class="weui-cell__hd">
+                <view class="weui-label">上传房屋照片</view>
+            </view>
+            <view class="weui-cell__bd">
+              <view class="weui-uploader__files" id="uploaderFiles">
+                <block wx:for="{{files}}" wx:key="*this">
+                    <view class="weui-uploader__file" bindtap="previewImage" id="{{item}}">
+                        <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
+                    </view>
+                </block>
+                <view class="weui-uploader__input-box">
+                  <view bindtap="chooseImage"class="weui-uploader__input"></view>
+                </view>
+              </view>
+            </view>
+          </view>
+  <button class="weui-btn"  formType="submit" disabled="{{disable}}">确认提交</button>
+  <button class="weui-btn"  formType="reset" bindtap="cancelJoin">取消</button>
+  </form>
+</view>
+
+    <!-- 报名界面结束 -->  
+     </view>

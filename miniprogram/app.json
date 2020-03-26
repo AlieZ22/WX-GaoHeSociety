@@ -17,7 +17,11 @@
     "pages/xunxi_fuwu/xunxi_fuwu",
     "pages/xunxi_meihao/xunxi_meihao",
     "pages/xunxi_zhiyuan/xunxi_zhiyuan",
-    "pages/fabu_djInfo/fabu_djInfo"
+    "pages/fabu_djInfo/fabu_djInfo",
+    "pages/hexinxi/hexinxi",
+    "pages/rent/rent",
+    "pages/buy_house/buy_house",
+    "pages/Info_collect/Info_collect"
   ],
   "window": {
     "navigationBarBackgroundColor": "#ff6969",

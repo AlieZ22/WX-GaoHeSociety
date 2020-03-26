@@ -1,0 +1,19 @@
+<!--miniprogram/pages/hexinxi/hexinxi.wxml-->
+
+   
+    <!-- 选项卡 -->
+  <view class="content">
+    <view class="textbar" bindtap="logNext1">
+      <image src="" class="img"></image>
+      <text class="textfont">去租房</text>
+    </view>
+    <view class="textbar" bindtap="logNext2">
+      <image src="" class="img"></image>
+      <text class="textfont">去买房</text>
+    </view>
+    <view class="textbar" bindtap="logNext3">
+      <image src="" class="img"></image>
+      <text class="textfont">信息填报</text>
+    </view>
+  </view>
+
