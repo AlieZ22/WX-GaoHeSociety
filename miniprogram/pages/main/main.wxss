@@ -4,7 +4,7 @@
   border-bottom: 5px solid #ddd;
 }
 swiper{
-  height: 460rpx;
+  height: 500rpx;
   width: 100%;
 }
 swiper image{
@@ -20,13 +20,13 @@ swiper image{
 }
 
 .img{
-  width: 150rpx;
+  width: 120rpx;
   height: 150rpx;
 }
 
 .textbar{
-  width: 40%;
-  height:250rpx;
+  width: 17%;
+  height:150rpx;
   display: flex;
   border: 3rpx solid #ff6969;
   flex-direction: column;
@@ -38,9 +38,9 @@ swiper image{
 }
 
 .textfont{
-  font-size: 40rpx;
+  font-size: 32rpx;
   color: #ff6969;
-  margin: 20rpx;
+  margin-top: 10rpx;
   flex-grow: 1;
   justify-content: flex-end;
   display: flex;
@@ -56,7 +56,7 @@ swiper image{
   margin-top: 10rpx;
   margin-bottom: 10rpx;
   color: white;
-  font-size: 50rpx;
+  font-size: 45rpx;
   font-weight:700;
 }
 .media-box__info__meta{

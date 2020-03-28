@@ -1,0 +1,83 @@
+page{
+  padding-bottom: 40px;
+  position: relative;
+}
+/* 轮播图 */
+.selection{
+  width: 100%;
+  align-self: center;
+  height: 250px;
+  z-index: -1;
+}
+swiper{
+  height: 250px;
+  width: 100%;
+  overflow: hidden;
+}
+swiper image{
+  width: 100%;
+}
+.card{
+  margin: 0 auto;
+  display: flex;
+  position: absolute;
+  top: 230px;
+  left:5%;
+  z-index: 10;
+  background-color: white;
+  width: 80%;
+  justify-content: center;
+  border-radius: 10px;
+  flex-direction: column;
+  padding:10px;
+  box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 2px 1px -1px rgba(0,0,0,0.12);
+}
+.people{
+  display: block;
+  margin: 10px;
+}
+.people text{
+  flex: 6;
+  font-size: 30rpx;
+  font-weight: 400;
+  margin: 10px;
+  border-bottom: 1px solid #ddd
+}
+.people icon{
+  flex: 6;
+
+}
+.card .name{
+  display: block;
+  font-size: 50rpx;
+  font-weight: 400;
+}
+.word label{
+  display: block;
+  font-size: 30rpx;
+  color: #ff6969;
+  margin-top: 10px;
+}
+.btn{
+  margin:10rpx;
+  margin-right:10rpx;
+  padding-left:10rpx;
+  align-content: center;
+  color: white;
+  background-color: #ff6969;
+  border-radius: 10rpx;
+	padding-bottom:4px;
+  display: inline-block;
+  text-align: center;
+}
+
+.weui-footer{
+    margin-bottom: 50px;
+    text-align: center;
+
+}
+.weui-footer_fixed-bottom{
+    margin-bottom: 0;
+    text-align: center;
+}
+

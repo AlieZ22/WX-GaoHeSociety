@@ -1,0 +1,63 @@
+<view class="page">
+    <view class="page__bd">
+        <view class="weui-article">
+            <view class="weui-article__h1">湾里街道2020年度城乡居民基本医疗保险参保缴费通知</view>
+            <view class="weui-article__section">
+                <view class="weui-article__h2">2019-10-30</view>
+                <view class="weui-article__section">
+                    <view class="weui-article__h3">参保条件:</view>
+                    <view class="weui-article__p">
+                        参保人需携带身份证、户口本，未成年人需携带户口本，外地居民携带证件到户籍或携带户口本、身份证、居住证到居住证所在的社区办理参保缴费手续(新生儿需在出生三个月内办理参保缴费手续)。学生由学校统一负责办理参保登记手续。
+                    </view>      
+                </view>
+                <view class="weui-article__section">
+                    <view class="weui-article__h3">缴费方式:</view>
+                    <view class="weui-article__p">
+                       2020年城乡居民基本医疗保险将进行扫码缴费和自助缴费，参保人员需要到社区进行登记录入信息，可以现场扫码缴费也可以扫程序码进行自助缴费，不出门手机就可为多人缴费，方便快捷。
+                    </view>
+                    <view class="weui-article__p">
+                      2019年4月1日前已经办理大连银行缴费关联的老年居民可到大连银行缴存2020年度的医疗保险费。
+                    </view>
+                </view>
+                 <view class="weui-article__section">
+                <view class="weui-article__section">
+                    <view class="weui-article__h3"> 1.未成年居民:</view>
+                    <view class="weui-article__p">
+                      具有湾里街道户籍或居住证未满18岁的居民
+
+                      转出户籍前为湾里户籍的华侨未满18周岁的子女
+
+                      个人缴纳费用：本年保费280元缴纳过2019年城镇居民医疗保险和新型农村合作医疗保险的人员补缴30元共计310元
+                    </view>
+                    <view class="weui-article__p">
+                      <view class="weui-article__h3">2.成年居民：</view>
+
+                      具有湾里街道户籍或居住证，且年龄超过18周岁的非从业非全日制在读居民
+
+                      个人缴纳费用：本年保费280元缴纳过2019年城镇居民医疗保险和新型农村合作医疗保险的人员补缴30元共计310元
+                    </view>
+                    <view class="weui-article__p">
+                    <view class="weui-article__h3">3.低保人员：</view>
+                    湾里街道低保人员，无需个人缴费。
+                    </view>
+                </view>
+                <view class="weui-article__section">
+                    <view class="weui-article__h3">温馨提示:</view>
+                    <view class="weui-article__p">
+                        一、已参加城镇职工基本医疗保险或其他地区的城乡居民医保的人员，不得重复参保。</view>
+                    <view class="weui-article__p">
+二、新参保人员或具有新型农村合作医疗保险卡且没有社会保障卡的人员需到指定银行办理社会保障卡。</view>
+                    <view class="weui-article__p">
+三、请参保人及时足额缴费，若错过缴费时间，按照政策规定需要有两个月的等待期，这期间一旦生病住院就不能享受医疗保险待遇，将给居民和家庭带来不便。
+                    </view> 
+                </view>     
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+
+   <view class="weui-footer weui-footer_fixed-bottom">
+        <view>不明确的事项可以到社区咨询</view>
+        <view>高合社区电话：8718730</view>
+    </view>

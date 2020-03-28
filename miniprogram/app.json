@@ -21,7 +21,12 @@
     "pages/hexinxi/hexinxi",
     "pages/rent/rent",
     "pages/buy_house/buy_house",
-    "pages/Info_collect/Info_collect"
+    "pages/Info_collect/Info_collect",
+    "pages/health/health",
+    "pages/yibao/yibao"
+  ],
+  "navigateToMiniProgramAppIdList": [
+    "wx1f9fab8508f2c6ad"
   ],
   "window": {
     "navigationBarBackgroundColor": "#ff6969",

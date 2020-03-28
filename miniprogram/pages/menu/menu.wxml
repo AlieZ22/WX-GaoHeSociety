@@ -1,0 +1,38 @@
+<button class='btn1' bindtap="calling">拨打电话</button>
+<view class='big-box'>
+  <view class='left-menu'>
+    <block wx:for="{{dataList}}" wx:key="key">
+      <view class='{{index == idx ? "avtive":"Default-Class"}}' bindtap="switchClassfun" data-index="{{index}}">{{item.title}}</view>
+    </block>
+
+  </view>
+  <view style='width:73%;'>
+    <scroll-view 
+      class='scrollclass' 
+      scroll-y="true" 
+      scroll-with-animation="true" 
+      enable-back-to-top="true" 
+      scroll-into-view="{{toView}}" 
+      scroll-top="{{scrollTop}}" 
+      bindscroll="bindscrollfunc"
+      bindscrolltoupper="topevent">
+      <block wx:for="{{dataList}}" wx:for-item="item" wx:key="key">
+        <view class='scroll-box position' id="position{{index}}" data-index="{{index}}">
+          <view class='title'>{{item.title}}</view>
+            <block wx:for="{{item.products}}" wx:for-item="items" wx:key="key">
+              <view class='scroll-box-product-box'>
+                <image src='{{items.img}}' class='product-img'></image>
+                <view class='product-info-box'>
+                  <view class='product-name'>{{items.name}}</view>
+                  <view class='product-English-name'>{{items.englisgname}}</view>
+                  <view class='product-price'>￥{{items.price}}</view>
+                </view>
+              </view>
+            </block>
+        </view>
+      </block>
+    </scroll-view>
+
+  </view>
+
+</view>

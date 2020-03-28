@@ -33,28 +33,6 @@
 	padding-bottom:4px;
 }
 
-.func-btn-success {
-  margin:30rpx;
-  margin-right:30rpx;
-  padding-left:30rpx;
-  align-content: center;
-  color: white;
-  background-color: #ff6969;
-  border-radius: 10rpx;
-	padding-bottom:4px;
-  display: inline-block;
-}
-.func-btn-success {
-  margin:30rpx;
-  margin-right:30rpx;
-  padding-left:30rpx;
-  align-content: center;
-  color: white;
-  background-color: #ff6969;
-  border-radius: 10rpx;
-	padding-bottom:4px;
-  display: inline-block;
-}
 .func-btn {
   margin:10rpx;
   margin-right:10rpx;

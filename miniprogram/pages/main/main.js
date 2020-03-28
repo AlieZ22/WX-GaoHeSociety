@@ -43,6 +43,17 @@ Page({
       url: "../hexinxi/hexinxi"
     })
   },
+  logNext6: function () {
+    wx.navigateTo({
+      url: "../menu/menu"
+    })
+  },
+  logNext7: function () {
+    wx.navigateTo({
+      url: "../health/health"
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */

@@ -12,6 +12,9 @@
 <view class="selection">
    
     <!-- 选项卡 -->
+<view class="header">
+  <text>热门服务 > ></text>
+</view>
   <view class="content">
     <view class="textbar" bindtap="logNext1">
       <image src="cloud://zzmine-3cgx9.7a7a-zzmine-3cgx9-1301387315/main/u6.png" class="img"></image>
@@ -30,8 +33,16 @@
       <text class="textfont">合美好 </text>
     </view>
     <view class="textbar" bindtap="logNext5">
-      <image src= class="img"></image>
+      <image src="cloud://zzmine-3cgx9.7a7a-zzmine-3cgx9-1301387315/main/u28.png" class="img"></image>
       <text class="textfont">合信息 </text>
+    </view>
+     <view class="textbar" bindtap="logNext6">
+      <image src="cloud://zzmine-3cgx9.7a7a-zzmine-3cgx9-1301387315/main/u29.png" class="img"></image>
+      <text class="textfont">合养老 </text>
+    </view>
+    <view class="textbar" bindtap="logNext7">
+      <image src="cloud://zzmine-3cgx9.7a7a-zzmine-3cgx9-1301387315/main/u30.png" class="img"></image>
+      <text class="textfont">合医疗 </text>
     </view>
   </view>
 </view>
