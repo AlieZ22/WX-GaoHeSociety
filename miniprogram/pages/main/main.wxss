@@ -21,14 +21,14 @@ swiper image{
 
 .img{
   width: 120rpx;
-  height: 150rpx;
+  height: 180rpx;
 }
 
 .textbar{
-  width: 17%;
-  height:150rpx;
+  width: 18%;
+  height:180rpx;
   display: flex;
-  border: 3rpx solid #ff6969;
+  /* border: 3rpx solid #ff6969; */
   flex-direction: column;
   justify-content: center;
   align-items:center;
@@ -51,7 +51,7 @@ swiper image{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 60rpx;
+  height: 70rpx;
   padding: 10rpx;
   margin-top: 10rpx;
   margin-bottom: 10rpx;

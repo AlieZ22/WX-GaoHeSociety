@@ -1,5 +1,7 @@
 @import "../services/services";
 @import "../s_logs/s_logs.wxss";
+@import "../wode/wode";
+
 .guide{
   background-color: white;
 }
@@ -15,6 +17,7 @@ swiper image{
   width: 100%;
 }
 .content{
+   width: 100%;
    display: flex;
    flex-direction: row;
    flex-wrap: wrap;
@@ -23,21 +26,20 @@ swiper image{
 }
 
 .img{
-  width: 150rpx;
-  height: 150rpx;
+  width: 80%;
+  height: 350rpx;
+  border-radius: 10px;
 }
 
 .textbar{
-  width: 40%;
+  width: 29%;
   height:250rpx;
   display: flex;
-  border: 3rpx solid #ff6969;
+  font-size: 30rpx;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items:center;
-  margin: 10rpx;
-  border-radius: 10%;
-  padding: 15rpx;
+  border-radius: 10px;
 }
 
 .textfont{

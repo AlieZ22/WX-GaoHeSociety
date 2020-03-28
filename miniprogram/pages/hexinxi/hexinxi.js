@@ -13,6 +13,7 @@ Page({
       'cloud://zzmine-3cgx9.7a7a-zzmine-3cgx9-1301387315/main/u5.jpg',
       'cloud://zzmine-3cgx9.7a7a-zzmine-3cgx9-1301387315/main/u7.jpg'
     ],
+    
   },
   logNext1: function () {
     console.log(app.globalData._openid)
