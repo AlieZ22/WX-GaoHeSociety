@@ -41,11 +41,16 @@ Page({
         arr.push(item)
       }
     }
-    this.setData({ idx: arr[arr.length-1].dataset.index + 1 })
+    // 处理属性为空的异常
+    try{
+      let data = arr[arr.length - 1]
+      if("dataset" in data){
+        this.setData({ idx: data.dataset.index + 1 })
+      }
+    }catch(err){}
   },
 
   topevent:function(e){
-    console.log(e)
     this.setData({ idx: 0})
   }
 })

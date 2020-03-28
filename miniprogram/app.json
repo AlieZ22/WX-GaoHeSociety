@@ -23,7 +23,8 @@
     "pages/buy_house/buy_house",
     "pages/Info_collect/Info_collect",
     "pages/health/health",
-    "pages/yibao/yibao"
+    "pages/yibao/yibao",
+    "pages/menu/menu"
   ],
   "navigateToMiniProgramAppIdList": [
     "wx1f9fab8508f2c6ad"

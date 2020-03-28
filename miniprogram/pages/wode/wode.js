@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    motto:"hello world",
+    motto:"共创美好新社区ヾ",
     userInfo:{},
     hasUserInfo: false,
     user:null,
