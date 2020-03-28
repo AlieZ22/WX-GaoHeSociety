@@ -24,8 +24,7 @@
     "pages/Info_collect/Info_collect",
     "pages/menu/menu",
     "pages/health/health",
-    "pages/yibao/yibao",
-    "pages/menu/menu"
+    "pages/yibao/yibao"
   ],
   "navigateToMiniProgramAppIdList": [
     "wx1f9fab8508f2c6ad"
