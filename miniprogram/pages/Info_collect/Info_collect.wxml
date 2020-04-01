@@ -1,4 +1,3 @@
-<!--miniprogram/pages/Xinxishouji/Xinxishouji.wxml-->
 <view class="panel__hd">请您如实填写以下信息（带<text style='color:red'>*</text>为必填）</view>
   <view class="panel__hd">产权信息</view>
   <view class="weui-cells weui-cells_after-title" style="margin-bottom: 20rpx;">
@@ -141,6 +140,88 @@
           <input class="weui-input" input id="up_input" name="job" value='{{job}}' placeholder="单位/学校/个体经营/退休/无" bindinput ="job1"/>
       </view>
  </view>
+ <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">宗教信仰</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="zongjiao" value='{{zongjiao}}' placeholder="请填写宗教信仰" bindinput ="zongjiao1"/>
+      </view>
+ </view>
+ <view class="panel__hd">参军情况（如参军请填写)</view>
+ <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">参军情况</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="canjun" value='{{canjun}}' placeholder="现役/退役" bindinput ="canjun1"/>
+      </view>
+ </view>
+ <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">建国前入伍</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="b_canjun" value='{{b_canjun}}' placeholder="是/否" bindinput ="b_canjun1"/>
+      </view>
+ </view>
+  <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">入伍时间</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="r_time" value='{{r_time}}' placeholder="请填写入伍时间（1900/01/01）" bindinput ="r_time1"/>
+      </view>
+ </view>
+  <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">退伍时间</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="t_time" value='{{t_time}}' placeholder="请填写退伍时间（1900/01/01）" bindinput ="t_time1"/>
+      </view>
+ </view>
+ <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">服役时长</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="f_time" value='{{f_time}}' placeholder="请填写服役时长" bindinput ="f_time1"/>
+      </view>
+ </view>
+  <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">目前就业情况</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="jiuye" value='{{jiuye}}' placeholder="分配/自主择业/退休" bindinput ="jiuye1"/>
+      </view>
+ </view>
+ <view class="panel__hd">伤残情况</view>
+ <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">是否伤残<text style='color:red'>*</text></view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="shangcan" value='{{shangcan}}' placeholder="是/否" bindinput ="shangcan1"/>
+      </view>
+ </view>
+ <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">是否有伤残证</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="youzheng" value='{{youzheng}}' placeholder="是/否" bindinput ="youzheng1"/>
+      </view>
+ </view>
+ <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">证件等级</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="dengji" value='{{dengji}}' placeholder="请输入证件等级" bindinput ="dengji1"/>
+      </view>
+ </view>
  <view class="panel__hd">家庭成员/同住人信息（按照直系亲属关系顺序填报）</view>
  <view class="panel__hd">家庭成员1</view>
  <view class="weui-cell ">
@@ -193,6 +274,14 @@
  </view>
  <view class="weui-cell ">
       <view class="weui-cell__hd">
+          <view class="weui-label">建国前党员</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="b_political_1" value='{{b_political_1}}' placeholder="是/否" bindinput ="b_political_11"/>
+      </view>
+ </view>
+ <view class="weui-cell ">
+      <view class="weui-cell__hd">
           <view class="weui-label">户籍所在地</view>
       </view>
       <view class="weui-cell__bd">
@@ -205,6 +294,121 @@
       </view>
       <view class="weui-cell__bd">
           <input class="weui-input" input id="up_input" name="job_1" value='{{job_1}}' placeholder="单位/学校/个体经营/退休/无" bindinput ="job_11"/>
+      </view>
+ </view>
+ <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">宗教信仰</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="zongjiao_1" value='{{zongjiao_1}}' placeholder="请填写宗教信仰" bindinput ="zongjiao_11"/>
+      </view>
+ </view>
+ <view class="panel__hd">参军情况（如参军请填写)</view>
+ <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">参军情况</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="canjun_1" value='{{canjun_1}}' placeholder="现役/退役" bindinput ="canjun_11"/>
+      </view>
+ </view>
+ <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">建国前入伍</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="b_canjun_1" value='{{b_canjun_1}}' placeholder="是/否" bindinput ="b_canjun_11"/>
+      </view>
+ </view>
+  <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">入伍时间</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="r_time_1" value='{{r_time_1}}' placeholder="请填写入伍时间（1900/01/01）" bindinput ="r_time_11"/>
+      </view>
+ </view>
+  <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">退伍时间</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="t_time_1" value='{{t_time_1}}' placeholder="请填写退伍时间（1900/01/01）" bindinput ="t_time_11"/>
+      </view>
+ </view>
+ <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">服役时长</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="f_time_1" value='{{f_time_1}}' placeholder="请填写服役时长" bindinput ="f_time_11"/>
+      </view>
+ </view>
+  <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">目前就业情况</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="jiuye_1" value='{{jiuye_1}}' placeholder="分配/自主择业/退休" bindinput ="jiuye_11"/>
+      </view>
+ </view>
+ <view class="panel__hd">伤残情况</view>
+ <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">是否伤残<text style='color:red'>*</text></view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="shangcan_1" value='{{shangcan_1}}' placeholder="是/否" bindinput ="shangcan_11"/>
+      </view>
+ </view>
+ <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">是否有伤残证</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="youzheng_1" value='{{youzheng_1}}' placeholder="是/否" bindinput ="youzheng_11"/>
+      </view>
+ </view>
+ <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">证件等级</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="dengji_1" value='{{dengji_1}}' placeholder="请输入证件等级" bindinput ="dengji_11"/>
+      </view>
+ </view>
+ <view class="panel__hd">出境人员信息（如出境请填写）</view>
+ <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">国籍</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="guoji_1" value='{{guoji_1}}' placeholder="请填写出境人国籍" bindinput ="guoji_11"/>
+      </view>
+ </view>
+ <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">出境时间</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="time_1" value='{{time_1}}' placeholder="请填写出境时间（1900/01/01）" bindinput ="time_11"/>
+      </view>
+ </view>
+ <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">出境目的地</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="guojia_1" value='{{guojia_1}}' placeholder="请填写出境国家" bindinput ="guojia_11"/>
+      </view>
+ </view>
+ <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">事由</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="reason_1" value='{{reason_1}}' placeholder="请填写出境事由" bindinput ="reason_11"/>
       </view>
  </view>
   <view class="panel__hd">家庭成员2</view>
@@ -258,6 +462,14 @@
  </view>
  <view class="weui-cell ">
       <view class="weui-cell__hd">
+          <view class="weui-label">建国前党员</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="b_political_2" value='{{b_political_2}}' placeholder="是/否" bindinput ="b_political_21"/>
+      </view>
+ </view>
+ <view class="weui-cell ">
+      <view class="weui-cell__hd">
           <view class="weui-label">户籍所在地</view>
       </view>
       <view class="weui-cell__bd">
@@ -270,6 +482,121 @@
       </view>
       <view class="weui-cell__bd">
           <input class="weui-input" input id="up_input" name="job_2" value='{{job_2}}' placeholder="单位/学校/个体经营/退休/无" bindinput ="job_21"/>
+      </view>
+ </view>
+ <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">宗教信仰</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="zongjiao_2" value='{{zongjiao_2}}' placeholder="请填写宗教信仰" bindinput ="zongjiao_21"/>
+      </view>
+ </view>
+ <view class="panel__hd">参军情况（如参军请填写)</view>
+ <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">参军情况</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="canjun_2" value='{{canjun_2}}' placeholder="现役/退役" bindinput ="canjun_21"/>
+      </view>
+ </view>
+ <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">建国前入伍</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="b_canjun_2" value='{{b_canjun_2}}' placeholder="是/否" bindinput ="b_canjun_21"/>
+      </view>
+ </view>
+  <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">入伍时间</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="r_time_2" value='{{r_time_2}}' placeholder="请填写入伍时间（1900/01/01）" bindinput ="r_time_21"/>
+      </view>
+ </view>
+  <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">退伍时间</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="t_time_2" value='{{t_time_2}}' placeholder="请填写退伍时间（1900/01/01）" bindinput ="t_time_21"/>
+      </view>
+ </view>
+ <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">服役时长</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="f_time_2" value='{{f_time_2}}' placeholder="请填写服役时长" bindinput ="f_time_21"/>
+      </view>
+ </view>
+  <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">目前就业情况</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="jiuye_2" value='{{jiuye_2}}' placeholder="分配/自主择业/退休" bindinput ="jiuye_21"/>
+      </view>
+ </view>
+ <view class="panel__hd">伤残情况</view>
+ <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">是否伤残<text style='color:red'>*</text></view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="shangcan_2" value='{{shangcan_2}}' placeholder="是/否" bindinput ="shangcan_21"/>
+      </view>
+ </view>
+ <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">是否有伤残证</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="youzheng_2" value='{{youzheng_2}}' placeholder="是/否" bindinput ="youzheng_21"/>
+      </view>
+ </view>
+ <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">证件等级</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="dengji_2" value='{{dengji_2}}' placeholder="请输入证件等级" bindinput ="dengji_21"/>
+      </view>
+ </view>
+ <view class="panel__hd">出境人员信息（如出境请填写）</view>
+ <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">国籍</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="guoji_2" value='{{guoji_2}}' placeholder="请填写出境人国籍" bindinput ="guoji_21"/>
+      </view>
+ </view>
+ <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">出境时间</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="time_2" value='{{time_2}}' placeholder="请填写出境时间（1900/01/01）" bindinput ="time_21"/>
+      </view>
+ </view>
+ <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">出境目的地</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="guojia_2" value='{{guojia_2}}' placeholder="请填写出境国家" bindinput ="guojia_21"/>
+      </view>
+ </view>
+ <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">事由</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="reason_2" value='{{reason_2}}' placeholder="请填写出境事由" bindinput ="reason_21"/>
       </view>
  </view>
  <view class="panel__hd">家庭成员3</view>
@@ -323,6 +650,14 @@
  </view>
  <view class="weui-cell ">
       <view class="weui-cell__hd">
+          <view class="weui-label">建国前党员</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="b_political_3" value='{{b_political_3}}' placeholder="是/否" bindinput ="b_political_31"/>
+      </view>
+ </view>
+ <view class="weui-cell ">
+      <view class="weui-cell__hd">
           <view class="weui-label">户籍所在地</view>
       </view>
       <view class="weui-cell__bd">
@@ -337,9 +672,123 @@
           <input class="weui-input" input id="up_input" name="job_3" value='{{job_3}}' placeholder="单位/学校/个体经营/退休/无" bindinput ="job_31"/>
       </view>
  </view>
+ <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">宗教信仰</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="zongjiao_3" value='{{zongjiao_3}}' placeholder="请填写宗教信仰" bindinput ="zongjiao_31"/>
+      </view>
+ </view>
+ <view class="panel__hd">参军情况（如参军请填写)</view>
+ <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">参军情况</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="canjun_3" value='{{canjun_3}}' placeholder="现役/退役" bindinput ="canjun_31"/>
+      </view>
+ </view>
+ <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">建国前入伍</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="b_canjun_3" value='{{b_canjun_3}}' placeholder="是/否" bindinput ="b_canjun_31"/>
+      </view>
+ </view>
+  <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">入伍时间</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="r_time_3" value='{{r_time_3}}' placeholder="请填写入伍时间（1900/01/01）" bindinput ="r_time_31"/>
+      </view>
+ </view>
+  <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">退伍时间</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="t_time_3" value='{{t_time_3}}' placeholder="请填写退伍时间（1900/01/01）" bindinput ="t_time_31"/>
+      </view>
+ </view>
+ <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">服役时长</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="f_time_3" value='{{f_time_3}}' placeholder="请填写服役时长" bindinput ="f_time_31"/>
+      </view>
+ </view>
+  <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">目前就业情况</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="jiuye_3" value='{{jiuye_3}}' placeholder="分配/自主择业/退休" bindinput ="jiuye_31"/>
+      </view>
+ </view>
+ <view class="panel__hd">伤残情况</view>
+ <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">是否伤残<text style='color:red'>*</text></view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="shangcan_3" value='{{shangcan_3}}' placeholder="是/否" bindinput ="shangcan_31"/>
+      </view>
+ </view>
+ <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">是否有伤残证</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="youzheng_3" value='{{youzheng_3}}' placeholder="是/否" bindinput ="youzheng_31"/>
+      </view>
+ </view>
+ <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">证件等级</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="dengji_3" value='{{dengji_3}}' placeholder="请输入证件等级" bindinput ="dengji_31"/>
+      </view>
+ </view>
+ <view class="panel__hd">出境人员信息（如出境请填写）</view>
+ <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">国籍</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="guoji_3" value='{{guoji_3}}' placeholder="请填写出境人国籍" bindinput ="guoji_31"/>
+      </view>
+ </view>
+ <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">出境时间</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="time_3" value='{{time_3}}' placeholder="请填写出境时间（1900/01/01）" bindinput ="time_31"/>
+      </view>
+ </view>
+ <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">出境目的地</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="guojia_3" value='{{guojia_3}}' placeholder="请填写出境国家" bindinput ="guojia_31"/>
+      </view>
+ </view>
+ <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">事由</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="reason_3" value='{{reason_3}}' placeholder="请填写出境事由" bindinput ="reason_31"/>
+      </view>
+ </view>
   <button class="weui-btn"  formType="submit" disabled="{{disable}}">确认提交</button>
   <button class="weui-btn"  formType="reset" bindtap="cancelJoin">取消</button>
    </form>
 </view>
-
 
