@@ -2,7 +2,7 @@
     <view class="page__bd">
          <view class="panel">
              <view class="panel__bd">
-                 <navigator wx:if="{{item.state=='2'}}" wx:for="{{meihaoList}}" wx:key="index" url="" class="media-box media-box_appmsg" hover-class="cell_active">
+                 <navigator bindtap="openGallery"  data-item="{{item}}" wx:if="{{item.state=='2'}}" wx:for="{{meihaoList}}" wx:key="index" url="" class="media-box media-box_appmsg" hover-class="cell_active">
                      <view class="media-box__hd media-box__hd_in-appmsg">
                          <image class="media-box__thumb" src="{{item.fileUrl[0]}}" />
                      </view>
@@ -12,7 +12,23 @@
                          <view class="media-box__desc">创作时间：{{item.createTime}}</view>
                          <view class="media-box__desc">作品简介：{{item.desc}}</view>
                      </view>
+                     
                  </navigator>
+                 <!-- 图片预览开始 -->
+                 <view class="weui-gallery {{istrue ? 'weui-gallery_show' : ''}}" bindtap="closeGallery">
+                      <view class="weui-gallery__img__wrp">
+                            <!-- <image mode="aspectFit" class="weui-gallery__img" src="{{picList[0]}}"></image> -->
+                             <swiper circular="true">
+                              <view wx:for="{{picList}}" wx:key="index">
+                                <swiper-item>
+                                 <view class="weui-gallery__info">{{index+1}}/{{picList.length}}</view>
+                                  <image src="{{item}}" class="weui-gallery__img"  mode="widthFix" />
+                                </swiper-item>
+                              </view>
+                            </swiper>
+                      </view>
+                  </view>
+                  <!-- 图片预览结束 -->
              </view>
              
          </view>

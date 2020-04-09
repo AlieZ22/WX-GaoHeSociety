@@ -9,7 +9,22 @@ Page({
   data: {
     meihaoList:[],
     user:app.globalData.user,
-    user_id:app.globalData._openid
+    user_id:app.globalData._openid,
+    istrue:false,
+    picList:[],
+  },
+  openGallery: function (event) {
+    console.log(event.currentTarget.dataset.item.fileUrl);
+    this.setData({
+      picList: event.currentTarget.dataset.item.fileUrl,
+      istrue: true
+    })
+  },
+  closeGallery: function () {
+    this.setData({
+      istrue: false,
+      picList:[]
+    })
   },
 
   // 获取云端数据(合美好)

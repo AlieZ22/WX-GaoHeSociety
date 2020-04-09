@@ -9,6 +9,21 @@ Page({
     meihaoList: [],
     user:'',
     user_id: '',
+    istrue: false,
+    picList: [],
+  },
+  openGallery: function (event) {
+    console.log(event.currentTarget.dataset.item.fileUrl);
+    this.setData({
+      picList: event.currentTarget.dataset.item.fileUrl,
+      istrue: true
+    })
+  },
+  closeGallery: function () {
+    this.setData({
+      istrue: false,
+      picList: []
+    })
   },
   publish:function(e){
     let that = this

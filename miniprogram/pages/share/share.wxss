@@ -1,1 +1,68 @@
 @import "../services/services";
+.weui-gallery{
+  position:fixed;
+  top:0;
+  right:0;
+  bottom:0;
+  left:0;
+  background-color:#000;
+  z-index:1000;
+  -webkit-flex-direction:column;
+  -webkit-box-orient:vertical;
+  -webkit-box-direction:normal;
+  flex-direction:column;
+  -webkit-flex-wrap:nowrap;
+  flex-wrap:nowrap;
+  opacity:0;
+  visibility:hidden;
+  -webkit-transition:opacity .3s;
+  transition:opacity .3s
+}
+.weui-gallery_show{
+  display:-webkit-box;
+  display:-webkit-flex;
+  display:flex;
+  visibility:visible;
+  opacity:1
+}
+.weui-gallery__info{
+color:#fff;
+font-size:17px;
+line-height:30px;
+min-height:30px;
+margin-top: 30px;
+text-align:center}
+.weui-gallery__img__wrp{
+  -webkit-box-flex:1;
+  -webkit-flex:1;
+  flex:1;
+  position:relative;
+  font-size:0
+}
+.weui-gallery__img{
+  background:50% no-repeat;
+  background-size:contain;
+  position:absoulte;
+  width:100%;
+  height:100%
+}
+.weui-gallery__opr{
+  background-color:#0d0d0d;
+  color:#fff;
+  line-height:30px;
+  min-height:30px;
+  text-align:center
+}
+swiper{
+  -webkit-box-flex:1;
+  -webkit-flex:1;
+  flex:1;
+  position:relative;
+  font-size:0;
+  height: 100%;
+  width: 100%;
+}
+swiper image{
+  height: 100%;
+  width: 100%;
+}
