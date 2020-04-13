@@ -8,9 +8,9 @@ Page({
    */
   data: {
     imgUrls: [
-      'cloud://zzmine-3cgx9.7a7a-zzmine-3cgx9-1301387315/main/u2.jpg',
-      'cloud://zzmine-3cgx9.7a7a-zzmine-3cgx9-1301387315/main/u5.jpg',
-      'cloud://zzmine-3cgx9.7a7a-zzmine-3cgx9-1301387315/main/u7.jpg'
+      'cloud://zzmine-3cgx9.7a7a-zzmine-3cgx9-1301387315/banner/banner.jpg',
+      'cloud://zzmine-3cgx9.7a7a-zzmine-3cgx9-1301387315/banner/banner2.jpg',
+      'cloud://zzmine-3cgx9.7a7a-zzmine-3cgx9-1301387315/banner/banner3.jpg'
     ],
 
   },
