@@ -115,6 +115,7 @@ Page({
           that.setData({
             accessToken: res.result
           })
+          console.log("access_token:",res)
           wx.cloud.callFunction({
             // 云函数名称
             name: 'getWechatPosts',
@@ -181,10 +182,10 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () { 
+    let that = this
     if(this.data.nowPage==1){
       // 重新获取公众号文章
       // 先清空wechatlist
-      let that = this
       that.setData({
         wechatPostList:[],
         count:0,
@@ -225,6 +226,22 @@ Page({
           })
         },
         fail: console.error
+      })
+    }else{
+      // 获取数据
+      wx.cloud.callFunction({
+        name: "get_djInfodata",
+        success: function (res) {
+          // 标志已缓存
+          console.log("获取党建发布信息成功", res)
+          that.setData({
+            djInfoList: res.result.data,
+            page2cached: true
+          })
+        },
+        fail: function (res) {
+          console.log("获取党建发布信息失败", res)
+        }
       })
     }
   },

@@ -26,7 +26,7 @@
         <view class="media-box__bd media-box__bd_in-appmsg">
           <view class="media-box__title">{{item.title}}</view>
           <view class="media-box__desc">详情：{{item.content}}</view>
-          <view class="media-box__desc">链接：{{item.url}}</view>
+          <text class="media-box__desc" selectable="true">链接：{{item.url}}</text>
         </view>
       </view>
     </navigator>

@@ -25,7 +25,9 @@ const cloud = require('wx-server-sdk');
 const request = require('request');
 const access_token = require('AccessToken');
 
-cloud.init()
+cloud.init({
+  env:'zzmine-3cgx9'
+})
 
 let appid = 'wx6aa65243f829ea5f';//微信公众号开发者id
 let secret = 'a988b1860677efcd7d5e16c6d846c959';//微信公众号开发者secret_key

@@ -10,7 +10,7 @@ class AccessToken {
   }
   // 获取公众号access_token
   async getWechatAccessToken() {
-    let token_url = 'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=' + this.appid + '&' + 'secret=' + this.secret;
+    let token_url ="https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid="+this.appid+"&secret="+this.secret;
     const rp = options =>
       new Promise((resolve, reject) => {
         request(options, (error, response, body) => {
@@ -24,7 +24,7 @@ class AccessToken {
       url: token_url,
       method: 'GET'
     });
-    return (typeof result.body === 'object') ? result.body : JSON.parse(result.body);;
+    return (typeof result.body === 'object') ? result.body : JSON.parse(result.body);
   }
 
   // 获取保存在数据库的公众号access_token
