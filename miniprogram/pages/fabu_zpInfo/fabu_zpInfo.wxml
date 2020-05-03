@@ -1,0 +1,65 @@
+ <view class="panel__hd">招聘信息</view>
+  <view class="panel__hd">请您如实填写以下信息</view>
+  <view class="weui-cells weui-cells_after-title" style="margin-bottom: 20rpx;">
+  <form bindsubmit="formSubmit">
+  <view class="weui-cell ">
+    <view class="weui-cell__hd">
+        <view class="weui-label">企业名称</view>
+    </view>
+    <view class="weui-cell__bd">
+        <input class="weui-input" input id="up_input" name="name" value='{{name}}' placeholder="请输入企业名称" bindinput ="name1"/>
+    </view>
+  </view>
+  <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">联系方式</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" type='number' input id="up_input" name="contact" value='{{contact}}' placeholder="请输入联系人联系方式" bindinput ="contact1"/>
+      </view>
+  </view>
+  <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">招聘类型</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input"input id="up_input" name="type" value='{{type}}' placeholder="请输入招聘类型" bindinput ="type1"/>
+      </view>
+  </view>
+  <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">招聘人数</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" type='number' input id="up_input" name="people" value='{{people}}' placeholder="请输入招聘人数" bindinput ="people1"/>
+      </view>
+  </view>
+  <view class="weui-cell ">
+      <view class="weui-cell__hd">
+          <view class="weui-label">企业待遇</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" input id="up_input" name="infor" value='{{location}}' placeholder="工资、待遇等" bindinput ="infor1"/>
+      </view>
+ </view>
+  <view class="weui-cell ">
+            <view class="weui-cell__hd">
+                <view class="weui-label">上传企业照片</view>
+            </view>
+            <view class="weui-cell__bd">
+              <view class="weui-uploader__files" id="uploaderFiles">
+                <block wx:for="{{files}}" wx:key="*this">
+                    <view class="weui-uploader__file" bindtap="previewImage" id="{{item}}">
+                        <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
+                    </view>
+                </block>
+                <view class="weui-uploader__input-box">
+                  <view bindtap="chooseImage"class="weui-uploader__input"></view>
+                </view>
+              </view>
+            </view>
+          </view>
+  <button class="weui-btn"  formType="submit" disabled="{{disable}}">确认提交</button>
+  <button class="weui-btn"  formType="reset" bindtap="cancelJoin">取消</button>
+  </form>
+</view>

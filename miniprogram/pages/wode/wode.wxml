@@ -71,6 +71,20 @@
           </view>
         </view>
 
+        <view wx:if="{{user!=null&&user.isManager}}" class="weui-cell weui-cell_access" bindtap="zhaopin">
+          <view class="weui-cell__hd">
+           <image src="cloud://zzmine-3cgx9.7a7a-zzmine-3cgx9-1301387315/main/u28.png"  class="tubiao"/>
+          </view>
+           <view class="weui-cell__bd" style="position: relative;">
+                <text style="font-size:40rpx">招聘信息发布</text>
+          </view>
+          <view class="weui-cell__ft weui-cell__ft_in-access" style="font-size: 0">
+              <view style="display: inline-block;vertical-align:middle; font-size: 17px;">详细信息</view>
+              <view class="weui-badge weui-badge_dot" style="margin-left: 5px;margin-right: 5px;"></view>
+          </view>
+        </view>
+
+
       </view>
     </view>
 

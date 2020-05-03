@@ -61,6 +61,19 @@
 					"id": -1,
 					"name": "yibao",
 					"pathName": "pages/health/health",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/rent/rent",
+					"pathName": "pages/rent/rent",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/job/job",
+					"pathName": "pages/job/job",
 					"scene": null
 				}
 			]
