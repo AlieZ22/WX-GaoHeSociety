@@ -1,0 +1,4 @@
+/* miniprogram/pages/rent/rent.wxss */
+@import "../services/services";
+@import "../s_logs/s_logs.wxss";
+@import "../xunxi_meihao/xunxi_meihao";

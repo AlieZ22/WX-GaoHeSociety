@@ -18,13 +18,15 @@
     "pages/xunxi_meihao/xunxi_meihao",
     "pages/xunxi_zhiyuan/xunxi_zhiyuan",
     "pages/fabu_djInfo/fabu_djInfo",
+    "pages/fabu_zpInfo/fabu_zpInfo",
     "pages/hexinxi/hexinxi",
     "pages/rent/rent",
     "pages/buy_house/buy_house",
     "pages/Info_collect/Info_collect",
     "pages/menu/menu",
     "pages/health/health",
-    "pages/yibao/yibao"
+    "pages/yibao/yibao",
+    "pages/job/job"
   ],
   "navigateToMiniProgramAppIdList": [
     "wx1f9fab8508f2c6ad"

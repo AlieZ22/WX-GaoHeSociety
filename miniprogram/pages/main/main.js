@@ -8,9 +8,10 @@ Page({
    */
   data: {
     imgUrls: [
-      'cloud://zzmine-3cgx9.7a7a-zzmine-3cgx9-1301387315/banner/banner.jpg',
+      
       'cloud://zzmine-3cgx9.7a7a-zzmine-3cgx9-1301387315/banner/banner2.jpg',
-      'cloud://zzmine-3cgx9.7a7a-zzmine-3cgx9-1301387315/banner/banner3.jpg'
+      'cloud://zzmine-3cgx9.7a7a-zzmine-3cgx9-1301387315/banner/banner3.jpg',
+      'cloud://zzmine-3cgx9.7a7a-zzmine-3cgx9-1301387315/banner/banner.jpg',
     ],
 
   },
@@ -40,7 +41,7 @@ Page({
   },
   logNext5: function () {
     wx.navigateTo({
-      url: "../hexinxi/hexinxi"
+      url: "../Info_collect/Info_collect"
     })
   },
   logNext6: function () {
@@ -51,6 +52,11 @@ Page({
   logNext7: function () {
     wx.navigateTo({
       url: "../health/health"
+    })
+  },
+  logNext8: function () {
+    wx.navigateTo({
+      url: "../job/job"
     })
   },
 

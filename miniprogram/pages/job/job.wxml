@@ -1,0 +1,19 @@
+<!--miniprogram/pages/rent/rent.wxml-->
+<view class="guide" wx:if="{{step ===1}}">
+        <view  class="panel__bd" wx:for="{{ne}}" wx:key="index"  class="media-box media-box_appmsg" hover-class="cell_active"><!--wx:for是微信数据绑定的一种方式，该数组有多少数据就显示多少个view-->
+          <!--index为每个数据对应的下标-->
+          <view class="media-box__hd media-box__hd_in-appmsg">
+            <image class="media-box__thumb" src="{{item.url[0]}}" />
+          </view>
+            <!--item就相当于数组名+下标的结合体，适用于调用数组所有数据-->
+            <view class="media-box__bd media-box__bd_in-appmsg">
+            <view class="media-box__desc">联系人：{{item.name}}</view>
+            <view class="media-box__desc">招工类别：{{item.type}}</view>
+            <view class="media-box__desc">招工人数：{{item.people}}</view>
+            <view class="media-box__desc">联系方式：{{item.contact}}</view>
+            <view class="media-box__desc">招工待遇：{{item.treatment}}</view>
+        </view>
+      </view>
+  </view>
+  <!-- 展示招募信息结束 -->
+

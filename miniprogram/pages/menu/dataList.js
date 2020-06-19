@@ -41,7 +41,7 @@ var dataList = [
     title: 'BOSS午餐',
     products: [
       {
-        img: 'http://n.sinaimg.cn/translate/200/w1080h720/20180724/-_fe-hftenhz3076352.jpg',
+        img: 'cloud://zzmine-3cgx9.7a7a-zzmine-3cgx9-1301387315/menu/d439b6003af33a87d4c8285cc55c10385243b5ca.jfif',
         name: '夏日柠檬风味鸡肉沙拉',
         englisgname: 'Pomegranate Cranberry Soda Water',
         price: '25.08'
@@ -53,49 +53,49 @@ var dataList = [
     title: '健康轻食',
     products: [
       {
-        img: 'http://n.sinaimg.cn/translate/200/w1080h720/20180724/-_fe-hftenhz3076352.jpg',
+        img: 'cloud://zzmine-3cgx9.7a7a-zzmine-3cgx9-1301387315/menu/fc1f4134970a304e1c8efaf6dfc8a786c9175c09.jfif',
         name: '京味烤鸭鲜蔬卷（单卷）',
         englisgname: 'Duck & Vegetable Wrap',
         price: '9.9'
       },
       {
-        img: 'http://n.sinaimg.cn/translate/200/w1080h720/20180724/-_fe-hftenhz3076352.jpg',
+        img: 'cloud://zzmine-3cgx9.7a7a-zzmine-3cgx9-1301387315/menu/鸡肉.jpg',
         name: '夏威夷菠萝火腿卷（单卷）',
         englisgname: 'Duck & Vegetable Wrap',
         price: '8.58'
       },
       {
-        img: 'http://n.sinaimg.cn/translate/200/w1080h720/20180724/-_fe-hftenhz3076352.jpg',
+        img: 'cloud://zzmine-3cgx9.7a7a-zzmine-3cgx9-1301387315/menu/timg.jfif',
         name: '意大利烤鸡卷（单卷）',
         englisgname: 'Duck & Vegetable Wrap',
         price: '8.58'
       },
       {
-        img: 'http://n.sinaimg.cn/translate/200/w1080h720/20180724/-_fe-hftenhz3076352.jpg',
+        img: 'cloud://zzmine-3cgx9.7a7a-zzmine-3cgx9-1301387315/menu/蓝莓麦芬.jfif',
         name: '蓝莓麦芬',
         englisgname: 'Duck & Vegetable Wrap',
         price: '8.58'
       },
       {
-        img: 'http://n.sinaimg.cn/translate/200/w1080h720/20180724/-_fe-hftenhz3076352.jpg',
+        img: 'cloud://zzmine-3cgx9.7a7a-zzmine-3cgx9-1301387315/menu/芝士蓝莓蛋糕.jpg',
         name: '芝士蓝莓蛋糕',
         englisgname: 'Duck & Vegetable Wrap',
         price: '16.5'
       },
       {
-        img: 'http://n.sinaimg.cn/translate/200/w1080h720/20180724/-_fe-hftenhz3076352.jpg',
+        img: 'cloud://zzmine-3cgx9.7a7a-zzmine-3cgx9-1301387315/menu/提拉米苏蛋糕.jpg',
         name: '提拉米苏蛋糕',
         englisgname: 'Tiramisu Cake',
         price: '16.5'
       },
       {
-        img: 'http://n.sinaimg.cn/translate/200/w1080h720/20180724/-_fe-hftenhz3076352.jpg',
+        img: 'cloud://zzmine-3cgx9.7a7a-zzmine-3cgx9-1301387315/menu/蛋香火腿芝士三明治.jfif',
         name: '蛋香火腿芝士三明治',
         englisgname: 'Egg Ham and Cheese Sandwich',
         price: '11.88'
       },
       {
-        img: 'http://n.sinaimg.cn/translate/200/w1080h720/20180724/-_fe-hftenhz3076352.jpg',
+        img: 'cloud://zzmine-3cgx9.7a7a-zzmine-3cgx9-1301387315/menu/尼斯吞拿鱼三明治.jpg',
         name: '尼斯吞拿鱼三明治',
         englisgname: 'Nice Tuna Sandwich',
         price: '11.88'
@@ -108,7 +108,7 @@ var dataList = [
     title: '鲜榨果蔬汁',
     products: [
       {
-        img: 'http://n.sinaimg.cn/translate/200/w1080h720/20180724/-_fe-hftenhz3076352.jpg',
+        img: 'cloud://zzmine-3cgx9.7a7a-zzmine-3cgx9-1301387315/menu/NFC鲜榨橙汁.jpg',
         name: 'NFC鲜榨橙汁',
         englisgname: 'NFC Fresh Orange Juice',
         price: '24'
@@ -122,7 +122,7 @@ var dataList = [
       },
 
       {
-        img: 'http://n.sinaimg.cn/translate/200/w1080h720/20180724/-_fe-hftenhz3076352.jpg',
+        img: 'cloud://zzmine-3cgx9.7a7a-zzmine-3cgx9-1301387315/menu/蓝莓草莓混合果汁.jpg',
         name: 'NFC鲜榨蓝莓草莓混合果汁',
         englisgname: 'NFC Fresh Blueberry & Strawberry Juice',
         price: '24'
