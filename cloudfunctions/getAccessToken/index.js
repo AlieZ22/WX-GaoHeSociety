@@ -29,8 +29,8 @@ cloud.init({
   env:'zzmine-3cgx9'
 })
 
-let appid = 'wx55bdd2101f93427a';//微信公众号开发者id
-let secret = 'a729dc045993ded7546fcc1fa35ec7bd';//微信公众号开发者secret_key
+let appid = 'wx6aa65243f829ea5f';//微信公众号开发者id
+let secret = 'a988b1860677efcd7d5e16c6d846c959';//微信公众号开发者secret_key
 
 // 云函数入口函数
 exports.main = async (event, context) => {

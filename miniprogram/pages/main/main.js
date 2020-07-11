@@ -64,13 +64,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.cloud.callFunction({
+    /*wx.cloud.callFunction({
       name: "getip",
       success: function (res) {
         console.log("云函数ip:", res)
       }
-    })
-   
+    })*/
+    
   },
 
   /**
