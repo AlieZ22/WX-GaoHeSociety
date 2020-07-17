@@ -122,7 +122,7 @@ Page({
             data: {
               accessToken: that.data.accessToken,
               offset:that.data.offset,
-              count:3
+              count:2
             },
             success: function (res) {
               console.log("getWechatPosts result")
@@ -133,7 +133,7 @@ Page({
               app.globalData.isCached = true
               //更新offset
               that.setData({
-                offset:that.data.offset+3
+                offset:that.data.offset+2
               })
               app.globalData.offset = that.data.offset
             },
@@ -207,7 +207,7 @@ Page({
             data: {
               accessToken: that.data.accessToken,
               offset:that.data.offset,
-              count:3
+              count:2
             },
             success: function (res) {
               console.log("getWechatPosts result")
@@ -218,7 +218,7 @@ Page({
               app.globalData.isCached = true
               //更新offset
               that.setData({
-                offset: that.data.offset + 3
+                offset: that.data.offset + 2
               })
               app.globalData.offset = that.data.offset
             },
