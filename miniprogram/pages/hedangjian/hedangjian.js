@@ -259,34 +259,24 @@ Page({
       })
       wx.cloud.callFunction({
         // 云函数名称
-        name: 'getAccessToken',
+        name: 'getWechatPosts',
+        data: {
+          accessToken: that.data.accessToken,
+          offset: that.data.offset,
+          count:1        // 下拉更新一次三天
+        },
         success: function (res) {
+          console.log("getWechatPosts result")
+          console.log(res.result)
+          that.updateArticles(res.result.item)    // 更新公众号文章
+          wx.hideLoading()
+          app.globalData.articles = that.data.wechatPostList
+          app.globalData.isCached = true
+          //更新offset
           that.setData({
-            accessToken: res.result
+            offset: that.data.offset + 1
           })
-          wx.cloud.callFunction({
-            // 云函数名称
-            name: 'getWechatPosts',
-            data: {
-              accessToken: that.data.accessToken,
-              offset: that.data.offset,
-              count:1        // 下拉更新一次三天
-            },
-            success: function (res) {
-              console.log("getWechatPosts result")
-              console.log(res.result)
-              that.updateArticles(res.result.item)    // 更新公众号文章
-              wx.hideLoading()
-              app.globalData.articles = that.data.wechatPostList
-              app.globalData.isCached = true
-              //更新offset
-              that.setData({
-                offset: that.data.offset + 1
-              })
-              app.globalData.offset = that.data.offset
-            },
-            fail: console.error
-          })
+          app.globalData.offset = that.data.offset
         },
         fail: console.error
       })
