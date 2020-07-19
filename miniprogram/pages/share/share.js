@@ -7,11 +7,12 @@ Page({
    * 页面的初始数据
    */
   data: {
-    meihaoList:[],
-    user:app.globalData.user,
-    user_id:app.globalData._openid,
-    istrue:false,
-    picList:[],
+    meihaoList: [],
+    user: app.globalData.user,
+    user_id: app.globalData._openid,
+    istrue: false,
+    picList: [],
+    blank: false,
   },
   openGallery: function (event) {
     console.log(event.currentTarget.dataset.item.fileUrl);
@@ -23,22 +24,25 @@ Page({
   closeGallery: function () {
     this.setData({
       istrue: false,
-      picList:[]
+      picList: []
     })
   },
 
   // 获取云端数据(合美好)
-  getMeihaoData:function(){
+  getMeihaoData: function () {
     let that = this   // 防止异步处理造成this指向改变
     wx.cloud.callFunction({
-      name:"get_meihaodata",
-      success:function(res){
-        console.log("小程序获取数据",res)
-        that.setData({meihaoList:res.result.data})
+      name: "get_meihaodata",
+      success: function (res) {
+        console.log("小程序获取数据", res)
+        that.setData({ meihaoList: res.result.data })
         console.log(that.data.meihaoList)
+        if (that.data.meihaoList.length === 0) {
+          that.setData({ blank: true })
+        }
       },
-      fail:function(res){
-        console.log("小程序获取美好数据失败",res)
+      fail: function (res) {
+        console.log("小程序获取美好数据失败", res)
       }
     })
   },

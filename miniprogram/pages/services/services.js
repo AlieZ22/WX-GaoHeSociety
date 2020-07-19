@@ -7,12 +7,13 @@ Page({
    * 页面的初始数据
    */
   data: {
-    tg_pic:"cloud://zzmine-3cgx9.7a7a-zzmine-3cgx9-1301387315/1582946876858.png",
-    tg_name:"XXX",
+    tg_pic: "cloud://zzmine-3cgx9.7a7a-zzmine-3cgx9-1301387315/1582946876858.png",
+    tg_name: "XXX",
     tg_p: "XXX",
     tg_n: "XXX",
-    tg_info:"XXX",
-    fuwuList:[]
+    tg_info: "XXX",
+    fuwuList: [],
+    blank: false,
   },
   // 获取云端数据(合美好)
   getmokuaiData: function () {
@@ -23,36 +24,39 @@ Page({
         //console.log("小程序获取数据", res)
         that.setData({ fuwuList: res.result.data })
         console.log(that.data.fuwuList)
+        if (that.data.fuwuList.length === 0) {
+          that.setData({ blank: true })
+        }
       },
       fail: function (res) {
         console.log("小程序获取服务数据失败", res)
       }
     })
   },
-  btnClick_shouzhu: function(){
+  btnClick_shouzhu: function () {
     console.log(app.globalData.user)
     if (app.globalData.user == null) {
       wx.showModal({
-        content:"您当前未注册，快去完善信息吧！",
-        success:function(res){
-          if(res.confirm){
+        content: "您当前未注册，快去完善信息吧！",
+        success: function (res) {
+          if (res.confirm) {
             // 跳转到表单页面，进行填写
             wx.navigateTo({
-              url:'../fillInfo/fillInfo'
+              url: '../fillInfo/fillInfo'
             })
-          }else if(res.cancel){
+          } else if (res.cancel) {
             console.log("用户取消注册!")
           }
         }
       })
       return false
     }
-      wx.navigateTo({
-        url: '../s_logs/s_logs',
-        success: function(res) {},
-        fail: function(res) {},
-        complete: function(res) {},
-      })
+    wx.navigateTo({
+      url: '../s_logs/s_logs',
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
   },
   btnClick_helper: function (event) {
     if (app.globalData.user == null) {
@@ -80,7 +84,7 @@ Page({
       complete: function (res) { },
     })
   },
-  
+
   /**
    * 生命周期函数--监听页面加载
    */

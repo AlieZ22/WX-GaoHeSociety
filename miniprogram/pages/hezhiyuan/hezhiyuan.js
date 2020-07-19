@@ -7,21 +7,22 @@ Page({
 
   data: {
     disable: false,      // 防止表单重复提交
-    currentAct_id:"",   // 当前选择报名的合志愿活动的id
+    currentAct_id: "",   // 当前选择报名的合志愿活动的id
     step: 1,
     counterId: '',
     queryResult: '',
-    ne: app.globalData.ne
+    ne: app.globalData.ne,
+    blank: false,
   },
- 
-  
+
+
   onLoad: function (options) {
     console.log(options)
-    var that = this; 
+    var that = this;
     that.updateData()
     that.initValidate()//验证规则函数
   },
-  updateData:function(){
+  updateData: function () {
     let that = this
     db.collection('hezhiyuan').get({
       //如果查询成功的话    
@@ -31,8 +32,11 @@ Page({
         that.setData({
           ne: res.data
         })
+        if (that.data.ne.length === 0) {
+          that.setData({ blank: true })
+        }
       },
-      fail: res=>{
+      fail: res => {
         console.log("小程序获取服务数据失败", res)
       }
     })
@@ -43,17 +47,17 @@ Page({
       serviceContent: e.detail.value
     })
   },
- serviceTime1: function (e) {
+  serviceTime1: function (e) {
     this.setData({
       serviceTime: e.detail.value
     })
   },
- statement1: function (e) {
+  statement1: function (e) {
     this.setData({
       statement: e.detail.value
     })
   },
-   name1: function (e) {
+  name1: function (e) {
     this.setData({
       name: e.detail.value
     })
@@ -68,14 +72,14 @@ Page({
       contact: e.detail.value
     })
   },
- location1: function (e) {
+  location1: function (e) {
     this.setData({
       location: e.detail.value
     })
   },
   formSubmit: function (e) {
     this.setData({
-      disable:true
+      disable: true
     })
     console.log(e.detail.value)
     const params = e.detail.value
@@ -86,13 +90,13 @@ Page({
       return false
     }
     let that = this
-     const db = wx.cloud.database()
-     // 可能会出现curr>=max导致添加失败
+    const db = wx.cloud.database()
+    // 可能会出现curr>=max导致添加失败
     db.collection("hezhiyuan").doc(that.data.currentAct_id).get({
-      success:function(res){
+      success: function (res) {
         let currentNum = res.data.currentVoluNum
         let maxNum = res.data.maxVoluNum
-        if(currentNum<maxNum){
+        if (currentNum < maxNum) {
           db.collection('hezhiyuan_volunteer').add({
             data: {
               state: 0,
@@ -104,7 +108,7 @@ Page({
             },
             success: res => {
               wx.showLoading({
-                title:"提交中..."
+                title: "提交中..."
               })
               // 在返回结果中会包含新创建的记录的 _id
               that.setData({
@@ -138,11 +142,11 @@ Page({
                       let prevPage = pages[pages.length - 2];
                       // 返回页面，清除缓存
                       that.setData({
-                        step:1,
-                        name:"",
-                        sex:"",
-                        contact:"",
-                        location:""
+                        step: 1,
+                        name: "",
+                        sex: "",
+                        contact: "",
+                        location: ""
                       })
                       that.updateData()
                       console.log("云函数添加志愿者成功", res)
@@ -164,7 +168,7 @@ Page({
               console.error('[数据库] [新增记录] 失败：', err)
             }
           })
-        }else{
+        } else {
           let pages = getCurrentPages();
           let prevPage = pages[pages.length - 1];
           prevPage.setData({
@@ -179,14 +183,14 @@ Page({
           console.log("人数达到上限，报名失败！")
         }
       },
-      fail:function(res){
+      fail: function (res) {
         console.log("查询合志愿表失败")
       }
     })
   },
-  cancelJoin:function(){
+  cancelJoin: function () {
     this.setData({
-      step:1
+      step: 1
     })
   },
   //报错 
@@ -251,12 +255,12 @@ Page({
   nextStep: function (event) {
     console.log(event)
     this.setData({
-      step:2,
-      currentAct_id:event.currentTarget.dataset.index
+      step: 2,
+      currentAct_id: event.currentTarget.dataset.index
     })
   },
 
-  goHome: function() {
+  goHome: function () {
     const pages = getCurrentPages()
     if (pages.length === 2) {
       wx.navigateBack()

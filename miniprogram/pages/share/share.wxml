@@ -1,3 +1,6 @@
+<view class="pic" wx:if="{{blank}}">
+  <image src="cloud://zzmine-3cgx9.7a7a-zzmine-3cgx9-1301387315/blank.png" mode="widthFix"	/>
+</view>
 <view class="page">
     <view class="page__bd">
          <view class="panel">

@@ -1,4 +1,6 @@
-<!--miniprogram/pages/rent/rent.wxml-->
+<view class="pic" wx:if="{{blank}}">
+  <image src="cloud://zzmine-3cgx9.7a7a-zzmine-3cgx9-1301387315/blank.png" mode="widthFix"	/>
+</view>
 <view class="guide" wx:if="{{step ===1}}">
         <view  class="panel__bd" wx:for="{{ne}}" wx:key="index"  class="media-box media-box_appmsg" hover-class="cell_active"><!--wx:for是微信数据绑定的一种方式，该数组有多少数据就显示多少个view-->
           <!--index为每个数据对应的下标-->

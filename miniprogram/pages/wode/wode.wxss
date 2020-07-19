@@ -1,8 +1,6 @@
 /* pages/wode/wode.wxss */
 @import "../s_logs/s_logs.wxss";
-.page__bd {
-    padding-bottom: 80rpx;
-}
+
 
 .weui-badge{
 	display:inline-block;
@@ -43,4 +41,33 @@
   margin-right:20rpx;
   margin-left:15rpx;
   border-radius: 10%;
+}
+.posi{
+  flex-direction: row;
+}
+.btn1{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  /* border: #fa5151 1px solid; */
+}
+.hmly-kefu {
+  width: 100rpx;
+  height: 100rpx !important;
+  border-radius: 50rpx;
+  flex-direction: row;
+  
+  /* background-image: url(cloud://zzmine-3cgx9.7a7a-zzmine-3cgx9-1301387315/contact.png); */
+}
+.word{
+  font-size: 25rpx;
+}
+.hmly-kefu:hover{
+  width: 100rpx;
+  height: 100rpx !important;
+  background-color: #e6e6e6;
+  position: relative;
+  top: 5rpx;
+  box-shadow:0px 0px 10px #ec9389 inset; 
 }
